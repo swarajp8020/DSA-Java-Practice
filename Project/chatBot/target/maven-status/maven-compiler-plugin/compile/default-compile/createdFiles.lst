@@ -1,0 +1,5 @@
+ChatbotApplication.class
+controller\chatController.class
+service\chatService.class
+model\chatRequest.class
+model\chatResponse.class

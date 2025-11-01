@@ -1,4 +1,4 @@
-package Week1Practice;
+
 //Given an integer x, return true if x is a palindrome, and false otherwise.
 //
 //
@@ -26,7 +26,7 @@ package Week1Practice;
 //
 //
 //Follow up: Could you solve it without converting the integer to a string?
-
+package Week1Practice;
 class Solution {
     public boolean isPalindrome(int x) {
         int temp =x;

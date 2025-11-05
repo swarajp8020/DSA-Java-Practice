@@ -12,7 +12,7 @@ public class linearSearch {
         int[] arr = {4, 8, 15, 16, 23, 42};
         int target = 23;
         int result = search(arr, target);
-        if (target == -1){
+        if (result == -1){
             System.out.println("-1");
         } else {
             System.out.println("Found: "+result);

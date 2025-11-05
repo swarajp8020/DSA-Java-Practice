@@ -15,20 +15,21 @@ public class linearSearchFirstLastOcc {
     public static void main(String[] args) {
         int[] arr = {5, 7, 7, 8, 8, 10};
         int target = 8;
-        int result = search(arr, target);
-        if (target == -1){
-            System.out.println("-1");
-        } else {
-            System.out.println(result);
-        }
-
-    }
-    static int search(int[] arr, int target){
+        int first = -1;
+        int last = -1;
         for (int i = 0; i < arr.length; i++) {
-            if (target == arr[i]){
-                return i;
+            if (arr[i]== target){
+                if (first == -1){
+                    first = i;
+                }
+                last = i;
             }
         }
-        return -1;
+        if (first == -1){
+            System.out.println("Not found");
+        } else {
+            System.out.println("Found first: "+first+" Last: "+last);
+        }
     }
+
 }

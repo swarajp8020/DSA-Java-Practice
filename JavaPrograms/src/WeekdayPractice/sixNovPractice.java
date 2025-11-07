@@ -52,7 +52,7 @@ public class sixNovPractice {
 //        int[] arr= {2, 3, 5, 3, 7, 3, 9,3};
 //        int target = 3;
 //        int result = countOccurence(arr, target);
-//        if (result == -1){
+//        if (result == 0){
 //            System.out.println("no");
 //        } else {
 //            System.out.println(result);
@@ -81,20 +81,20 @@ public class sixNovPractice {
 //
 //🧠 Hint: initialize both with arr[0], then update when smaller/bigger found.
 //
-//    public static void main(String[] args) {
-//        int[] arr = {12, 7, 19, 3, 15};
-//        int min = arr[0];
-//        int max = arr[0];
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr[i]>min){
-//                min = arr[i];
-//            } else if (arr[i]<max) {
-//                max = arr[i];
-//            }
-//        }
-//        System.out.println("MAX: "+max);
-//        System.out.println("MIN: "+min);
-//    }
+    public static void main(String[] args) {
+        int[] arr = {12, 7, 19, 3, 15};
+        int min = arr[0];
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]<min){
+                min = arr[i];
+            } else if (arr[i]>max) {
+                max = arr[i];
+            }
+        }
+        System.out.println("MAX: "+max);
+        System.out.println("MIN: "+min);
+    }
 
     //4️⃣ First and last occurrence
 //

@@ -22,7 +22,7 @@ public class p4 {
                 last = i;
             }
         }
-        if (target == -1){
+        if (first == -1){
             System.out.println("Not found");
         } else {
             System.out.println("Found first "+ first+ " Last "+last);

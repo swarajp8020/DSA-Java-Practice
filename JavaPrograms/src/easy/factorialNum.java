@@ -2,7 +2,7 @@ package easy;
 
 public class factorialNum {
     public static void main(String[] args) {
-        int n=0;
+        int n=5;
         double fact=1;
         for (int i = 1; i <= n; i++) {
             fact *= i;

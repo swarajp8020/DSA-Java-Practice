@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class reverseArray {
     void reverseArrays(int[] arr){
-        int left =0, right=arr.length-1;
-        while (left < right){
-            int temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = temp;
-            left++;
-            right--;
-        }
+//        int left =0, right=arr.length-1;
+//        while (left < right){
+//            int temp = arr[left];
+//            arr[left] = arr[right];
+//            arr[right] = temp;
+//            left++;
+//            right--;
+//        }
 //        for (int left = 0, right= arr.length-1; left < right; left++, right--) {
 //            int temp = arr[left];
 //            arr[left]=arr[right];

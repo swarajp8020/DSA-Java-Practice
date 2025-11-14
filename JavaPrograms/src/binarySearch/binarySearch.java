@@ -14,7 +14,6 @@ public class binarySearch {
         } else {
             System.out.println("Found "+result);
         }
-
     }
     static int search(int[] arr, int target){
         int left = 0;

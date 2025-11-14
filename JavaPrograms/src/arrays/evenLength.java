@@ -12,7 +12,7 @@ public class evenLength {
     }
 
     public static void main(String[] args) {
-        int[] arr = {};
+        int[] arr = {1,2,4,6,7,5};
         evenLength evenLength = new evenLength();
         evenLength.evenLengthArray(arr);
         System.out.println("Odd Length Arrays: "+ Arrays.toString(arr));

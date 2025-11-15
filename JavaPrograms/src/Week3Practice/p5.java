@@ -244,26 +244,56 @@ public class p5 {
 //Keep two variables: first = -1, last = -1.
 //First match → set first.
 //Keep updating last each time."
-public static void main(String[] args) {
-    int[] arr = {5, 7, 7, 8, 8, 10};
-    int target = 8;
-    int first = -1;
-    int last = -1;
+//public static void main(String[] args) {
+//    int[] arr = {5, 7, 7, 8, 8, 10};
+//    int target = 8;
+//    int first = -1;
+//    int last = -1;
+//
+//    for (int i = 0; i < arr.length; i++) {
+//        if (arr[i] == target) {
+//            if (first == -1) {
+//                first = i;
+//            }
+//            last = i;
+//        }
+//    }
+//    if (first == -1){
+//        System.out.println("not found");
+//    } else {
+//        System.out.println("First "+first +", Last "+ + last);
+//    }
+//    }
 
-    for (int i = 0; i < arr.length; i++) {
-        if (arr[i] == target) {
-            if (first == -1) {
-                first = i;
-            }
-            last = i;
+//"Closest element to target
+//Problem: Find the element in the array closest to a given target.
+//Example:
+//Input: arr = [4, 9, 1, 32, 13], target = 10
+//Output: 9
+//🧠 Hint:
+//Use Math.abs(arr[i] - target) to calculate difference.
+//Keep track of smallest difference and corresponding element."
+public static void main(String[] args) {
+    int[] arr = {4, 9, 1, 32, 13};
+    int target = 10;
+
+    int closest = arr[0];
+    int minDiff = Math.abs(arr[0] - target);
+
+    for (int i = 1; i < arr.length; i++) {
+        int diff = Math.abs(arr[i] - target);
+
+        if (diff < minDiff) {
+            minDiff = diff;
+            closest = arr[i];
         }
     }
-    if (first == -1){
-        System.out.println("not found");
-    } else {
-        System.out.println("First "+first +", Last "+ + last);
-    }
-    }
+    System.out.println(closest);
+
+}
+
+
+
 
 }
 

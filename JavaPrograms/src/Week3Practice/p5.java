@@ -174,19 +174,40 @@ public class p5 {
 //    }
 
 //    8. MinMaxArrays
-public static void main(String[] args) {
-    int[] arr = {1,3,4,9,12,8};
-    int min = arr[0];
-    int max = arr[0];
-    for (int i = 1; i < arr.length; i++) {
-        if (arr[i]> max){
-            max = arr[i];
-        } else if (arr[i]<min) {
-            min = arr[i];
-        }
+//public static void main(String[] args) {
+//    int[] arr = {1,3,4,9,12,8};
+//    int min = arr[0];
+//    int max = arr[0];
+//    for (int i = 1; i < arr.length; i++) {
+//        if (arr[i]> max){
+//            max = arr[i];
+//        } else if (arr[i]<min) {
+//            min = arr[i];
+//        }
+//    }
+//    System.out.println(max);
+//    System.out.println(min);
+//}
+//"Count occurrences of a number
+//Problem:Given an array, count how many times a number appears.
+//Example:
+//Input: arr = [2, 3, 5, 3, 7, 3, 9], target = 3
+//Output: 3
+//🧠 Hint: Use a counter, don’t stop early — count all appearances."
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 5, 3, 7, 3, 9,3};
+        int target = 9;
+        int result = countOccurence(arr,target);
+        System.out.println(result);
     }
-    System.out.println(max);
-    System.out.println(min);
-}
+    static int countOccurence(int[] arr, int target){
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target){
+                count++;
+            }
+        }
+        return count;
+    }
 }
 

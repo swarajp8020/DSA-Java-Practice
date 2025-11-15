@@ -161,16 +161,32 @@ public class p5 {
 //        }
 //    }
 //    /7. AverageOfArrays
+//
+//    public static void main(String[] args) {
+//        int[] arr = {1,2,3,5,6};
+//        int sum = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            sum += arr[i];
+//        }
+//        double avg;
+//        avg = (double) sum/arr.length;
+//        System.out.println(avg);
+//    }
 
-    public static void main(String[] args) {
-        int[] arr = {1,2,3,5,6};
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+//    8. MinMaxArrays
+public static void main(String[] args) {
+    int[] arr = {1,3,4,9,12,8};
+    int min = arr[0];
+    int max = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i]> max){
+            max = arr[i];
+        } else if (arr[i]<min) {
+            min = arr[i];
         }
-        double avg;
-        avg = (double) sum/arr.length;
-        System.out.println(avg);
     }
+    System.out.println(max);
+    System.out.println(min);
+}
 }
 

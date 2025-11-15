@@ -193,21 +193,47 @@ public class p5 {
 //Example:
 //Input: arr = [2, 3, 5, 3, 7, 3, 9], target = 3
 //Output: 3
-//🧠 Hint: Use a counter, don’t stop early — count all appearances."
-    public static void main(String[] args) {
-        int[] arr = {2, 3, 5, 3, 7, 3, 9,3};
-        int target = 9;
-        int result = countOccurence(arr,target);
-        System.out.println(result);
+////🧠 Hint: Use a counter, don’t stop early — count all appearances."
+//    public static void main(String[] args) {
+//        int[] arr = {2, 3, 5, 3, 7, 3, 9,3};
+//        int target = 9;
+//        int result = countOccurence(arr,target);
+//        System.out.println(result);
+//    }
+//    static int countOccurence(int[] arr, int target){
+//        int count = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] == target){
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
+    //"Find if an element exists
+    //Problem: Given an array of integers, find whether a number exists in it.
+    //Return the index if found, else return -1.
+    //Example:
+    //Input: arr = [4, 8, 15, 16, 23, 42], target = 23
+    //Output: 4
+    //🧠 Hint: Return index when found, else return -1.
+    //(check result == -1, not target)"
+public static void main(String[] args) {
+    int[] arr = {4, 8, 15, 16, 23, 42};
+    int target = 23;
+    int result = linearsearch(arr,target);
+    if (result == -1){
+        System.out.println("-1");
+    } else {
+        System.out.println("found at index: "+result);
     }
-    static int countOccurence(int[] arr, int target){
-        int count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == target){
-                count++;
-            }
+}
+static int linearsearch(int[] arr, int target){
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == target){
+            return i;
         }
-        return count;
     }
+    return -1;
+}
 }
 

@@ -51,15 +51,48 @@ public class p5 {
 //        System.out.println();
 //    }
 //}
-    //Reverse a number (e.g., 123 → 321
+//    //Reverse a number (e.g., 123 → 321
+//public static void main(String[] args) {
+//    int num = 123;
+//    int rev = 0;
+//    while (num>0){
+//        int sum = num %10;
+//        rev = rev * 10 + sum;
+//        num = num/10;
+//    }
+//    System.out.println(rev);
+//}
+    //Check if a number is palindrome
+//public static void main(String[] args) {
+//    int n = 1212;
+//    int temp = n;
+//    int rev =0;
+//
+//    while (n>0){
+//        int sum =n %10;
+//        rev = rev * 10+sum;
+//        n = n /10;
+//    }
+//    if (temp == rev){
+//        System.out.println("Palindrome");
+//    } else {
+//        System.out.println("Not Palindrome");
+//    }
+//
+//}
+    //Find factorial of n
+//public static void main(String[] args) {
+//    int n =5;
+//    double fact =1;
+//    for (int i = 1; i <=n ; i++) {
+//        fact *= i;
+//    }
+//    System.out.println(fact);
+//}
+
+//    Count digits in a number
 public static void main(String[] args) {
-    int num = 123;
-    int rev = 0;
-    while (num>0){
-        int sum = num %10;
-        rev = rev * 10 + sum;
-        num = num/10;
-    }
-    System.out.println(rev);
+
 }
+
 }

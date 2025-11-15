@@ -273,27 +273,44 @@ public class p5 {
 //🧠 Hint:
 //Use Math.abs(arr[i] - target) to calculate difference.
 //Keep track of smallest difference and corresponding element."
+//public static void main(String[] args) {
+//    int[] arr = {4, 9, 1, 32, 13};
+//    int target = 10;
+//
+//    int closest = arr[0];
+//    int minDiff = Math.abs(arr[0] - target);
+//
+//    for (int i = 1; i < arr.length; i++) {
+//        int diff = Math.abs(arr[i] - target);
+//
+//        if (diff < minDiff) {
+//            minDiff = diff;
+//            closest = arr[i];
+//        }
+//    }
+//    System.out.println(closest);
+//
+//}
+//
 public static void main(String[] args) {
-    int[] arr = {4, 9, 1, 32, 13};
-    int target = 10;
-
-    int closest = arr[0];
-    int minDiff = Math.abs(arr[0] - target);
-
-    for (int i = 1; i < arr.length; i++) {
-        int diff = Math.abs(arr[i] - target);
-
-        if (diff < minDiff) {
-            minDiff = diff;
-            closest = arr[i];
-        }
-    }
-    System.out.println(closest);
-
+    int[] arr = {3,1,4,2,5,7};
+    bubbleSort(arr);
+    System.out.println(Arrays.toString(arr));
 }
+static void bubbleSort(int[] arr){
+    int n = arr.length;
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
 
 
-
+    }
+}
 
 }
 

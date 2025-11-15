@@ -135,5 +135,9 @@ public class p5 {
 //            System.out.println(n);
 //        }
 //    }
+
+    //Search for an element (Linear Search)
+
+
 }
 

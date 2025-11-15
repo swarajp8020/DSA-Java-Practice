@@ -217,23 +217,53 @@ public class p5 {
     //Output: 4
     //🧠 Hint: Return index when found, else return -1.
     //(check result == -1, not target)"
+//public static void main(String[] args) {
+//    int[] arr = {4, 8, 15, 16, 23, 42};
+//    int target = 23;
+//    int result = linearsearch(arr,target);
+//    if (result == -1){
+//        System.out.println("-1");
+//    } else {
+//        System.out.println("found at index: "+result);
+//    }
+//}
+//static int linearsearch(int[] arr, int target){
+//    for (int i = 0; i < arr.length; i++) {
+//        if (arr[i] == target){
+//            return i;
+//        }
+//    }
+//    return -1;
+//}
+//"First and last occurrence
+//Problem: Find the first and last index of a given number.
+//Example:
+//Input: arr = [5, 7, 7, 8, 8, 10], target = 8
+//Output: first = 3, last = 4
+//🧠 Hint:
+//Keep two variables: first = -1, last = -1.
+//First match → set first.
+//Keep updating last each time."
 public static void main(String[] args) {
-    int[] arr = {4, 8, 15, 16, 23, 42};
-    int target = 23;
-    int result = linearsearch(arr,target);
-    if (result == -1){
-        System.out.println("-1");
-    } else {
-        System.out.println("found at index: "+result);
-    }
-}
-static int linearsearch(int[] arr, int target){
+    int[] arr = {5, 7, 7, 8, 8, 10};
+    int target = 8;
+    int first = -1;
+    int last = -1;
+
     for (int i = 0; i < arr.length; i++) {
-        if (arr[i] == target){
-            return i;
+        if (arr[i] == target) {
+            if (first == -1) {
+                first = i;
+            }
+            last = i;
         }
     }
-    return -1;
-}
+    if (first == -1){
+        System.out.println("not found");
+    } else {
+        System.out.println("First "+first +", Last "+ + last);
+    }
+    }
+
 }
 

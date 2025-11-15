@@ -138,6 +138,28 @@ public class p5 {
 
     //Search for an element (Linear Search)
 
+//    public static void main(String[] args) {
+//        int[] arr ={1,3,4,6,3};
+//        int target = 4;
+//        boolean found = false;
+//        for (int i = 0; i < arr.length; i++) {
+//            if (arr[i] == target){
+//                found = true;
+//                System.out.println("Found at Index: "+i);
+//                break;
+//            }
+//        } if (!found){
+//            System.out.println("not found");
+//        }
+//    }
+
+    // ArraysInReverseOrder
+//    public static void main(String[] args) {
+//        int[] arr = {1,3,4,6,2,5};
+//        for (int i = arr.length-1; i >=0 ; i--) {
+//            System.out.print(arr[i]+ " ");
+//        }
+//    }
 
 }
 

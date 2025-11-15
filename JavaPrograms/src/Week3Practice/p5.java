@@ -109,4 +109,31 @@ public class p5 {
 //
 //    }
 //}
+    //
+//3. Reverse an array
+//
+//    public static void main(String[] args) {
+//        int[] arr ={1,3,4,5,2};
+//
+//        for (int left = 0, right = arr.length-1; left<right; left++,right--) {
+//            int temp = arr[right];
+//            arr[right]=arr[left];
+//            arr[left] =temp;
+//        }
+//        System.out.println(Arrays.toString(arr));
+//    }
+
+    //4. Copy array (create a duplicate)
+
+//    public static void main(String[] args) {
+//        int[] arr = {2,5,6,2,1,3};
+//        int[] copy = new int[arr.length];
+//        for (int i = 0; i < arr.length; i++) {
+//            copy[i] = arr[i];
+//        }
+//        for (int n:arr){
+//            System.out.println(n);
+//        }
+//    }
 }
+

@@ -11,7 +11,7 @@ import java.util.Arrays;
 //[1,2,3,4,5,6,7,8]
 //
 //👉 Same logic as merge(), but easier.
-public class mergeSortP1 {
+public class mergeTwoSortedArrays {
     public static void main(String[] args) {
         int[] a = {1,3,5,7};
         int[] b= {2,4,6,8};

@@ -1,7 +1,7 @@
 package sorting;
 
 import java.util.Arrays;
-
+//Lomuto Partition (last pivot)
 public class quickSort {
     public static void main(String[] args) {
         int[] arr = {9,6,4,2};

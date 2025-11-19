@@ -9,15 +9,13 @@ import java.util.Arrays;
 //👉 This uses the merge logic with one small modification."
 public class CountInversions {
     public static void main(String[] args) {
-            int[] arr ={2, 4, 1, 3, 5};
+            int[] arr ={9,-5,3,1,6};
             int result = mergeSort(arr, 0 , arr.length-1);
             System.out.println("Conversion " + result);
         }
         static int mergeSort(int[] arr, int left, int right){
             if (left>= right) return 0;
-
             int mid = left+(right-left)/2;
-
             int leftCount = mergeSort(arr, left,mid);
             int rightCount = mergeSort(arr, mid+1,right);
 

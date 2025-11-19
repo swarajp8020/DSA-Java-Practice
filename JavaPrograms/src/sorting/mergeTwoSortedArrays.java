@@ -17,11 +17,8 @@ public class mergeTwoSortedArrays {
         int[] b= {2,4,6,8};
         int[] res = merge(a,b);
         System.out.println(Arrays.toString(res));
-
     }
-
     static int[] merge(int[] a, int[] b){
-
         int[] temp = new int[a.length+b.length];
         int i=0, j=0, k=0;
         while (i<a.length && j<b.length){

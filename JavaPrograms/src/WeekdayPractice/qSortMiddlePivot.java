@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class qSortMiddlePivot {
     public static void main(String[] args) {
-        int[] arr = {7,5,8,2,4,1};
+        int[] arr = {7,5,1,8,2,4,1};
         quickSort(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
@@ -19,7 +19,7 @@ public class qSortMiddlePivot {
         while (true){
             while (arr[left]<pivot)  left++;
             while (arr[right]>pivot)  right--;
-            while (left>=right) return right;
+            if (left>=right) return right;
 
             int temp = arr[left];
             arr[left] = arr[right];

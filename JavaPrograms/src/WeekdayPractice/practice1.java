@@ -7,10 +7,34 @@ public class practice1 {
     public static void main(String[] args) {
         int[] arr = {8,6,4,3,1};
 //        quickSort(arr, 0, arr.length-1);
-        mergeSort(arr, 0, arr.length-1);
+//        mergeSort(arr, 0, arr.length-1);
+        qsort(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));;
-
     }
+    static void qsort(int[] arr, int left, int right){
+        if (left>=right)return;
+        int pivotIndex = part(arr,left,right);
+        qsort(arr, left, pivotIndex);
+        qsort(arr,pivotIndex+1, right);
+    }
+    static int part(int[] arr, int left, int right){
+        int pivot = arr[(left+right)/2];
+
+        while (true){
+            while (arr[left]<pivot) left++;
+            while (arr[right]> pivot) right--;
+
+            if (left>=right) return right;
+
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
+
     static void mergeSort(int[] arr, int left, int right){
         if (left>= right)return;
         int mid = left + (right-left)/2;

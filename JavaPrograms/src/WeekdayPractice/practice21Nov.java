@@ -9,30 +9,30 @@ public class practice21Nov {
         System.out.println(Arrays.toString(arr));
     }
 
-//    quickSortMidPivot (1 peek)
+//    quickSortMidPivot (no peek)
     static void quickSortHoare(int[] arr, int left, int right){
         if (left>=right)return;
         int pivotIndex = partitionHoare(arr, left, right);
-        quickSortHoare(arr, left, pivotIndex-1);
+        quickSortHoare(arr, left, pivotIndex);
         quickSortHoare(arr, pivotIndex+1, right);
     }
     static int partitionHoare(int[] arr, int left, int right){
-
         int pivot = arr[(left+right)/2];
+
         while (true){
-            while (left<right){
-                while (arr[left]<pivot)left++;
-                while (arr[right]>pivot)right--;
+            while (arr[left]<pivot)left++;
+            while (arr[right]>pivot) right--;
 
-                while (left>=right) return right;
+            if (left>=right) return right; // remember this
 
-                int temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-            }
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
         }
     }
-
 
     //quicksortDNF (no peek)
     static void quickSortDNF(int[] arr, int left, int right){

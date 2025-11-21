@@ -23,15 +23,15 @@ public class practice21Nov {
         int mid = left;
         int high = right;
 
-        while (mid<=right){
+        while (mid<=high){
             if (arr[mid]<pivot){
-                swap1(arr, left, mid);
+                swap1(arr, low, mid);
                 low++;
                 mid++;
             } else if (arr[mid] == pivot) {
                 mid++;
             } else {
-                swap1(arr, mid,right);
+                swap1(arr, mid,high);
                 high--;
             }
         }
@@ -48,7 +48,7 @@ public class practice21Nov {
         if (left>= right)return;
         int pivotIndex = partitionH(arr, left,right);
         quickSortHoare(arr, left, pivotIndex);
-        quickSort(arr,pivotIndex+1,right);
+        quickSortHoare(arr,pivotIndex+1,right);
     }
     static int partitionH(int[] arr, int left, int right){
         int pivot = arr[(right+left)/2];
@@ -56,7 +56,7 @@ public class practice21Nov {
             while (arr[left]<pivot){left++;}
             while (arr[right]>pivot) right--;
 
-            while (left>right) return right;
+            while (left>=right) return right;
 
             int temp = arr[left];
             arr[left] = arr[right];

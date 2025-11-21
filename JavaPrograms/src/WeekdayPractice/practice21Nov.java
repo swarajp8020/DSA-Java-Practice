@@ -56,7 +56,7 @@ public class practice21Nov {
             while (arr[left]<pivot){left++;}
             while (arr[right]>pivot) right--;
 
-            while (left>=right) return right;
+            if (left>=right) return right;
 
             int temp = arr[left];
             arr[left] = arr[right];

@@ -33,7 +33,7 @@ public class quickSortMidPivot {
             while (arr[left]<pivot) left++;
             while (arr[right]>pivot) right--;
 
-            if (left>=right) return right;
+            if (left>=right) return right; // remember this
 
             int temp = arr[left];
             arr[left] =arr[right];

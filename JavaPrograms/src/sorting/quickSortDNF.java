@@ -10,38 +10,60 @@ public class quickSortDNF {
 //        int[] arr = {5,4,3,2,1};
 //        int[] arr = {1,5,1,5,1,5};
         int[] arr = {7,5,1,8,0,2,-1,4,1};
-        quickSort(arr, 0, arr.length-1);
+        quickSortDNF(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-    static void quickSort(int[] arr, int left, int right){
-        if (left>=right) return;
-        int[] bounds =  dnfPartition(arr, left, right);
-        int low = bounds[0];
-        int high = bounds[1];
+     static void quickSortDNF(int[] arr, int left, int right) {
+        // Base case: if there is 0 or 1 element -> already sorted
+        if (left >= right) return;
 
-        quickSort(arr, left, low-1);
-        quickSort(arr, high+1, right);
+        // Partition the array into 3 zones:
+        // [smaller than pivot][equal to pivot][greater than pivot]
+        int[] bounds = partitionDNF(arr, left, right);
+
+        int low = bounds[0];   // end of "smaller than pivot" section
+        int high = bounds[1];  // start of "greater than pivot" section
+
+        // Sort only the parts that are not equal to the pivot
+        quickSortDNF(arr, left, low - 1);  // left unsorted group
+        quickSortDNF(arr, high + 1, right); // right unsorted group
     }
-    static int[] dnfPartition(int[] arr, int left, int right){
-        int pivot = arr[(right+left)/2];
-        int low = left;
-        int mid = left;
-        int high = right;
 
-        while (mid<=high){
-            if (arr[mid]< pivot){
+    static int[] partitionDNF(int[] arr, int left, int right) {
+
+        int pivot = arr[(left + right) / 2];
+        // pivot = middle element -> avoids worst case on sorted arrays
+
+        int low = left;   // boundary of elements < pivot
+        int mid = left;   // current explorer index
+        int high = right; // boundary of elements > pivot
+
+        while (mid <= high) {
+
+            if (arr[mid] < pivot) {
+                // Found smaller element -> move it LEFT zone
                 swap(arr, low, mid);
-                low++;
-                mid++;
-            } else if (arr[mid] == pivot) {
-                mid++;
-            } else {
+                low++;  // expand smaller zone
+                mid++;  // move explorer forward
+            }
+
+            else if (arr[mid] == pivot) {
+                // Equal element -> it stays in the middle zone
+                mid++;  // just move forward
+            }
+
+            else {
+                // Found larger element -> push to RIGHT zone
                 swap(arr, mid, high);
-                high--;
+                high--; // shrink larger zone
+                // mid NOT incremented because swapped element still needs check
             }
         }
-        return new int[] {low, high};
+
+        // Low = first pivot index, High = last pivot index
+        return new int[] { low, high };
     }
+
     static void swap(int[] arr, int a, int b){
         int temp = arr[a];
         arr[a] = arr[b];

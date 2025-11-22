@@ -49,7 +49,7 @@ public class Problems {
         int right = arr.length-1;
 
         while (mid<=right){
-            if (arr[mid]<arr[right]){
+            if (arr[mid]== 0){
                 swap(arr, left, mid);
                 left++;
                 mid++;

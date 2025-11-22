@@ -5,9 +5,47 @@ import java.util.Arrays;
 public class p1 {
     public static void main(String[] args) {
         int[] arr = {5,3,2,1,4};
-        quickSortHoare(arr, 0 , arr.length-1);
+        quickSortDNF(arr, 0 , arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
+    //quickSortDNF
+    static void quickSortDNF(int[] arr, int left, int right){
+        if (left>=right)return;
+
+        int[] found = partitionDNF(arr,left,right);
+        int low = found[0];
+        int high = found[1];
+
+        quickSortDNF(arr, left, low-1);
+        quickSortDNF(arr, high+1, right);
+    }
+    static int[] partitionDNF(int[] arr, int left, int right){
+        int pivot = arr[(left+right)/2];
+        int low = left;
+        int mid = left;
+        int high = right;
+
+        while (low<=mid && mid<=high){
+            if (arr[mid]<pivot){
+                swap1(arr, low, mid);
+                low++;
+                mid++;
+            } else if (arr[mid] == pivot) {
+                mid++;
+            } else {
+                swap1(arr, high, right);
+                high--;
+            }
+        }
+
+        return new int[]{low, high};
+    }
+    static void swap1(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
     //quickSortHoare
     static void quickSortHoare(int[] arr, int left, int right){
         if (left>=right)return;

@@ -6,6 +6,9 @@ public class quickSortRandom {
         public static void main(String[] args) {
             int[] arr = {7, 2, 9, 4, 1, 8, 3};
             quickSortRandom(arr, 0, arr.length - 1);
+            //Array range: 0 → length, not 0 → last index
+            //Random index tried to pick elements beyond array boundary
+            //So swaps were happening with index outside array → runtime crash
             System.out.println(Arrays.toString(arr));
         }
 

@@ -5,10 +5,33 @@ import java.util.Arrays;
 public class p1 {
     public static void main(String[] args) {
         int[] arr = {5,3,2,1,4};
-        quickSortLomuto(arr, 0 , arr.length-1);
+        quickSortHoare(arr, 0 , arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
     //quickSortHoare
+    static void quickSortHoare(int[] arr, int left, int right){
+        if (left>=right)return;
+
+        int pivotIndex = partitionHoare(arr, left, right);
+        quickSortHoare(arr, left, pivotIndex);
+        quickSortHoare(arr, pivotIndex+1, right);
+    }
+
+    static int partitionHoare(int[] arr, int left, int right){
+        int pivot = arr[(left+right)/2];
+        while (true){
+            while (arr[left]<pivot)left++;
+            while (arr[right]>pivot)right--;
+            if (left>=right) return right;
+
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+
+            left++;
+            right--;
+        }
+    }
 
 
     //quickSortLomuto

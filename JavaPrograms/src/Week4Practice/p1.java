@@ -25,7 +25,7 @@ public class p1 {
         int mid = left;
         int high = right;
 
-        while (low<=mid && mid<=high){
+        while (mid<=high){
             if (arr[mid]<pivot){
                 swap1(arr, low, mid);
                 low++;

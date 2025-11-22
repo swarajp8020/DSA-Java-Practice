@@ -14,17 +14,17 @@ public class quickSort {
         quickSort(arr,left,pivotIndex-1); // left half
         quickSort(arr,pivotIndex+1, right); // right half
     }
-
+    // Partition splits: < pivot | pivot | > pivot
      static int partition(int[] arr, int left, int right) {
         int pivot = arr[right]; // pick last element
         int i = left -1;       // boundary for smaller elements
          for (int j = left; j < right; j++) {
-             if (arr[j]<=pivot){
+             if (arr[j]<=pivot){ // item goes left
                  i++;
                  swap(arr,i,j);
              }
          }
-         swap(arr,i+1,right);
+         swap(arr,i+1,right); // place pivot in boundary
          return i+1;  // boundary for smaller elements
     }
     static void swap(int[] arr, int a, int b){

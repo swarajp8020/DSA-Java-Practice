@@ -13,18 +13,28 @@ public class selectionSort {
         }
 
     }
-    static void selectionSort(int[] arr){
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
-            int minIndex = i;
-            for (int j = i+1; j < n; j++) {
-                if (arr[j]<arr[minIndex]){
+    // Selection Sort
+    static void selectionSort(int[] arr) {
+
+        // Move boundary of sorted area (left side)
+        for (int i = 0; i < arr.length - 1; i++) {
+
+            int minIndex = i; // assume current is smallest
+
+            // Explore remaining unsorted area
+            for (int j = i + 1; j < arr.length; j++) {
+
+                // Update min when found smaller number
+                if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
             }
+
+            // Swap the found minimum to its correct position
             int temp = arr[i];
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
         }
     }
+
 }

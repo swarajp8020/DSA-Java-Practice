@@ -1,4 +1,4 @@
-package easy;
+package Practice.easy;
 
 public class trianglePattern {
     public static void main(String[] args) {

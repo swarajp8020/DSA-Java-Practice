@@ -1,4 +1,4 @@
-package easy;
+package Practice.easy;
 
 public class SumFirstNNums {
     public static void main(String[] args) {

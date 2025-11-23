@@ -1,4 +1,4 @@
-package easy;
+package Practice.easy;
 //print 1 to N
 public class oneToN {
     public static void main(String[] args) {

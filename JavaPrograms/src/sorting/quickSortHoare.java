@@ -16,7 +16,7 @@ import java.util.Arrays;
 //Because left side is now full of small stuff,
 //right side full of big stuff.
 // QuickSort using Hoare Partition (pivot = middle element)
-public class quickSortMidPivot {
+public class quickSortHoare {
     public static void main(String[] args) {
         int[] arr = {7, 5, 8, 2, 4, 1};
         quickSort(arr, 0, arr.length - 1);

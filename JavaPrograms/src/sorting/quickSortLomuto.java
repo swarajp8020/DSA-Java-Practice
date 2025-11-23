@@ -2,7 +2,7 @@ package sorting;
 
 import java.util.Arrays;
 //Lomuto Partition (last pivot)
-public class quickSort {
+public class quickSortLomuto {
     public static void main(String[] args) {
         int[] arr = {9,6,4,2};
         quickSort(arr, 0, arr.length-1);

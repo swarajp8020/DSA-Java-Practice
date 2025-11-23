@@ -7,11 +7,11 @@ public class TopKSmallest {
         public static void main(String[] args) {
             int[] arr = {12,4,5,2,13,52};
             int k = 5;
-            int[] result = topKLargest(arr,k);
+            int[] result = topKSmallest(arr,k);
 //            Arrays.sort(result);// for sorted
             System.out.println(Arrays.toString(result));
         }
-        static int[] topKLargest(int[] arr, int k){
+        static int[] topKSmallest(int[] arr, int k){
             int n = arr.length;
             int targetIndex = k-1;
 

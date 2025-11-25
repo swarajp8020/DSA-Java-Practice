@@ -6,27 +6,70 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Nov25Practice {
-    /// Count subarrays of size K with even sum
+
+    /// Count subarrays of size k whose sum is divisible by 3
     public static void main(String[] args) {
-        int[] arr = {1,4,6,2,1,3};
+        int[] arr = {3, 1, 2, 6, 4};
         int k =3;
         int res = evenSum(arr, k);
         System.out.println(res);
     }
     static int evenSum(int[] arr, int k){
         int windowSum = 0;
-        int count
-                = 0;
+        int count = 0;
         for (int i = 0; i < k; i++) {
             windowSum += arr[i];
         }
-        if (windowSum%2==0) count++;
+        if (windowSum%3 == 0) count++;
         for (int i = k; i < arr.length; i++) {
-            windowSum += arr[i]-arr[i-k];
-            if (windowSum%2 == 0) count++;
+            windowSum += arr[i] - arr[i-k];
+            if (windowSum%3==0) count++;
         }
         return count;
     }
+
+//    /// Count subarrays of size K with even sum
+//    public static void main(String[] args) {
+//        int[] arr = {52,23,5,6,2,523};
+//        int k =3;
+//        int res = evenSum(arr, k);
+//        System.out.println(res);
+//    }
+//    static int evenSum(int[] arr, int k){
+//        int windowSum = 0;
+//        int count = 0;
+//        for (int i = 0; i < k; i++) {
+//            windowSum += arr[i];
+//        }
+//        if (windowSum%2 == 0) count++;
+//        for (int i = k; i < arr.length; i++) {
+//            windowSum += arr[i] - arr[i-k];
+//            if (windowSum%2==0) count++;
+//        }
+//        return count;
+//    }
+
+
+//    public static void main(String[] args) {
+//        int[] arr = {1,4,6,2,1,3};
+//        int k =3;
+//        int res = evenSum(arr, k);
+//        System.out.println(res);
+//    }
+//    static int evenSum(int[] arr, int k){
+//        int windowSum = 0;
+//        int count
+//                = 0;
+//        for (int i = 0; i < k; i++) {
+//            windowSum += arr[i];
+//        }
+//        if (windowSum%2==0) count++;
+//        for (int i = k; i < arr.length; i++) {
+//            windowSum += arr[i]-arr[i-k];
+//            if (windowSum%2 == 0) count++;
+//        }
+//        return count;
+//    }
 
     /// ▸ Max sum of subarray of size K (quick refresh)
 //    public static void main(String[] args) {

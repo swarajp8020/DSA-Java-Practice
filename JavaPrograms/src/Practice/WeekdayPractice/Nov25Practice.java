@@ -15,19 +15,49 @@ public class Nov25Practice {
         System.out.println(res);
     }
     static int countEvenSubarrays(int[] arr, int k, int x){
-        int countEven= 0;
-        int count =0;
+        int evenCount = 0;
+        int count = 0;
         for (int i = 0; i < k; i++) {
-            if (arr[i]%2==0) countEven++;
+            if (arr[i]%2==0)evenCount++;
         }
-        if (countEven>=x) count++;
+        if (evenCount>=x) count++;
         for (int i = k; i < arr.length; i++) {
-            if (arr[i]%2==0) countEven++;
-            if (arr[i-k]%2 == 0) countEven--;
-            if (countEven>=x) count++;
+            if (arr[i-k]%2==0)evenCount--;
+            if (arr[i]%2==0) evenCount++;
+            if (evenCount>=x)count++;
         }
         return count;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    static int countEvenSubarrays(int[] arr, int k, int x){
+//        int countEven= 0;
+//        int count =0;
+//        for (int i = 0; i < k; i++) {
+//            if (arr[i]%2==0) countEven++;
+//        }
+//        if (countEven>=x) count++;
+//        for (int i = k; i < arr.length; i++) {
+//            if (arr[i]%2==0) countEven++;
+//            if (arr[i-k]%2 == 0) countEven--;
+//            if (countEven>=x) count++;
+//        }
+//        return count;
+//    }
 
 
     /// LongestUniqueSubarray

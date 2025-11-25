@@ -24,21 +24,6 @@ public class Nov25MorningPractice {
         return count;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //    static int countEvenSubarrays(int[] arr, int k, int x){
 //        int countEven= 0;
 //        int count =0;

@@ -1,11 +1,6 @@
 package Practice.WeekdayPractice;
 
-import sorting.TopKLargest;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
-public class Nov25Practice {
+public class Nov25MorningPractice {
     ///countEvenSubarrays
     public static void main(String[] args) {
         int[] arr = {4,1,2,52,1,2,4};

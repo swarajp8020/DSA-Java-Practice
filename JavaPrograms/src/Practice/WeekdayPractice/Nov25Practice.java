@@ -6,25 +6,49 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Nov25Practice {
-    /// LongestUniqueSubarray
+    ///countEvenSubarrays
     public static void main(String[] args) {
-        int[] arr ={1,2,3,1,6,1,2,3,4,5};
-        System.out.println(longestUnique(arr));
+        int[] arr = {4,1,2,52,1,2,4};
+        int k = 3;
+        int x= 2;
+        int res = countEvenSubarrays(arr, k ,x);
+        System.out.println(res);
     }
-    static int longestUnique(int[] arr){
-        int[] freq = new int[1001];
-        int left = 0;
-        int maxLen = 0;
-        for (int right = 0; right < arr.length; right++) {
-            freq[arr[right]]++;
-            while (freq[arr[right]]>1){
-                freq[arr[left]]--;
-                left++;
-            }
-            maxLen =Math.max(maxLen, right-left+1);
+    static int countEvenSubarrays(int[] arr, int k, int x){
+        int countEven= 0;
+        int count =0;
+        for (int i = 0; i < k; i++) {
+            if (arr[i]%2==0) countEven++;
         }
-        return maxLen;
+        if (countEven>=x) count++;
+        for (int i = k; i < arr.length; i++) {
+            if (arr[i]%2==0) countEven++;
+            if (arr[i-k]%2 == 0) countEven--;
+            if (countEven>=x) count++;
+        }
+        return count;
     }
+
+
+    /// LongestUniqueSubarray
+//    public static void main(String[] args) {
+//        int[] arr ={1,2,3,1,6,1,2,3,4,5};
+//        System.out.println(longestUnique(arr));
+//    }
+//    static int longestUnique(int[] arr){
+//        int[] freq = new int[1001];
+//        int left = 0;
+//        int maxLen = 0;
+//        for (int right = 0; right < arr.length; right++) {
+//            freq[arr[right]]++;
+//            while (freq[arr[right]]>1){
+//                freq[arr[left]]--;
+//                left++;
+//            }
+//            maxLen =Math.max(maxLen, right-left+1);
+//        }
+//        return maxLen;
+//    }
 
 
 

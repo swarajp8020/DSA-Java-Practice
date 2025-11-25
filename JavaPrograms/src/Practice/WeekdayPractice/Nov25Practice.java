@@ -6,27 +6,81 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Nov25Practice {
-
-    /// Count subarrays of size k whose sum is divisible by 3
+    /// LongestUniqueSubarray
     public static void main(String[] args) {
-        int[] arr = {3, 1, 2, 6, 4};
-        int k =3;
-        int res = evenSum(arr, k);
-        System.out.println(res);
+        int[] arr ={1,2,3,1,6,1,2,3,4,5};
+        System.out.println(longestUnique(arr));
     }
-    static int evenSum(int[] arr, int k){
-        int windowSum = 0;
-        int count = 0;
-        for (int i = 0; i < k; i++) {
-            windowSum += arr[i];
+    static int longestUnique(int[] arr){
+        int[] freq = new int[1001];
+        int left = 0;
+        int maxLen = 0;
+        for (int right = 0; right < arr.length; right++) {
+            freq[arr[right]]++;
+            while (freq[arr[right]]>1){
+                freq[arr[left]]--;
+                left++;
+            }
+            maxLen =Math.max(maxLen, right-left+1);
         }
-        if (windowSum%3 == 0) count++;
-        for (int i = k; i < arr.length; i++) {
-            windowSum += arr[i] - arr[i-k];
-            if (windowSum%3==0) count++;
-        }
-        return count;
+        return maxLen;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    static int longestUnique(int[] arr){
+//        int[] freq = new int[1001];
+//        int left = 0;
+//        int maxLen = 0;
+//        for (int right = 0; right < arr.length; right++) {
+//            freq[arr[right]]++;
+//            while (freq[arr[right]]>1){
+//                freq[arr[left]]--;
+//                left++;
+//            }
+//            maxLen = Math.max(maxLen, right-left+1);
+//        }
+//        return maxLen;
+//    }
+
+//    /// Count subarrays of size k whose sum is divisible by 3
+//    public static void main(String[] args) {
+//        int[] arr = {3, 1, 2, 6, 4};
+//        int k =3;
+//        int res = evenSum(arr, k);
+//        System.out.println(res);
+//    }
+//    static int evenSum(int[] arr, int k){
+//        int windowSum = 0;
+//        int count = 0;
+//        for (int i = 0; i < k; i++) {
+//            windowSum += arr[i];
+//        }
+//        if (windowSum%3 == 0) count++;
+//        for (int i = k; i < arr.length; i++) {
+//            windowSum += arr[i] - arr[i-k];
+//            if (windowSum%3==0) count++;
+//        }
+//        return count;
+//    }
 
 //    /// Count subarrays of size K with even sum
 //    public static void main(String[] args) {

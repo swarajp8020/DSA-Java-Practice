@@ -6,27 +6,48 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Nov25Practice {
-
-    /// ▸ Max sum of subarray of size K (quick refresh)
+    /// Count subarrays of size K with even sum
     public static void main(String[] args) {
         int[] arr = {1,4,6,2,1,3};
         int k =3;
-        int res = maxSumSubArrayK(arr, k);
+        int res = evenSum(arr, k);
         System.out.println(res);
     }
-    static int maxSumSubArrayK(int[] arr, int k){
+    static int evenSum(int[] arr, int k){
         int windowSum = 0;
-        int maxSum = 0;
+        int count
+                = 0;
         for (int i = 0; i < k; i++) {
             windowSum += arr[i];
         }
-        maxSum = windowSum;
+        if (windowSum%2==0) count++;
         for (int i = k; i < arr.length; i++) {
             windowSum += arr[i]-arr[i-k];
-            maxSum = Math.max(windowSum,maxSum);
+            if (windowSum%2 == 0) count++;
         }
-        return maxSum;
+        return count;
     }
+
+    /// ▸ Max sum of subarray of size K (quick refresh)
+//    public static void main(String[] args) {
+//        int[] arr = {1,4,6,2,1,3};
+//        int k =3;
+//        int res = maxSumSubArrayK(arr, k);
+//        System.out.println(res);
+//    }
+//    static int maxSumSubArrayK(int[] arr, int k){
+//        int windowSum = 0;
+//        int maxSum = 0;
+//        for (int i = 0; i < k; i++) {
+//            windowSum += arr[i];
+//        }
+//        maxSum = windowSum;
+//        for (int i = k; i < arr.length; i++) {
+//            windowSum += arr[i]-arr[i-k];
+//            maxSum = Math.max(windowSum,maxSum);
+//        }
+//        return maxSum;
+//    }
 
     /// RemoveDuplicates
 //    public static void main(String[] args) {

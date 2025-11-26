@@ -4,32 +4,32 @@ import slidingWindows.LongestSubArraySumX;
 import slidingWindows.LongestUniqueSubarray;
 
 public class Nov26Morning {
-    public static void main(String[] args) {
-        int[] arr = {1,2,1,2,14,1,3,2,4};
-        int k = 2;
-        System.out.println(longestSubarrayKDistinct(arr,k));
-    }
-    static int longestSubarrayKDistinct(int[] arr, int k){
-        int[] freq = new int[1001];
-        int unique = 0;
-        int left= 0;
-        int maxLen= 0;
-        for (int right = 0; right < arr.length; right++) {
-            if (freq[arr[right]]==0) unique++;
-            freq[arr[right]]++;
-
-            while (unique>k){
-                freq[arr[left]]--;
-                if (freq[arr[left]] == 0) unique--;
-                left++;
-            }
-
-            if (unique == k){
-                maxLen = Math.max(maxLen, right-left+1);
-            }
-        }
-        return maxLen;
-    }
+//    public static void main(String[] args) {
+//        int[] arr = {1,2,1,2,14,1,3,2,4};
+//        int k = 2;
+//        System.out.println(longestSubarrayKDistinct(arr,k));
+//    }
+//    static int longestSubarrayKDistinct(int[] arr, int k){
+//        int[] freq = new int[1001];
+//        int unique = 0;
+//        int left= 0;
+//        int maxLen= 0;
+//        for (int right = 0; right < arr.length; right++) {
+//            if (freq[arr[right]]==0) unique++;
+//            freq[arr[right]]++;
+//
+//            while (unique>k){
+//                freq[arr[left]]--;
+//                if (freq[arr[left]] == 0) unique--;
+//                left++;
+//            }
+//
+//            if (unique == k){
+//                maxLen = Math.max(maxLen, right-left+1);
+//            }
+//        }
+//        return maxLen;
+//    }
 
 
 

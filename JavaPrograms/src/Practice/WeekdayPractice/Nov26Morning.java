@@ -11,24 +11,48 @@ public class Nov26Morning {
     }
     static int longestSubarrayKDistinct(int[] arr, int k){
         int[] freq = new int[1001];
-        int left = 0;
-        int maxLen=0;
         int unique = 0;
+        int left= 0;
+        int maxLen= 0;
         for (int right = 0; right < arr.length; right++) {
             if (freq[arr[right]]==0) unique++;
             freq[arr[right]]++;
 
             while (unique>k){
                 freq[arr[left]]--;
-                if (freq[arr[left]]==0) unique--;
+                if (freq[arr[left]] == 0) unique--;
                 left++;
             }
+
             if (unique == k){
                 maxLen = Math.max(maxLen, right-left+1);
             }
         }
         return maxLen;
     }
+
+
+
+//    static int longestSubarrayKDistinct(int[] arr, int k){
+//        int[] freq = new int[1001];
+//        int left = 0;
+//        int maxLen=0;
+//        int unique = 0;
+//        for (int right = 0; right < arr.length; right++) {
+//            if (freq[arr[right]]==0) unique++;
+//            freq[arr[right]]++;
+//
+//            while (unique>k){
+//                freq[arr[left]]--;
+//                if (freq[arr[left]]==0) unique--;
+//                left++;
+//            }
+//            if (unique == k){
+//                maxLen = Math.max(maxLen, right-left+1);
+//            }
+//        }
+//        return maxLen;
+//    }
 
 
 //    public static void main(String[] args) {

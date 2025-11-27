@@ -7,27 +7,99 @@ import java.util.Arrays;
 
 
 public class Nov27Morning {
-/// Longest Sum ≤ X
+/// 1. Longest Unique Subarray
+/// freq[]
+/// duplicate → shrink left
+//public static void main(String[] args) {
+//    int[] arr = {2,3,4,2,3,5};
+//    System.out.println(longestUnique(arr));
+//}
+//static int longestUnique(int[] arr){
+//    int[] freq = new int[1001];
+//    int left = 0;
+//    int maxLen = 0;
+//    for (int right = 0; right < arr.length; right++) {
+//        freq[arr[right]]++;
+//        while (freq[arr[right]]>1){
+//            freq[arr[left]]--;
+//            left++;
+//        }
+//        maxLen = Math.max(maxLen, right-left+1);
+//    }
+//    return maxLen;
+//}
+
+/// 2. Longest Subarray Sum ≤ X
+/// expand right
+/// shrink left when sum > X
+//public static void main(String[] args) {
+//    int[] arr = {2,3,4,1,2,3};
+//    int x = 5;
+//    System.out.println(longestSubarrayX(arr,x));
+//}
+//static int longestSubarrayX(int[]arr, int x){
+//    int windowSum = 0;
+//    int left = 0;
+//    int maxLen = 0;
+//    for (int right = 0; right < arr.length; right++) {
+//        windowSum+=arr[right];
+//        while (windowSum>x){
+//            windowSum -= arr[left];
+//            left++;
+//        }
+//        maxLen = Math.max(maxLen, right-left+1);
+//    }
+//    return maxLen;
+//}
+
+/// 3. Subarrays of size K divisible by 3 (or even)
+/// fixed window update using sum += new - old
+
 public static void main(String[] args) {
-    int[] arr = {1,2,3,4,5,6};
-    int x = 2;
-    int res = longestSumX(arr,x);
-    System.out.println(res);
+    int[] arr = {2,3,4,1,2,3};
+    int k = 3;
+    System.out.println(longestEvenSubarrayK(arr,k));
 }
-static int longestSumX(int[] arr, int  x){
-    int maxLen = 0;
-    int left = 0;
-    int windowSum=0;
-    for (int right = 0; right < arr.length; right++) {
-        windowSum += arr[right];
-        while (windowSum>x){
-            windowSum -= arr[left];
-            left++;
+    static int longestEvenSubarrayK(int[]arr, int k){
+        int windowSum = 0;
+        int count = 0;
+        for (int i = 0; i < k; i++) {
+            windowSum += arr[i];
         }
-        maxLen = Math.max(maxLen, right-left+1);
-    }
-    return maxLen;
+        if (windowSum%2==0) count++;
+        for (int i = k; i < arr.length; i++) {
+            windowSum+=arr[i]-arr[i-k];
+            if (windowSum%2==0)count++;
+        }
+        return count;
 }
+
+
+
+
+
+
+/// Longest Sum ≤ X
+//public static void main(String[] args) {
+//    int[] arr = {1,2,3,4,5,6};
+//    int x = 2;
+//    int res = longestSumX(arr,x);
+//    System.out.println(res);
+//}
+//static int longestSumX(int[] arr, int  x){
+//    int maxLen = 0;
+//    int left = 0;
+//    int windowSum=0;
+//    for (int right = 0; right < arr.length; right++) {
+//        windowSum += arr[right];
+//        while (windowSum>x){
+//            windowSum -= arr[left];
+//            left++;
+//        }
+//        maxLen = Math.max(maxLen, right-left+1);
+//    }
+//    return maxLen;
+//}
 /// Longest Unique Subarray
 //public static void main(String[] args) {
 //    int[] arr = {1,2,3,4,5,6};

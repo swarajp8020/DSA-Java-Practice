@@ -3,8 +3,8 @@ package Practice.WeekdayPractice;
 public class Nov28Morning {
 /// Longest Subarray Sum ≤ X (no peek)
 public static void main(String[] args) {
-    int[] arr= {1,2,3,4,5,6,7};
-    int x= 3;
+    int[] arr= {1,2,1,1,3,2};
+    int x= 4;
     System.out.println(longestUniqueSubarrayX(arr,x));
 }
     static int longestUniqueSubarrayX(int[] arr, int x){

@@ -10,7 +10,7 @@ public class CountSubarraySumExactlyEqualX {
         int count = 0;
         for (int start = 0; start < arr.length; start++) {
             int sum = 0;
-            for (int end = 0; end < arr.length; end++) {
+            for (int end = start; end < arr.length; end++) {
                 sum += arr[end];
                 if (sum==x){
                     count++;

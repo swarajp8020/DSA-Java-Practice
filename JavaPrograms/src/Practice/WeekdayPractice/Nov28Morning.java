@@ -7,21 +7,23 @@ public class Nov28Morning {
     public static void main(String[] args) {
         int[] arr = {3,1,2,5,4,6};
         int k =3;
-        System.out.println(longestUniqueSubarray(arr,k));
+        System.out.println(exactlyKDistinct(arr,k));
     }
-    static int longestUniqueSubarray(int[] arr, int k){
+    static int exactlyKDistinct(int[] arr, int k){
         int[] freq = new int[1001];
         int unique = 0;
         int left = 0;
         int maxLen = 0;
         for (int right = 0; right < arr.length; right++) {
-            if (freq[arr[right]]==0)unique++;
+            if (freq[arr[right]]==0) unique++;
             freq[arr[right]]++;
+
             while (unique>k){
                 freq[arr[left]]--;
                 if (freq[arr[left]]==0)unique--;
                 left++;
-            } if (unique==k) {
+            }
+            if (unique==k) {
                 maxLen = Math.max(maxLen, right - left + 1);
             }
         }

@@ -1,6 +1,7 @@
 package binarySearch;
 /// 🚢 Ship Packages — Minimum Capacity
 /// (LeetCode 1011 type)  You’re given weights of packages. You must ship in D days.
+/// https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
 /// Find minimum capacity of the ship required.
 /// Input
 /// weights = [1,2,3,4,5,6,7,8,9,10]

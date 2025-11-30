@@ -1,6 +1,28 @@
 package Practice.Week5Practice;
 
 public class p4 {
+    /// Find smallest number whose square ≥ N
+    /// Input: N=40
+    /// Smallest integer ≥ root = 7
+    /// We binary-search range [1..N]
+
+    public static void main(String[] args) {
+        int N = 40;
+        System.out.println(sqrtCeil(N));
+    }
+    static int sqrtCeil(int N){
+        int left=0,right=N,ans=N;
+        while (left<=right){
+            int mid = left+(right-left)/2;
+            if (mid*mid>=N){
+                ans=mid;
+                right=mid-1;
+            }else left=mid+1;
+        }
+        return ans;
+    }
+
+
     /// Rotate Array
 //    public static void main(String[] args) {
 //        int[] arr = {4,5,6,7,0,1,2};
@@ -76,19 +98,19 @@ public class p4 {
 
     /// pattern-1 Binary Search
     /// arr = [2,5,7,9,12], target=9 → output = 3
-    public static void main(String[] args) {
-        int[] arr = {2,4,6,8,10};
-        int target = 6;
-        System.out.println(search(arr,target));
-    }
-    static int search(int[] arr, int target){
-        int left=0, right =arr.length-1;
-        while (left<=right){
-            int mid = left+(right-left)/2;
-            if (arr[mid]==target)return mid;
-            if (arr[mid]<target)left=mid+1;
-            else right=mid-1;
-        }
-        return -1;
-    }
+//    public static void main(String[] args) {
+//        int[] arr = {2,4,6,8,10};
+//        int target = 6;
+//        System.out.println(search(arr,target));
+//    }
+//    static int search(int[] arr, int target){
+//        int left=0, right =arr.length-1;
+//        while (left<=right){
+//            int mid = left+(right-left)/2;
+//            if (arr[mid]==target)return mid;
+//            if (arr[mid]<target)left=mid+1;
+//            else right=mid-1;
+//        }
+//        return -1;
+//    }
 }

@@ -7,7 +7,7 @@ public class p4 {
     /// We binary-search range [1..N]
 
     public static void main(String[] args) {
-        int N = 40;
+        int N = 1;
         System.out.println(sqrtCeil(N));
     }
     static int sqrtCeil(int N){

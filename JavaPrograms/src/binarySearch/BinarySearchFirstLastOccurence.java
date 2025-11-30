@@ -1,6 +1,6 @@
 package binarySearch;
 /// Pattern 2 — First/Last Occurrence
-public class BinarySearch2 {
+public class BinarySearchFirstLastOccurence {
     public static void main(String[] args) {
         int[] arr = {2,5,7,9,12};
         int target = 9;

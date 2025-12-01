@@ -2,8 +2,8 @@ package Practice.WeekdayPractice;
 
 public class BSKokoEating {
     public static void main(String[] args) {
-        int[] piles = {30,11,23,4,20};
-        int H = 5;
+        int[] piles = {3,6,7,11};
+        int H = 8;
         System.out.println(minEatingSpeed(piles,H));
     }
     static int minEatingSpeed(int[] piles, int H){

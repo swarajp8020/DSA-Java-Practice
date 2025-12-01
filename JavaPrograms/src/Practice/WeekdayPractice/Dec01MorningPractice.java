@@ -2,11 +2,11 @@ package Practice.WeekdayPractice;
 
 public class Dec01MorningPractice {
     public static void main(String[] args) {
-        int[] piles = {3,6,7,11};
-        int H = 8;
+        int[] piles = {30,11,23,4,20};
+        int H = 6;
         System.out.println(minEatingSpeed(piles,H));
     }
-    static int minEatingSpeed(int[]piles,int H){
+    static int minEatingSpeed(int[] piles, int H){
         int low = 1;
         int high = max(piles);
         int ans = high;
@@ -19,7 +19,7 @@ public class Dec01MorningPractice {
         }
         return ans;
     }
-    static boolean canEat(int[]piles, int H, int speed){
+    static boolean canEat(int[] piles, int H, int speed){
         int hoursUsed = 0;
         for (int pile:piles){
             hoursUsed+=(pile+speed-1)/speed;

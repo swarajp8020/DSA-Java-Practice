@@ -3,7 +3,7 @@ package Practice.WeekdayPractice;
 public class BSKokoEating {
     public static void main(String[] args) {
         int[] piles = {30,11,23,4,20};
-        int H = 6;
+        int H = 5;
         System.out.println(minEatingSpeed(piles,H));
     }
     static int minEatingSpeed(int[] piles, int H){

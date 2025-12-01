@@ -2,9 +2,14 @@ package Practice.WeekdayPractice;
 
 public class BSSplitArrayLargestSum {
     public static void main(String[] args) {
-        int[] nums = {3,6,7,11};
-        int k =1;
+        int[] nums = {7,2,5,10,8};
+        int k =2;
         System.out.println(splitArray(nums, k));
+        System.out.println(splitArray(new int[]{7,2,5,10,8},2));   // 18
+        System.out.println(splitArray(new int[]{1,4,4},3));       // 4
+        System.out.println(splitArray(new int[]{1,2,3,4,5},2));   // 9
+        System.out.println(splitArray(new int[]{3,6,7,11},1));    // 27
+
     }
     static int splitArray(int[] nums, int k){
         int low=max(nums);
@@ -25,11 +30,10 @@ public class BSSplitArrayLargestSum {
             if (currentSum+num>limit){
                 groupCount++;
                 currentSum=num;
-
-            if (groupCount>k) return false;
+                if (groupCount>k) return false;
             }else currentSum+=num;
         }
-        return true;
+        return groupCount<=k;
     }
 
     static int max(int[]arr){

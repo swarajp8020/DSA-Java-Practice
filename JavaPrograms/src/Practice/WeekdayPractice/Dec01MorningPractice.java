@@ -24,14 +24,14 @@ public class Dec01MorningPractice {
         }
         return ans;
     }
-    static boolean canSplit(int[]arr, int k, int limit){
-        int groupCount=1,currentSum=0;
+    static boolean canSplit(int[] arr, int k, int limit){
+        int groupCount = 1, currentSum=0;
         for (int num:arr){
             if (currentSum+num>limit){
                 groupCount++;
-                currentSum = num;
-                if (groupCount>k) return false;
-            } else currentSum+= num;
+                currentSum=num;
+                if (groupCount>k)return false;
+            } else currentSum+=num;
         }
         return groupCount<=k;
     }

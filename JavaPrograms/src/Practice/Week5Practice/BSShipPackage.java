@@ -6,35 +6,24 @@ public class BSShipPackage {
         int D=5;
         System.out.println(shipWithinDays(arr, D));
     }
-    static int shipWithinDays(int[] arr,int D){
-        int low = max(arr) ; // biggest weight
-        int high = sum(arr) ; // sum of weights
+    static int shipWithinDays(int[] arr, int D){
+        int low = max(arr);
+        int high = sum(arr);
         int ans = high;
 
-        while(low <= high){
-            int mid = low + (high-low)/2;
+        while (low<=high){
+            int mid = low+(high-low)/2;
 
-            if(canShip(arr, D, mid)){
+            if (canShip(arr, D, mid)){
                 ans = mid;
-                high = mid - 1;
-            }else{
-                low = mid + 1;
+                high = mid-1;
+            }else {
+                low =mid+1;
             }
         }
         return ans;
     }
-    static int max(int[] arr){
-        int m = arr[0];
-        for(int x:arr) m = Math.max(m,x);
-        return m;
-    }
-
-    static int sum(int[] arr){
-        int s = 0;
-        for(int x:arr) s += x;
-        return s;
-    }
-    static boolean canShip(int[] arr,int D,int cap){
+    static boolean canShip(int[]arr,int D, int cap){
         int days = 1 , load = 0;
 
         for(int w:arr){
@@ -45,4 +34,15 @@ public class BSShipPackage {
         }
         return days <= D;
     }
+    static int max(int[]arr){
+        int m = 0;
+        for (int x:arr)m=Math.max(m,x);
+        return m;
+    }
+    static int sum(int[]arr){
+        int s =0;
+        for (int y:arr)s+=y;
+        return s;
+    }
+
 }

@@ -20,7 +20,7 @@ public class BinarySearchSplitArrayLargestSum {
         return ans;
     }
     static boolean canSplit(int[] arr, int k, int limit){
-        int groupCount = 0, currentSum=0;
+        int groupCount = 1, currentSum=0;
         for (int num: arr){
             if (currentSum+num>limit){
                 groupCount++;

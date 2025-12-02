@@ -3,7 +3,7 @@ package Practice.WeekdayPractice;
 public class BSMedianModel {
     public static void main(String[] args) {
         int[] A = {1,2};
-        int[] B = {3};
+        int[] B = {3,4};
         System.out.println(findMedianSortedArrays(A,B));
     }
     static double findMedianSortedArrays(int[] A, int[] B){
@@ -23,7 +23,7 @@ public class BSMedianModel {
 
             if (Aleft <= Bright && Bleft <= Aright){
                 if ((n+m)%2==0){
-                    return Math.max(Aleft, Bright)+Math.min(Bleft,Aright);
+                    return (Math.max(Aleft, Bright)+Math.min(Bleft,Aright))/2;
                 }
                 return Math.max(Aleft,Bleft);
             } else if (Aleft>Bleft) {
@@ -32,7 +32,6 @@ public class BSMedianModel {
                 low = cutA +1;
             }
         }
-
         return 0;
     }
 }

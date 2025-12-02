@@ -15,7 +15,6 @@ public class BinarySearchMedianModeLCHard {
         while (low<=high){
             int cutA = (low+high)/2;
             int cutB = (n+m+1)/2-cutA;
-            //didn't understoood this part & Integer why we using this?
             int Aleft  = (cutA == 0) ? Integer.MIN_VALUE : A[cutA - 1];
             int Aright = (cutA == n) ? Integer.MAX_VALUE : A[cutA];
 

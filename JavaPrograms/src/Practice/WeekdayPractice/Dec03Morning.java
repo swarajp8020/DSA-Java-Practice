@@ -57,7 +57,7 @@ public class Dec03Morning {
 //            if (currentSum+a>limit){
 //                groupCount++;
 //                currentSum = a;
-//                if (groupCount>k) return false;
+//                if (groupCount>=k) return false;
 //            } else currentSum += a;
 //        }
 //        return groupCount >= k;

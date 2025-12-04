@@ -25,7 +25,7 @@ public class Dec04Morning {
     static boolean canEat(int[] piles, int h, int speed){
         int hoursUsed = 0;
         for (int x: piles){
-            hoursUsed += (x+speed-1)/speed;
+            hoursUsed += (x+speed-1)/speed; //Peeked here once
             if (hoursUsed > h) return false;
         }
         return true;

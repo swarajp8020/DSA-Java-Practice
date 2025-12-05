@@ -4,8 +4,8 @@ public class Dec05Morning {
     /// 4. Median of Two Sorted Arrays
 
     public static void main(String[] args) {
-        int[] A = {1,3};
-        int[] B = {2};
+        int[] A = {1,2};
+        int[] B = {3,4};
         System.out.println(medianArray(A,B));
     }
     static double medianArray(int[] A, int[] B){

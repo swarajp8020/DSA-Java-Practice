@@ -4,8 +4,8 @@ public class Dec05Morning {
 
 ///    1011. Capacity To Ship Packages Within D Days
     public static void main(String[] args) {
-        int[] weights = {1,2,3,4,5,6,7,8,9,10};
-        int days = 5;
+        int[] weights = {1,2,3,1,1};
+        int days = 4;
         System.out.println(capacityShip(weights,days));
     }
     static int capacityShip(int[] weights, int days){

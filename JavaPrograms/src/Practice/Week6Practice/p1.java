@@ -38,28 +38,57 @@ import java.util.List;
 //        return ans;
 //    }
 //}
+
+//class MaxDepth{
+//    public static int maxDepth(TreeNode node){
+//        if (node==null) return 0;
+//        int left = maxDepth(node.left);
+//        int right = maxDepth(node.right);
+//        return 1+Math.max(left,right);
+//    }
+//}
+class DiameterBT{
+
+    public static int diameterOfBT(TreeNode node){
+        diameter = 0;
+        height(node);
+        return diameter;
+    }
+    static int diameter = 0;
+    private static int height(TreeNode root){
+        if (root == null) return 0;
+        int left = height(root.left);
+        int right = height(root.right);
+
+        diameter = Math.max(diameter, left+right);
+        return 1+Math.max(left,right);
+    }
+}
 class TreeNode {
     int value;
     TreeNode left,right;
     TreeNode(int x) {value = x;}
 }
-class MaxDepth{
-    public static int maxDepth(TreeNode node){
-        if (node==null) return 0;
-        int left = maxDepth(node.left);
-        int right = maxDepth(node.right);
-        return 1+Math.max(left,right);
-    }
-}
 
 public class p1 {
-    /// MaxDepthBinaryTree
+
+    /// DiameterBinaryTree
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(9);
-        root.left = new TreeNode(5);
-        root.right = new TreeNode(4);
-        System.out.println(MaxDepth.maxDepth(root));
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(4);
+        node.left.right = new TreeNode(5);
+        System.out.println(DiameterBT.diameterOfBT(node));
     }
+
+    /// MaxDepthBinaryTree
+//    public static void main(String[] args) {
+//        TreeNode root = new TreeNode(9);
+//        root.left = new TreeNode(5);
+//        root.right = new TreeNode(4);
+//        System.out.println(MaxDepth.maxDepth(root));
+//    }
 /// 981. Time Based Key-Value Store
 //    public static void main(String[] args) {
 //    TimeMap timeMap = new TimeMap();

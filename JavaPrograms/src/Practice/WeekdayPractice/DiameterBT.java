@@ -5,12 +5,14 @@ class TreeNode1{
     TreeNode1(int x){value =x;}
 }
 public class DiameterBT {
-    static int diameter = 0;
 
     public static int diameterOfBT(TreeNode1 node){
+        diameter = 0;
         height(node);
         return diameter;
     }
+    static int diameter = 0;
+
     private static int height(TreeNode1 root){
         if (root==null)return 0;
         int left = height(root.left);

@@ -4,8 +4,8 @@ public class p1 {
 
 /// 875. Koko Eating Bananas
     public static void main(String[] args) {
-        int[] piles = {3,6,7,11};
-        int h = 8;
+        int[] piles = {30,11,23,4,20};
+        int h = 5;
         System.out.println(eatingBanana(piles, h));
     }
     static int eatingBanana(int[] piles, int h){

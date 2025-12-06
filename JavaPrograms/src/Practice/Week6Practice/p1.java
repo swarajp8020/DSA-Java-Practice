@@ -3,8 +3,8 @@ package Practice.Week6Practice;
 public class p1 {
 /// 1011. Capacity To Ship Packages Within D Days
     public static void main(String[] args) {
-        int[] weights = {1,2,3,4,5,6,7,8,9,10};
-        int days = 5;
+        int[] weights = {3,2,2,4,1,4};
+        int days = 3;
         System.out.println(shipCapacity(weights,days));
     }
     static int shipCapacity(int[] weights, int days){

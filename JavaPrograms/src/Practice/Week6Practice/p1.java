@@ -1,49 +1,71 @@
 package Practice.Week6Practice;
 
+import com.sun.source.tree.Tree;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class TimeMap{
-    static HashMap<String , List<Pair>> map;
-    static class Pair{
-        int time;
-        String  value;
-        Pair(int t, String v){
-            time=t;
-            value=v;
-        }
-    }
-    public TimeMap(){
-        map = new HashMap<>();
-    }
-    static void set(String key,String value, int timestamp){
-        map.putIfAbsent(key, new ArrayList<>());
-        map.get(key).add(new Pair(timestamp,value));
-    }
-    static String get(String key, int timestamp){
-        if (!map.containsKey(key)) return "";
-        List<Pair> list = map.get(key);
-        int low = 0,high = list.size()-1;
-        String ans = "";
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (list.get(mid).time<=timestamp){
-                ans = list.get(mid).value;
-                low = mid+1;
-            } else high = mid-1;
-        }
-        return ans;
+//class TimeMap{
+//    static HashMap<String , List<Pair>> map;
+//    static class Pair{
+//        int time;
+//        String  value;
+//        Pair(int t, String v){
+//            time=t;
+//            value=v;
+//        }
+//    }
+//    public TimeMap(){
+//        map = new HashMap<>();
+//    }
+//    static void set(String key,String value, int timestamp){
+//        map.putIfAbsent(key, new ArrayList<>());
+//        map.get(key).add(new Pair(timestamp,value));
+//    }
+//    static String get(String key, int timestamp){
+//        if (!map.containsKey(key)) return "";
+//        List<Pair> list = map.get(key);
+//        int low = 0,high = list.size()-1;
+//        String ans = "";
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (list.get(mid).time<=timestamp){
+//                ans = list.get(mid).value;
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return ans;
+//    }
+//}
+class TreeNode {
+    int value;
+    TreeNode left,right;
+    TreeNode(int x) {value = x;}
+}
+class MaxDepth{
+    public static int maxDepth(TreeNode node){
+        if (node==null) return 0;
+        int left = maxDepth(node.left);
+        int right = maxDepth(node.right);
+        return 1+Math.max(left,right);
     }
 }
 
 public class p1 {
-/// 981. Time Based Key-Value Store
+    /// MaxDepthBinaryTree
     public static void main(String[] args) {
-    TimeMap timeMap = new TimeMap();
-    timeMap.set("boo", "soo",1);
-        System.out.println(timeMap.get("boo",4));
+        TreeNode root = new TreeNode(9);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(4);
+        System.out.println(MaxDepth.maxDepth(root));
     }
+/// 981. Time Based Key-Value Store
+//    public static void main(String[] args) {
+//    TimeMap timeMap = new TimeMap();
+//    timeMap.set("boo", "soo",1);
+//        System.out.println(timeMap.get("boo",4));
+//    }
 /// 4. Median of Two Sorted Arrays
 //    public static void main(String[] args) {
 //        int[] A = {1,2};

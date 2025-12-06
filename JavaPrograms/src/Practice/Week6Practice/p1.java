@@ -1,35 +1,78 @@
 package Practice.Week6Practice;
 
-public class p1 {
-/// 4. Median of Two Sorted Arrays
-    public static void main(String[] args) {
-        int[] A = {1,2};
-        int[] B = {3,4};
-        System.out.println(medianArrays(A,B));
-    }
-    static double medianArrays(int[] A, int[] B){
-        int n = A.length;
-        int m = B.length;
-        int low =0,high=n;
-        while (low<=high){
-            int cutA= (high+low)/2;
-            int cutB = (n+m+1)/2-cutA;
-            int Aleft = (cutA==0)?Integer.MIN_VALUE:A[cutA-1];
-            int Aright = (cutA==n)?Integer.MAX_VALUE:A[cutA];
-            int Bleft = (cutB == 0)?Integer.MIN_VALUE:B[cutB-1];
-            int Bright = (cutB == m)?Integer.MAX_VALUE:B[cutB];
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-            if (Aleft<=Bright && Bleft<=Aright){
-                if ((n+m)%2==0){
-                    return (Math.max(Aleft,Bleft)+Math.min(Aright, Bright))/2.0;
-                }
-                return Math.max(Aleft,Bleft);
-            }else if (Aleft>Bright){
-                high = cutA-1;
-            } else low = cutA+1;
+class TimeMap{
+    static HashMap<String , List<Pair>> map;
+    static class Pair{
+        int time;
+        String  value;
+        Pair(int t, String v){
+            time=t;
+            value=v;
         }
-        return 0;
     }
+    public TimeMap(){
+        map = new HashMap<>();
+    }
+    static void set(String key,String value, int timestamp){
+        map.putIfAbsent(key, new ArrayList<>());
+        map.get(key).add(new Pair(timestamp,value));
+    }
+    static String get(String key, int timestamp){
+        if (!map.containsKey(key)) return "";
+        List<Pair> list = map.get(key);
+        int low = 0,high = list.size()-1;
+        String ans = "";
+        while (low<=high){
+            int mid = low+(high-low)/2;
+            if (list.get(mid).time<=timestamp){
+                ans = list.get(mid).value;
+                high = mid-1;
+            } else low = mid+1;
+        }
+        return ans;
+    }
+}
+
+public class p1 {
+/// 981. Time Based Key-Value Store
+    public static void main(String[] args) {
+    TimeMap timeMap = new TimeMap();
+    timeMap.set("boo", "soo",1);
+        System.out.println(timeMap.get("boo",4));
+    }
+/// 4. Median of Two Sorted Arrays
+//    public static void main(String[] args) {
+//        int[] A = {1,2};
+//        int[] B = {3,4};
+//        System.out.println(medianArrays(A,B));
+//    }
+//    static double medianArrays(int[] A, int[] B){
+//        int n = A.length;
+//        int m = B.length;
+//        int low =0,high=n;
+//        while (low<=high){
+//            int cutA= (high+low)/2;
+//            int cutB = (n+m+1)/2-cutA;
+//            int Aleft = (cutA==0)?Integer.MIN_VALUE:A[cutA-1];
+//            int Aright = (cutA==n)?Integer.MAX_VALUE:A[cutA];
+//            int Bleft = (cutB == 0)?Integer.MIN_VALUE:B[cutB-1];
+//            int Bright = (cutB == m)?Integer.MAX_VALUE:B[cutB];
+//
+//            if (Aleft<=Bright && Bleft<=Aright){
+//                if ((n+m)%2==0){
+//                    return (Math.max(Aleft,Bleft)+Math.min(Aright, Bright))/2.0;
+//                }
+//                return Math.max(Aleft,Bleft);
+//            }else if (Aleft>Bright){
+//                high = cutA-1;
+//            } else low = cutA+1;
+//        }
+//        return 0;
+//    }
 
 /// 410. Split Array Largest Sum
 //public static void main(String[] args) {

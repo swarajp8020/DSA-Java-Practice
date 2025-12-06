@@ -5,7 +5,7 @@ public class p1 {
 /// 875. Koko Eating Bananas
     public static void main(String[] args) {
         int[] piles = {30,11,23,4,20};
-        int h = 5;
+        int h = 6;
         System.out.println(eatingBanana(piles, h));
     }
     static int eatingBanana(int[] piles, int h){

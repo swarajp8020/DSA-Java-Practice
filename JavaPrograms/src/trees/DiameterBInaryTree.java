@@ -5,11 +5,13 @@ class TreeNode4{
     TreeNode4(int x){val=x;}
 }
 public class DiameterBInaryTree {
-    static int diameter = 0;
     public static int diameterOfBinaryTree(TreeNode4 node){
-            height(node);
+        diameter =0;
+        height(node);
             return diameter;
     }
+    static int diameter = 0;
+
     private static int height(TreeNode4 root){
         if (root == null) return 0;
         int left = height(root.left);

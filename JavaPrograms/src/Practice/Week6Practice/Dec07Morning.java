@@ -4,46 +4,119 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class TimeMap{
-    static HashMap<String, List<Pair>>map;
-    static class Pair{
-        int time;
-        String value;
-        Pair(int t, String v){
-            time = t;
-            value = v;
-        }
+//class TimeMap{
+//    static HashMap<String, List<Pair>>map;
+//    static class Pair{
+//        int time;
+//        String value;
+//        Pair(int t, String v){
+//            time = t;
+//            value = v;
+//        }
+//    }
+//    public TimeMap(){
+//        map = new HashMap<>();
+//    }
+//    static void set(String key, String value, int timestamp){
+//        map.putIfAbsent(key, new ArrayList<>());
+//        map.get(key).add(new Pair(timestamp,value));
+//    }
+//    static String get(String key, int timestamp){
+//        if (!map.containsKey(key)) return "";
+//        List<Pair> list = map.get(key);
+//        int low = 0, high =list.size()-1;
+//        String ans = "";
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (list.get(mid).time <=timestamp){
+//                ans = list.get(mid).value;
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return ans;
+//    }
+//}
+class TreeNode3{
+    int value;
+    TreeNode3 left,right;
+    TreeNode3(int x){value = x;}
+}
+// class DiameterOfBT{
+//    static int diameterOfBT(TreeNode3 root){
+//        diameter =0;
+//        height(root);
+//        return diameter;
+//    }
+//    static int diameter = 0;
+//    static int height(TreeNode3 node){
+//        if (node==null)return 0;
+//        int left = height(node.left);
+//        int right = height(node.right);
+//         diameter = Math.max(diameter, left+right); //(peeked here once)
+//        return 1+Math.max(left,right);
+//    }
+//}
+//class MaxDepth{
+//    static int maxDepth(TreeNode3 root){
+//        if (root==null)return 0;
+//        int left = maxDepth(root.left);
+//        int right = maxDepth(root.right);
+//        return 1+Math.max(left,right);
+//    }
+//}
+class BalancedTreeBT{
+    static boolean isBalanced(TreeNode3 root){
+        return dfs(root)!=-1;
     }
-    public TimeMap(){
-        map = new HashMap<>();
-    }
-    static void set(String key, String value, int timestamp){
-        map.putIfAbsent(key, new ArrayList<>());
-        map.get(key).add(new Pair(timestamp,value));
-    }
-    static String get(String key, int timestamp){
-        if (!map.containsKey(key)) return "";
-        List<Pair> list = map.get(key);
-        int low = 0, high =list.size()-1;
-        String ans = "";
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (list.get(mid).time <=timestamp){
-                ans = list.get(mid).value;
-                low = mid+1;
-            } else high = mid-1;
-        }
-        return ans;
+    static int dfs(TreeNode3 node){
+        if ( node == null) return 0;
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+        if (left == -1 || right == -1) return -1;
+        if (Math.abs(left-right)>1)return -1;
+        return 1+Math.max(left,right);
     }
 }
-
 public class Dec07Morning {
-    /// 981. Time Based Key-Value Store
+    /// Balanced Tree
     public static void main(String[] args) {
-        TimeMap map = new TimeMap();
-        map.set("voo","dop",1);
-        System.out.println(map.get("voo",5));
+        TreeNode3 node = new TreeNode3(3);
+        node.left = new TreeNode3(9);
+        node.right = new TreeNode3( 20);
+        node.right.left =new TreeNode3(15); //In LC I saw null value Input: root = [3,9,20,null,null,15,7] so how can I add that here as Input?
+        node.right.right = new TreeNode3(7);
+        System.out.println(BalancedTreeBT.isBalanced(node));
     }
+
+
+    /// 104. Maximum Depth of Binary Tree
+//    public static void main(String[] args) {
+//        TreeNode3 node = new TreeNode3(3);
+//        node.left = new TreeNode3(9);
+//        node.right = new TreeNode3(20);
+//        node.right.left =new TreeNode3(15); //In LC I saw null value Input: root = [3,9,20,null,null,15,7] so how can I add that here as Input?
+//        node.right.right = new TreeNode3(7);
+//        System.out.println(MaxDepth.maxDepth(node));
+//    }
+
+
+    /// 543. Diameter of Binary Tree
+//    public static void main(String[] args) {
+//        TreeNode3 node = new TreeNode3(1);
+//        node.left = new TreeNode3(2);
+//        node.right = new TreeNode3(3);
+//        node.right.left = new TreeNode3(4);
+//        node.right.right = new TreeNode3(5);
+//        System.out.println(DiameterOfBT.diameterOfBT(node));
+//    }
+
+
+    /// 981. Time Based Key-Value Store
+//    public static void main(String[] args) {
+//        TimeMap map = new TimeMap();
+//        map.set("voo","dop",1);
+//        System.out.println(map.get("voo",5));
+//    }
 
 
     /// 4. Median of Two Sorted Arrays

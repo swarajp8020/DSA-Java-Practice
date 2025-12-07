@@ -14,12 +14,18 @@ public class SubtreeOfAnotherTree {
     }
 
     public static void main(String[] args) {
-        TreeNode a = new TreeNode(5);
-        a.left = new TreeNode(2);
-        a.right = new TreeNode(3);
-        TreeNode b = new TreeNode(5);
-        b.left = new TreeNode(2);
-        b.right = new TreeNode(3);
+        // Build big tree a
+        TreeNode a = new TreeNode(3);
+        a.left = new TreeNode(4);
+        a.right = new TreeNode(5);
+        a.left.left = new TreeNode(1);
+        a.left.right = new TreeNode(2);
+
+        // Build small tree b
+        TreeNode b = new TreeNode(4);
+        b.left = new TreeNode(1);
+        b.right = new TreeNode(2);
+
         SubtreeOfAnotherTree subtree = new SubtreeOfAnotherTree();
         System.out.println(subtree.isSubtree(a,b));
     }

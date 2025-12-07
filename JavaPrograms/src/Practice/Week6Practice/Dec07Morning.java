@@ -1,9 +1,5 @@
 package Practice.Week6Practice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 //class TimeMap{
 //    static HashMap<String, List<Pair>>map;
 //    static class Pair{
@@ -64,29 +60,51 @@ class TreeNode3{
 //        return 1+Math.max(left,right);
 //    }
 //}
-class BalancedTreeBT{
-    static boolean isBalanced(TreeNode3 root){
-        return dfs(root)!=-1;
-    }
-    static int dfs(TreeNode3 node){
-        if ( node == null) return 0;
-        int left = dfs(node.left);
-        int right = dfs(node.right);
-        if (left == -1 || right == -1) return -1;
-        if (Math.abs(left-right)>1)return -1;
-        return 1+Math.max(left,right);
+//class BalancedTreeBT{
+//    static boolean isBalanced(TreeNode3 root){
+//        return dfs(root)!=-1;
+//    }
+//    static int dfs(TreeNode3 node){
+//        if ( node == null) return 0;
+//        int left = dfs(node.left);
+//        int right = dfs(node.right);
+//        if (left == -1 || right == -1) return -1;
+//        if (Math.abs(left-right)>1)return -1;
+//        return 1+Math.max(left,right);
+//    }
+//}
+class Solution1{
+    public static boolean isSame(TreeNode3 p, TreeNode3 q){
+        if (p == null & q==null) return true;
+        if(p==null || q==null) return false;
+        if (p.value != q.value) return false;
+        return isSame(p.left,q.left) && isSame(p.right,q.right);
     }
 }
 public class Dec07Morning {
-    /// Balanced Tree
+
+    /// 100. Same Tree (peek 5 times)
     public static void main(String[] args) {
-        TreeNode3 node = new TreeNode3(3);
-        node.left = new TreeNode3(9);
-        node.right = new TreeNode3( 20);
-        node.right.left =new TreeNode3(15); //In LC I saw null value Input: root = [3,9,20,null,null,15,7] so how can I add that here as Input?
-        node.right.right = new TreeNode3(7);
-        System.out.println(BalancedTreeBT.isBalanced(node));
+        TreeNode3 a = new TreeNode3(5);
+        a.left = new TreeNode3(4);
+        a.right = new TreeNode3(3);
+
+        TreeNode3 b = new TreeNode3(5);
+        b.left = new TreeNode3(4);
+        b.right = new TreeNode3(3);
+        System.out.println(Solution1.isSame(a,b));
     }
+
+
+    /// Balanced Tree (Peek this 5 times)
+//    public static void main(String[] args) {
+//        TreeNode3 node = new TreeNode3(3);
+//        node.left = new TreeNode3(9);
+//        node.right = new TreeNode3( 20);
+//        node.right.left =new TreeNode3(15);
+//        node.right.right = new TreeNode3(7);
+//        System.out.println(BalancedTreeBT.isBalanced(node));
+//    }
 
 
     /// 104. Maximum Depth of Binary Tree

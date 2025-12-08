@@ -54,25 +54,50 @@ import java.util.List;
 //
 //}
 
-class SameTree{
-    static boolean isSameTree(TreeNode p, TreeNode q){
-        if (p == null && q == null) return true;
-        if (p == null || q == null) return false;
-        if (p.val != q.val) return  false;
-        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+//class SameTree{
+//    static boolean isSameTree(TreeNode p, TreeNode q){
+//        if (p == null && q == null) return true;
+//        if (p == null || q == null) return false;
+//        if (p.val != q.val) return  false;
+//        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+//    }
+//}
+class Solution{
+    public boolean isBalanced(TreeNode root){
+        return dfs(root)!=-1;
+    }
+    private static int dfs(TreeNode node){
+        if (node == null) return 0;
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+        if (left == -1 || right ==-1) return -1;
+        if (Math.abs(left-right)>1) return -1;
+        return 1+Math.max(left,right);
     }
 }
 public class Dec08Morning {
-    /// 100. Same Tree
+    /// 110. Balanced Binary Tree {peeked 5 times}
+
     static void main() {
-        TreeNode a = new TreeNode(1);
-        a.left = new TreeNode(2);
-        a.right = new TreeNode(3);
-        TreeNode b = new TreeNode(1);
-        b.left = new TreeNode(2);
-        b.right = new TreeNode(3);
-        System.out.println(SameTree.isSameTree(a,b));
-    }
+    TreeNode node = new TreeNode(3);
+    node.left = new TreeNode(9);
+    node.right = new TreeNode(20);
+    node.right.left = new TreeNode(15);
+    node.right.right = new TreeNode(7);
+    Solution solution = new Solution();
+    System.out.println(solution.isBalanced(node));
+}
+
+    /// 100. Same Tree
+//    static void main() {
+//        TreeNode a = new TreeNode(1);
+//        a.left = new TreeNode(2);
+//        a.right = new TreeNode(3);
+//        TreeNode b = new TreeNode(1);
+//        b.left = new TreeNode(2);
+//        b.right = new TreeNode(3);
+//        System.out.println(SameTree.isSameTree(a,b));
+//    }
 
 /// 543. Diameter of Binary Tree
 //static void main() {

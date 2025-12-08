@@ -37,30 +37,50 @@ import java.util.List;
 //        return result;
 //    }
 //}
-class DiameterBT2{
-    static int diameterOfBT(TreeNode root){
-        diameter = 0;
-        height(root);
-        return diameter;
-    }
-    static int diameter =0;
-    static int height(TreeNode node){
-        if (node == null) return 0;
-        int left = height(node.left);
-        int right = height(node.right);
-        diameter = Math.max(diameter, left+right);
-        return 1+Math.max(left,right);
-    }
+//class DiameterBT2{
+//    static int diameterOfBT(TreeNode root){
+//        diameter = 0;
+//        height(root);
+//        return diameter;
+//    }
+//    static int diameter =0;
+//    static int height(TreeNode node){
+//        if (node == null) return 0;
+//        int left = height(node.left);
+//        int right = height(node.right);
+//        diameter = Math.max(diameter, left+right);
+//        return 1+Math.max(left,right);
+//    }
+//
+//}
 
+class BalancedBT{
+    static boolean isSameTree(TreeNode p, TreeNode q){
+        if (p == null && q == null) return true;
+        if (p == null || q == null) return false;
+        if (p.val != q.val) return  false;
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+    }
 }
 public class Dec08Morning {
-/// 543. Diameter of Binary Tree
-static void main() {
-    TreeNode node = new TreeNode(1);
-    node.left = new TreeNode(2);
+    /// 100. Same Tree
+    static void main() {
+        TreeNode a = new TreeNode(1);
+        a.left = new TreeNode(2);
+        a.right = new TreeNode(3);
+        TreeNode b = new TreeNode(1);
+        b.left = new TreeNode(2);
+        b.right = new TreeNode(3);
+        System.out.println(BalancedBT.isSameTree(a,b));
+    }
 
-    System.out.println(DiameterBT2.diameterOfBT(node));
-}
+/// 543. Diameter of Binary Tree
+//static void main() {
+//    TreeNode node = new TreeNode(1);
+//    node.left = new TreeNode(2);
+//
+//    System.out.println(DiameterBT2.diameterOfBT(node));
+//}
 
 
 ///  981. Time Based Key-Value Store

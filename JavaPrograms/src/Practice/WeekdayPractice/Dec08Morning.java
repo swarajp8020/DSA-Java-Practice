@@ -1,35 +1,78 @@
 package Practice.WeekdayPractice;
 
-public class Dec08Morning {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-    /// 4. Median of Two Sorted Arrays
-    static void main() {
-        int[] A = {1,2};
-        int[] B = {3,4};
-        System.out.println(medianTwoSortedArrays(A,B));
+class TimeMap11{
+    static HashMap<String, List<Pair>> map;
+    public TimeMap11(){
+        map = new HashMap<>();
     }
-    static double medianTwoSortedArrays(int[] A, int[] B){
-        int n = A.length;
-        int m = B.length;
-        int low =0, high =n;
-        while (low<=high){
-            int cutA = (high+low)/2;
-            int cutB = (n+m+1)/2-cutA;
-            int Aleft = (cutA==0)?Integer.MIN_VALUE:A[cutA-1];
-            int Aright = (cutA==n)?Integer.MAX_VALUE:A[cutA];
-            int Bleft = (cutB==0)?Integer.MIN_VALUE:B[cutB-1];
-            int Bright = (cutB==m)?Integer.MAX_VALUE:B[cutB];
-            if (Aleft<=Bright && Bleft<=Aright){
-                if ((n+m)%2==0){
-                    return (Math.max(Aleft,Bleft)+Math.min(Aright,Bright))/2.0;
-                }
-                return Math.max(Aleft,Bleft);
-            } else if (Aleft > Bright){
-                high = cutA-1;
-            } else low = cutA+1;
+    static class Pair{
+        int time;
+        String value;
+        Pair(int t, String v){
+            time = t;
+            value = v;
         }
-        return 0;
     }
+
+    static void set(String key, String value, int timestamp){
+        map.putIfAbsent(key, new ArrayList<>());
+        map.get(key).add(new Pair(timestamp,value));
+    }
+    public static String get(String key, int timestamp){
+        if (!map.containsKey(key)) return "";
+        List<Pair> list = map.get(key);
+        int low = 0, high = list.size()-1;
+        String result = "";
+        while (low<=high){
+            int mid = low+(high-low)/2;
+            if (list.get(mid).time <= timestamp){
+                result = list.get(mid).value;
+                low = mid+1;
+            } else high = mid-1;
+        }
+        return result;
+    }
+}
+
+public class Dec08Morning {
+///  981. Time Based Key-Value Store
+public static void main(String[] args) {
+    TimeMap11 map = new TimeMap11();
+    map.set("sos","siuuu", 7);
+    System.out.println(map.get("sos", 4));
+}
+    /// 4. Median of Two Sorted Arrays
+//    static void main() {
+//        int[] A = {1,2};
+//        int[] B = {3,4};
+//        System.out.println(medianTwoSortedArrays(A,B));
+//    }
+//    static double medianTwoSortedArrays(int[] A, int[] B){
+//        int n = A.length;
+//        int m = B.length;
+//        int low =0, high =n;
+//        while (low<=high){
+//            int cutA = (high+low)/2;
+//            int cutB = (n+m+1)/2-cutA;
+//            int Aleft = (cutA==0)?Integer.MIN_VALUE:A[cutA-1];
+//            int Aright = (cutA==n)?Integer.MAX_VALUE:A[cutA];
+//            int Bleft = (cutB==0)?Integer.MIN_VALUE:B[cutB-1];
+//            int Bright = (cutB==m)?Integer.MAX_VALUE:B[cutB];
+//            if (Aleft<=Bright && Bleft<=Aright){
+//                if ((n+m)%2==0){
+//                    return (Math.max(Aleft,Bleft)+Math.min(Aright,Bright))/2.0;
+//                }
+//                return Math.max(Aleft,Bleft);
+//            } else if (Aleft > Bright){
+//                high = cutA-1;
+//            } else low = cutA+1;
+//        }
+//        return 0;
+//    }
 
     /// 410. Split Array Largest Sum
 //    static void main() {

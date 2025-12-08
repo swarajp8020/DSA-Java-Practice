@@ -62,31 +62,49 @@ import java.util.List;
 //        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
 //    }
 //}
-class Solution{
-    public boolean isBalanced(TreeNode root){
-        return dfs(root)!=-1;
-    }
-    private static int dfs(TreeNode node){
-        if (node == null) return 0;
-        int left = dfs(node.left);
-        int right = dfs(node.right);
-        if (left == -1 || right ==-1) return -1;
-        if (Math.abs(left-right)>1) return -1;
-        return 1+Math.max(left,right);
+//class Solution{
+//    public boolean isBalanced(TreeNode root){
+//        return dfs(root)!=-1;
+//    }
+//    private static int dfs(TreeNode node){
+//        if (node == null) return 0;
+//        int left = dfs(node.left);
+//        int right = dfs(node.right);
+//        if (left == -1 || right ==-1) return -1;
+//        if (Math.abs(left-right)>1) return -1;
+//        return 1+Math.max(left,right);
+//    }
+//}
+class Solution2{
+    public static int maxDepth(TreeNode root){
+        if (root==null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return 1+ Math.max(left,right);
     }
 }
+
 public class Dec08Morning {
-    /// 110. Balanced Binary Tree {peeked 5 times}
 
     static void main() {
-    TreeNode node = new TreeNode(3);
-    node.left = new TreeNode(9);
-    node.right = new TreeNode(20);
-    node.right.left = new TreeNode(15);
-    node.right.right = new TreeNode(7);
-    Solution solution = new Solution();
-    System.out.println(solution.isBalanced(node));
-}
+        TreeNode node = new TreeNode(3);
+        node.left = new TreeNode(9);
+        node.right = new TreeNode(20);
+        node.right.left = new TreeNode(15);
+        node.right.right = new TreeNode(7);
+        System.out.println(Solution2.maxDepth(node));
+    }
+    /// 110. Balanced Binary Tree {peeked 5 times}
+//
+//    static void main() {
+//    TreeNode node = new TreeNode(3);
+//    node.left = new TreeNode(9);
+//    node.right = new TreeNode(20);
+//    node.right.left = new TreeNode(15);
+//    node.right.right = new TreeNode(7);
+//    Solution solution = new Solution();
+//    System.out.println(solution.isBalanced(node));
+//}
 
     /// 100. Same Tree
 //    static void main() {

@@ -4,47 +4,73 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class TimeMap11{
-    static HashMap<String, List<Pair>> map;
-    public TimeMap11(){
-        map = new HashMap<>();
+//class TimeMap11{
+//    static HashMap<String, List<Pair>> map;
+//    public TimeMap11(){
+//        map = new HashMap<>();
+//    }
+//    static class Pair{
+//        int time;
+//        String value;
+//        Pair(int t, String v){
+//            time = t;
+//            value = v;
+//        }
+//    }
+//
+//    static void set(String key, String value, int timestamp){
+//        map.putIfAbsent(key, new ArrayList<>());
+//        map.get(key).add(new Pair(timestamp,value));
+//    }
+//    public static String get(String key, int timestamp){
+//        if (!map.containsKey(key)) return "";
+//        List<Pair> list = map.get(key);
+//        int low = 0, high = list.size()-1;
+//        String result = "";
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (list.get(mid).time <= timestamp){
+//                result = list.get(mid).value;
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return result;
+//    }
+//}
+class DiameterBT2{
+    static int diameterOfBT(TreeNode root){
+        diameter = 0;
+        height(root);
+        return diameter;
     }
-    static class Pair{
-        int time;
-        String value;
-        Pair(int t, String v){
-            time = t;
-            value = v;
-        }
+    static int diameter =0;
+    static int height(TreeNode node){
+        if (node == null) return 0;
+        int left = height(node.left);
+        int right = height(node.right);
+        diameter = Math.max(diameter, left+right);
+        return 1+Math.max(left,right);
     }
 
-    static void set(String key, String value, int timestamp){
-        map.putIfAbsent(key, new ArrayList<>());
-        map.get(key).add(new Pair(timestamp,value));
-    }
-    public static String get(String key, int timestamp){
-        if (!map.containsKey(key)) return "";
-        List<Pair> list = map.get(key);
-        int low = 0, high = list.size()-1;
-        String result = "";
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (list.get(mid).time <= timestamp){
-                result = list.get(mid).value;
-                low = mid+1;
-            } else high = mid-1;
-        }
-        return result;
-    }
 }
-
 public class Dec08Morning {
-///  981. Time Based Key-Value Store
-public static void main(String[] args) {
-    TimeMap11 map = new TimeMap11();
-    map.set("sos","siuuu", 7);
-    System.out.println(map.get("sos", 4));
+/// 543. Diameter of Binary Tree
+static void main() {
+    TreeNode node = new TreeNode(1);
+    node.left = new TreeNode(2);
+    node.right = new TreeNode(3);
+    node.left.left =new TreeNode(4);
+    node.left.right = new  TreeNode(5);
+    System.out.println(DiameterBT2.diameterOfBT(node));
 }
+
+
+///  981. Time Based Key-Value Store
+//public static void main(String[] args) {
+//    TimeMap11 map = new TimeMap11();
+//    map.set("sos","siuuu", 7);
+//    System.out.println(map.get("sos", 4));
+//}
     /// 4. Median of Two Sorted Arrays
 //    static void main() {
 //        int[] A = {1,2};

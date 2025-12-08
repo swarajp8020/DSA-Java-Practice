@@ -85,7 +85,7 @@ class Solution2{
 }
 
 public class Dec08Morning {
-/// 104. Maximum Depth of Binary Tree
+/// 104. Maximum Depth of Binary Tree (peeked 1 time only)
     static void main() {
         TreeNode node = new TreeNode(1);
         node.left = new TreeNode(2);

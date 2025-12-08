@@ -54,7 +54,7 @@ import java.util.List;
 //
 //}
 
-class BalancedBT{
+class SameTree{
     static boolean isSameTree(TreeNode p, TreeNode q){
         if (p == null && q == null) return true;
         if (p == null || q == null) return false;
@@ -71,7 +71,7 @@ public class Dec08Morning {
         TreeNode b = new TreeNode(1);
         b.left = new TreeNode(2);
         b.right = new TreeNode(3);
-        System.out.println(BalancedBT.isSameTree(a,b));
+        System.out.println(SameTree.isSameTree(a,b));
     }
 
 /// 543. Diameter of Binary Tree

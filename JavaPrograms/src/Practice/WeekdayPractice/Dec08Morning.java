@@ -87,11 +87,9 @@ class Solution2{
 public class Dec08Morning {
 /// 104. Maximum Depth of Binary Tree
     static void main() {
-        TreeNode node = new TreeNode(3);
-        node.left = new TreeNode(9);
-        node.right = new TreeNode(20);
-        node.right.left = new TreeNode(15);
-        node.right.right = new TreeNode(7);
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+
         System.out.println(Solution2.maxDepth(node));
     }
     /// 110. Balanced Binary Tree {peeked 5 times}

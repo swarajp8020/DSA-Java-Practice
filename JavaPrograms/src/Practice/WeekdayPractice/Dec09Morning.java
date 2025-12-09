@@ -59,26 +59,60 @@ import java.util.List;
 //    }
 //}
 public class Dec09Morning {
+    ///  BS First/Last Occurrence
+    static void main() {
+        int[] arr = {2,5,7,9,12};
+        int target = 9;
+        System.out.println(first(arr,target));
+        System.out.println(last(arr,target));
+    }
+    static int first(int[] arr, int target){
+        int low=0, high =arr.length-1,ans =high;
+        while (low<=high){
+            int mid = low+(high-low)/2;
+            if (arr[mid] == target){
+                ans = mid;
+                high =mid-1;
+            } else if (arr[mid]<target) {
+                low = mid+1;
+            } else high = mid-1;
+        }
+        return ans;
+    }
+    static int last(int[] arr, int target){
+        int low=0, high =arr.length-1,ans =high;
+        while (low<=high){
+            int mid = low+(high-low)/2;
+            if (arr[mid] == target){
+                ans = mid;
+                low = mid+1;
+            } else if (arr[mid]<target) {
+                low = mid+1;
+            } else high = mid-1;
+        }
+        return ans;
+    }
+
     /// Find smallest number whose square ≥ N
     /// Input: N=40
     /// Smallest integer ≥ root = 7
     /// We binary-search range [1..N]
     /// BinarySearchAnswer
-    static void main() {
-        int N = 40;
-        System.out.println(sqrtCeil(N));
-    }
-    static int sqrtCeil(int N){
-        int low =0, high = N, ans = high;
-        while (low<=high){
-            int mid =low+(high-low)/2;
-            if (mid*mid>=N){
-                ans = mid;
-                high = mid-1;
-            } else low =mid+1;
-        }
-        return ans;
-    }
+//    static void main() {
+//        int N = 40;
+//        System.out.println(sqrtCeil(N));
+//    }
+//    static int sqrtCeil(int N){
+//        int low =0, high = N, ans = high;
+//        while (low<=high){
+//            int mid =low+(high-low)/2;
+//            if (mid*mid>=N){
+//                ans = mid;
+//                high = mid-1;
+//            } else low =mid+1;
+//        }
+//        return ans;
+//    }
 
     /// Binary Search binarySearch
 //    static void main() {

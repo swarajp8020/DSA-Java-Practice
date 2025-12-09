@@ -1,9 +1,6 @@
 package Practice.WeekdayPractice;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 //class TimeMap31{
 //    static HashMap<String , List<Pair4>> map;
@@ -58,29 +55,61 @@ import java.util.List;
 //        return 1+Math.max(left,right);
 //    }
 //}
-public class Dec09Morning {
-    /// RotateArray
-
-    static void main() {
-        int[] arr = {4,5,6,7,0,1,2};
-        int target = 0;
-        System.out.println(rotatedArrays(arr,target));
-    }
-    static int rotatedArrays(int[] arr, int target){
-        int low =0, high =arr.length-1;
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (arr[mid] == target)return mid;
-            if (arr[mid]>target){
-                if (arr[low]<= target && target <= arr[mid])high = mid-1;
-                else low = mid+1;
-            } else {
-                if (arr[mid]<=target && target<=arr[high]) low = mid+1;
-                else high = mid-1;
+class Solution{
+    public List<List<Integer>> levelOrderTraversal(TreeNode root){
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = q.poll();
+                level.add(node.val);
+                if (node.left!=null)q.add(node.left);
+                if (node.right!=null)q.add(node.right);
             }
+            result.add(level);
         }
-        return -1;
+        return result;
     }
+}
+public class Dec09Morning {
+
+    /// LevelOrderTraversal BT
+    static void main() {
+    TreeNode node = new TreeNode(5);
+    node.left = new TreeNode(4);
+    node.right = new TreeNode(3);
+    node.left.left = new TreeNode(2);
+    node.left.right = new TreeNode(1);
+    Solution solution = new Solution();
+        System.out.println(solution.levelOrderTraversal(node));
+    }
+
+//    /// RotateArray
+//
+//    static void main() {
+//        int[] arr = {4,5,6,7,0,1,2};
+//        int target = 0;
+//        System.out.println(rotatedArrays(arr,target));
+//    }
+//    static int rotatedArrays(int[] arr, int target){
+//        int low =0, high =arr.length-1;
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (arr[mid] == target)return mid;
+//            if (arr[mid]>target){
+//                if (arr[low]<= target && target <= arr[mid])high = mid-1;
+//                else low = mid+1;
+//            } else {
+//                if (arr[mid]<=target && target<=arr[high]) low = mid+1;
+//                else high = mid-1;
+//            }
+//        }
+//        return -1;
+//    }
 
     ///  BS First/Last Occurrence
 //    static void main() {

@@ -36,26 +36,46 @@ import java.util.List;
 //        return ans;
 //    }
 //}
-class MaxDepth1{
-    static int maxDepth(TreeNode root){
-        if (root == null )return 0;
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
+//class MaxDepth1{
+//    static int maxDepth(TreeNode root){
+//        if (root == null )return 0;
+//        int left = maxDepth(root.left);
+//        int right = maxDepth(root.right);
+//        return 1+Math.max(left,right);
+//    }
+//}
+class BalanceBT{
+    static boolean isBalance(TreeNode root){
+        return dfs(root)!=-1;
+    }
+    static int dfs(TreeNode node){
+        if (node == null) return 0;
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+        if (left == -1 || right == -1)return -1;
+        if (Math.abs(left-right)>1) return -1;
         return 1+Math.max(left,right);
     }
 }
-
 public class Dec09Morning {
-
-/// 104. Maximum Depth of Binary Tree
-static void main() {
+    /// 110. Balanced Binary Tree (Peeked 3 times)
+    static void main() {
     TreeNode node = new TreeNode(5);
     node.left = new TreeNode(4);
     node.right = new TreeNode(3);
     node.right.left = new TreeNode(2);
     node.right.right = new TreeNode(1);
-    System.out.println(MaxDepth1.maxDepth(node));
-}
+        System.out.println(BalanceBT.isBalance(node));
+    }
+/// 104. Maximum Depth of Binary Tree
+//static void main() {
+//    TreeNode node = new TreeNode(5);
+//    node.left = new TreeNode(4);
+//    node.right = new TreeNode(3);
+//    node.right.left = new TreeNode(2);
+//    node.right.right = new TreeNode(1);
+//    System.out.println(MaxDepth1.maxDepth(node));
+//}
     /// 981. Time Based Key-Value Store
 //    static void main() {
 //        TimeMap31 map = new TimeMap31();

@@ -1,6 +1,7 @@
 package Practice.WeekdayPractice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,29 +45,76 @@ import java.util.List;
 //        return 1+Math.max(left,right);
 //    }
 //}
-class BalanceBT{
-    static boolean isBalance(TreeNode root){
-        return dfs(root)!=-1;
-    }
-    static int dfs(TreeNode node){
-        if (node == null) return 0;
-        int left = dfs(node.left);
-        int right = dfs(node.right);
-        if (left == -1 || right == -1)return -1;
-        if (Math.abs(left-right)>1) return -1;
-        return 1+Math.max(left,right);
-    }
-}
+//class BalanceBT{
+//    static boolean isBalance(TreeNode root){
+//        return dfs(root)!=-1;
+//    }
+//    static int dfs(TreeNode node){
+//        if (node == null) return 0;
+//        int left = dfs(node.left);
+//        int right = dfs(node.right);
+//        if (left == -1 || right == -1)return -1;
+//        if (Math.abs(left-right)>1) return -1;
+//        return 1+Math.max(left,right);
+//    }
+//}
 public class Dec09Morning {
-    /// 110. Balanced Binary Tree (Peeked 3 times)
+    /// Find smallest number whose square ≥ N
+    /// Input: N=40
+    /// Smallest integer ≥ root = 7
+    /// We binary-search range [1..N]
+    /// BinarySearchAnswer
     static void main() {
-    TreeNode node = new TreeNode(5);
-    node.left = new TreeNode(4);
-    node.right = new TreeNode(3);
-    node.right.left = new TreeNode(2);
-    node.right.right = new TreeNode(1);
-        System.out.println(BalanceBT.isBalance(node));
+        int N = 40;
+        System.out.println(sqrtCeil(N));
     }
+    static int sqrtCeil(int N){
+        int low =0, high = N, ans = high;
+        while (low<=high){
+            int mid =low+(high-low)/2;
+            if (mid*mid>=N){
+                ans = mid;
+                high = mid-1;
+            } else low =mid+1;
+        }
+        return ans;
+    }
+
+    /// Binary Search binarySearch
+//    static void main() {
+//        int[] arr = {3,13,45,23,44};
+//        int target = 23;
+//        Arrays.sort(arr);
+//        System.out.println("Arrays: "+Arrays.toString(arr));
+//        int res = search(arr,target);
+//        if (res == -1){
+//            System.out.println("not found");
+//        } else {
+//            System.out.println("found: "+res);
+//        }
+//    }
+//    static int search(int[] arr, int target){
+//        int low = 0, high = arr.length-1;
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (arr[mid] == target){
+//                return mid;
+//            } else if (arr[mid]<target){
+//                high = mid-1;
+//            } else low =mid+1;
+//        }
+//        return -1;
+//    }
+
+    /// 110. Balanced Binary Tree (Peeked 3 times)
+//    static void main() {
+//    TreeNode node = new TreeNode(5);
+//    node.left = new TreeNode(4);
+//    node.right = new TreeNode(3);
+//    node.right.left = new TreeNode(2);
+//    node.right.right = new TreeNode(1);
+//        System.out.println(BalanceBT.isBalance(node));
+//    }
 /// 104. Maximum Depth of Binary Tree
 //static void main() {
 //    TreeNode node = new TreeNode(5);

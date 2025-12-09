@@ -5,7 +5,7 @@ public class Dec10Morning {
     /// 875. Koko Eating Bananas
     static void main() {
         int[] piles = {30,11,23,4,20};
-        int h = 5;
+        int h = 6;
         System.out.println(minEatingSpeed(piles,h));
     }
     static int minEatingSpeed(int[] piles, int h){

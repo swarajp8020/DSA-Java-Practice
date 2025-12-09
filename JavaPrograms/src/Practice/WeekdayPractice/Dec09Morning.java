@@ -59,39 +59,62 @@ import java.util.List;
 //    }
 //}
 public class Dec09Morning {
-    ///  BS First/Last Occurrence
+    /// RotateArray
+
     static void main() {
-        int[] arr = {2,5,7,9,12};
-        int target = 9;
-        System.out.println(first(arr,target));
-        System.out.println(last(arr,target));
+        int[] arr = {4,5,6,7,0,1,2};
+        int target = 0;
+        System.out.println(rotatedArrays(arr,target));
     }
-    static int first(int[] arr, int target){
-        int low=0, high =arr.length-1,ans =high;
+    static int rotatedArrays(int[] arr, int target){
+        int low =0, high =arr.length-1;
         while (low<=high){
             int mid = low+(high-low)/2;
-            if (arr[mid] == target){
-                ans = mid;
-                high =mid-1;
-            } else if (arr[mid]<target) {
-                low = mid+1;
-            } else high = mid-1;
+            if (arr[mid] == target)return mid;
+            if (arr[mid]>target){
+                if (arr[low]<= target && target <= arr[mid])high = mid-1;
+                else low = mid+1;
+            } else {
+                if (arr[mid]<=target && target<=arr[high]) low = mid+1;
+                else high = mid-1;
+            }
         }
-        return ans;
+        return -1;
     }
-    static int last(int[] arr, int target){
-        int low=0, high =arr.length-1,ans =high;
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (arr[mid] == target){
-                ans = mid;
-                low = mid+1;
-            } else if (arr[mid]<target) {
-                low = mid+1;
-            } else high = mid-1;
-        }
-        return ans;
-    }
+
+    ///  BS First/Last Occurrence
+//    static void main() {
+//        int[] arr = {2,5,7,9,12};
+//        int target = 9;
+//        System.out.println(first(arr,target));
+//        System.out.println(last(arr,target));
+//    }
+//    static int first(int[] arr, int target){
+//        int low=0, high =arr.length-1,ans =high;
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (arr[mid] == target){
+//                ans = mid;
+//                high =mid-1;
+//            } else if (arr[mid]<target) {
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return ans;
+//    }
+//    static int last(int[] arr, int target){
+//        int low=0, high =arr.length-1,ans =high;
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (arr[mid] == target){
+//                ans = mid;
+//                low = mid+1;
+//            } else if (arr[mid]<target) {
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return ans;
+//    }
 
     /// Find smallest number whose square ≥ N
     /// Input: N=40

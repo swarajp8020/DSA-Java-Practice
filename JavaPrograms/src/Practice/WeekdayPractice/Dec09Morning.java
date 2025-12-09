@@ -4,45 +4,64 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-class TimeMap31{
-    static HashMap<String , List<Pair4>> map;
-    static class Pair4{
-        int time;
-        String value;
-        Pair4(int t, String v){
-            time =t;
-            value = v;
-        }
-    }
-    public TimeMap31(){
-        map = new HashMap<>();
-    }
-    static void set(String key, String value, int timestamp){
-        map.putIfAbsent(key,new ArrayList<>());
-        map.get(key).add(new Pair4(timestamp,value));
-    }
-    static String  get(String key, int timestamp){
-        if (!map.containsKey(key))return "";
-        List<Pair4> list = map.get(key);
-        int low = 0, high = list.size()-1;
-        String ans = "";
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (list.get(mid).time <= timestamp) {
-                ans = list.get(mid).value;
-                low = mid+1;
-            } else high = mid-1;
-        }
-        return ans;
+//class TimeMap31{
+//    static HashMap<String , List<Pair4>> map;
+//    static class Pair4{
+//        int time;
+//        String value;
+//        Pair4(int t, String v){
+//            time =t;
+//            value = v;
+//        }
+//    }
+//    public TimeMap31(){
+//        map = new HashMap<>();
+//    }
+//    static void set(String key, String value, int timestamp){
+//        map.putIfAbsent(key,new ArrayList<>());
+//        map.get(key).add(new Pair4(timestamp,value));
+//    }
+//    static String  get(String key, int timestamp){
+//        if (!map.containsKey(key))return "";
+//        List<Pair4> list = map.get(key);
+//        int low = 0, high = list.size()-1;
+//        String ans = "";
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (list.get(mid).time <= timestamp) {
+//                ans = list.get(mid).value;
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return ans;
+//    }
+//}
+class MaxDepth1{
+    static int maxDepth(TreeNode root){
+        if (root == null )return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return 1+Math.max(left,right);
     }
 }
+
 public class Dec09Morning {
+
+/// 104. Maximum Depth of Binary Tree
+static void main() {
+    TreeNode node = new TreeNode(5);
+    node.left = new TreeNode(4);
+    node.right = new TreeNode(3);
+    node.right.left = new TreeNode(2);
+    node.right.right = new TreeNode(1);
+    System.out.println(MaxDepth1.maxDepth(node));
+}
     /// 981. Time Based Key-Value Store
-    static void main() {
-        TimeMap31 map = new TimeMap31();
-        map.set("soo", "siu", 4);
-        System.out.println(map.get("soo",4));
-    }
+//    static void main() {
+//        TimeMap31 map = new TimeMap31();
+//        map.set("soo", "siu", 4);
+//        System.out.println(map.get("soo",4));
+//    }
     /// 4. Median of Two Sorted Arrays
 //    static void main() {
 //        int[] A = {1,2};

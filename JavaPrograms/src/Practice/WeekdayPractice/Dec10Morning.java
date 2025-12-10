@@ -4,8 +4,8 @@ public class Dec10Morning {
 
     /// 4. Median of Two Sorted Arrays
     static void main() {
-        int[] A = {1,3};
-        int[] B = {2};
+        int[] A = {1,2};
+        int[] B = {3,4};
         System.out.println(findMedianSortedArrays(A,B));
     }
     static double findMedianSortedArrays(int[]A, int[]B){
@@ -17,8 +17,8 @@ public class Dec10Morning {
             int cutB = (n+m+1)/2-cutA;
             int Aleft = (cutA == 0) ? Integer.MIN_VALUE : A[cutA-1];
             int Aright = (cutA == n) ? Integer.MAX_VALUE : A[cutA];
-            int Bleft = (cutB == 0) ? Integer.MIN_VALUE : B[cutA-1];
-            int Bright = (cutB == m) ? Integer.MAX_VALUE : B[cutA];
+            int Bleft = (cutB == 0) ? Integer.MIN_VALUE : B[cutB-1];
+            int Bright = (cutB == m) ? Integer.MAX_VALUE : B[cutB];
             if (Aleft <= Bright && Bleft <= Aright) {
                 if ((n + m) % 2 == 0) {
                     return (Math.max(Aleft,Bleft)+Math.min(Aright,Bright))/2.0;

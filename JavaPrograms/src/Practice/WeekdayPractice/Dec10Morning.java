@@ -84,26 +84,56 @@ import java.util.*;
 //    }
 //}
 public class Dec10Morning {
-    /// InsertionSort
+    /// mergeSort
     static void main() {
-        int[] arr = {3,4,5,68,32,23};
-        insertionSort(arr);
-        System.out.print("Sorted arrays: ");
-        for (int x:arr){
-            System.out.print(x+" ");
+        int[] arr = {5, 6, 2, 4, 3};
+        mergeSort(arr, 0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void mergeSort(int[] arr, int left, int right){
+        if (left>=right)return;
+        int mid = left+(right-left)/2;
+        mergeSort(arr,left,mid);
+        mergeSort(arr,mid+1,right);
+        merge(arr,left,mid,right);
+    }
+    static void merge(int[] arr, int left, int mid, int right){
+        int[] temp = new int[right-left+1];
+        int i = left;
+        int j = mid+1;
+        int k = 0;
+        while (i <= mid && j <= right) {
+            if (arr[i]<arr[j]){
+                temp[k++] = arr[i++];
+            } else temp[k++] = arr[j++];
+        }
+        while (i<=mid) temp[k++] = arr[i++];
+        while (j<=right) temp[k++] = arr[j++];
+        for (int l = 0; l < temp.length; l++) {
+            arr[left+l] = temp[l];
         }
     }
-    static void insertionSort(int[]arr){
-        for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
-            int j = i-1;
-            while (j >= 0 && arr[j] > key) {
-                arr[j+1] = arr[j];
-                j--;
-            }
-            arr[j+1] = key;
-        }
-    }
+
+    /// InsertionSort
+//    static void main() {
+//        int[] arr = {3,4,5,68,32,23};
+//        insertionSort(arr);
+//        System.out.print("Sorted arrays: ");
+//        for (int x:arr){
+//            System.out.print(x+" ");
+//        }
+//    }
+//    static void insertionSort(int[]arr){
+//        for (int i = 1; i < arr.length; i++) {
+//            int key = arr[i];
+//            int j = i-1;
+//            while (j >= 0 && arr[j] > key) {
+//                arr[j+1] = arr[j];
+//                j--;
+//            }
+//            arr[j+1] = key;
+//        }
+//    }
     ///  Selection Sort
 //    static void main() {
 //        int[] arr = {3,4,5,68,32,23};

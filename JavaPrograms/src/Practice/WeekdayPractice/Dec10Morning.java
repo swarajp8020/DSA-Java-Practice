@@ -84,28 +84,48 @@ import java.util.*;
 //    }
 //}
 public class Dec10Morning {
-    ///  Selection Sort
+    /// InsertionSort
     static void main() {
         int[] arr = {3,4,5,68,32,23};
-        selectionSort(arr);
+        insertionSort(arr);
         System.out.print("Sorted arrays: ");
         for (int x:arr){
             System.out.print(x+" ");
         }
     }
-    static void selectionSort(int[] arr){
-        for (int i = 0; i < arr.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i+1; j < arr.length; j++) {
-                if (arr[j]<arr[minIndex]){
-                    minIndex = j;
-                }
-                int temp = arr[i];
-                arr[i] = arr[minIndex];
-                arr[minIndex] = temp;
+    static void insertionSort(int[]arr){
+        for (int i = 1; i < arr.length; i++) {
+            int key = arr[i];
+            int j = i-1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j+1] = arr[j];
+                j--;
             }
+            arr[j+1] = key;
         }
     }
+    ///  Selection Sort
+//    static void main() {
+//        int[] arr = {3,4,5,68,32,23};
+//        selectionSort(arr);
+//        System.out.print("Sorted arrays: ");
+//        for (int x:arr){
+//            System.out.print(x+" ");
+//        }
+//    }
+//    static void selectionSort(int[] arr){
+//        for (int i = 0; i < arr.length - 1; i++) {
+//            int minIndex = i;
+//            for (int j = i+1; j < arr.length; j++) {
+//                if (arr[j]<arr[minIndex]){
+//                    minIndex = j;
+//                }
+//                int temp = arr[i];
+//                arr[i] = arr[minIndex];
+//                arr[minIndex] = temp;
+//            }
+//        }
+//    }
 
     /// bubbleSort
 //    static void main() {

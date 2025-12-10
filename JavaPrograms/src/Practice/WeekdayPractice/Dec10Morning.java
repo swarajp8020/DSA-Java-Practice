@@ -1,9 +1,7 @@
 package Practice.WeekdayPractice;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 //class TimeMap4{
 //    static HashMap<String, List<Pair4>> map;
@@ -37,24 +35,56 @@ import java.util.List;
 //        return answer;
 //    }
 //}
-class MaxDepth3{
-    public static int maxDepth(TreeNode root){
-        if (root == null) return 0;
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
-        return 1 + Math.max(left,right);
+//class MaxDepth3{
+//    public static int maxDepth(TreeNode root){
+//        if (root == null) return 0;
+//        int left = maxDepth(root.left);
+//        int right = maxDepth(root.right);
+//        return 1 + Math.max(left,right);
+//    }
+//}
+class Solution3 {
+    public List<List<Integer>> levelOrder(TreeNode root){
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = q.poll();
+                level.add(node.val);
+                if (node.left!=null)q.add(node.left);
+                if (node.right!=null)q.add(node.right);
+            }
+            result.add(level);
+        }
+        return result;
     }
 }
 public class Dec10Morning {
-    /// 104. Maximum Depth of Binary Tree
+
+    /// 102. Binary Tree Level Order Traversal
     static void main() {
         TreeNode node = new TreeNode(5);
         node.left = new TreeNode(4);
         node.right = new TreeNode(3);
         node.left.left = new TreeNode(2);
         node.left.right = new TreeNode(1);
-        System.out.println(MaxDepth3.maxDepth(node));
+        Solution3 sol = new Solution3();
+        System.out.println(sol.levelOrder(node));
     }
+
+    /// 104. Maximum Depth of Binary Tree
+//    static void main() {
+//        TreeNode node = new TreeNode(5);
+//        node.left = new TreeNode(4);
+//        node.right = new TreeNode(3);
+//        node.left.left = new TreeNode(2);
+//        node.left.right = new TreeNode(1);
+//        System.out.println(MaxDepth3.maxDepth(node));
+//    }
 
     /// 981. Time Based Key-Value Store
 //    static void main() {

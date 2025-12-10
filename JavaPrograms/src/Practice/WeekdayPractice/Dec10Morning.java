@@ -63,37 +63,61 @@ import java.util.*;
 //        return result;
 //    }
 //}
-class Solution34 {
-        public List<Integer> rightSideView(TreeNode root){
-        List<Integer> result = new ArrayList<>();
-        if (root == null) return result;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            int size = q.size();
-            TreeNode last = null;
-            for (int i = 0; i < size; i++) {
-                TreeNode node = q.poll();
-                last = node;
-                if (node.left!=null)q.add(node.left);
-                if (node.right!=null)q.add(node.right);
-            }
-            result.add(last.val);
-        }
-        return result;
-    }
-}
+//class Solution34 {
+//        public List<Integer> rightSideView(TreeNode root){
+//        List<Integer> result = new ArrayList<>();
+//        if (root == null) return result;
+//        Queue<TreeNode> q = new LinkedList<>();
+//        q.add(root);
+//        while (!q.isEmpty()) {
+//            int size = q.size();
+//            TreeNode last = null;
+//            for (int i = 0; i < size; i++) {
+//                TreeNode node = q.poll();
+//                last = node;
+//                if (node.left!=null)q.add(node.left);
+//                if (node.right!=null)q.add(node.right);
+//            }
+//            result.add(last.val);
+//        }
+//        return result;
+//    }
+//}
 public class Dec10Morning {
-    /// 199. Binary Tree Right Side View
+
+    /// bubbleSort
     static void main() {
-        TreeNode node = new TreeNode(5);
-        node.left = new TreeNode(4);
-        node.right = new TreeNode(3);
-        node.left.left = new TreeNode(2);
-        node.left.right = new TreeNode(1);
-        Solution34 sol = new Solution34();
-        System.out.println(sol.rightSideView(node));
+        int[] arr = {3,4,5,68,32,23};
+        bubbleSort(arr);
+        System.out.print("Sorted arrays: ");
+        for (int x:arr){
+            System.out.print(x+" ");
+        }
     }
+    static void bubbleSort(int[] arr){
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length-1-i; j++) {
+                if (arr[j]>arr[j+1]){
+                    int temp =arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+
+
+    /// 199. Binary Tree Right Side View
+//    static void main() {
+//        TreeNode node = new TreeNode(5);
+//        node.left = new TreeNode(4);
+//        node.right = new TreeNode(3);
+//        node.left.left = new TreeNode(2);
+//        node.left.right = new TreeNode(1);
+//        Solution34 sol = new Solution34();
+//        System.out.println(sol.rightSideView(node));
+//    }
     /// 102. Binary Tree Level Order Traversal
 //    static void main() {
 //        TreeNode node = new TreeNode(5);

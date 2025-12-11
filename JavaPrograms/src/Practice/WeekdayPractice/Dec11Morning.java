@@ -78,24 +78,44 @@ import java.util.*;
 
 public class Dec11Morning {
 
-    /// mergeTwoSortedArrays
-    static void main(String[] args) {
-        int[] a = {1,3,5,7};
-        int[] b = {2,4,6,8};
-        int[] res = merge(a, b);
-        System.out.println(Arrays.toString(res));
+    /// BinaryTreePathsSolution
+    public List<String> treePathSolu(TreeNode root){
+        List<String> res = new ArrayList<>();
+        if (root == null) return res;
+        dfs(root, String.valueOf(root.val),res);
+        return res;
     }
-    static int[] merge(int[] a,int[]b){
-        int[] temp = new int[a.length+b.length];
-        int i = 0, j = 0, k=0;
-        while (i<a.length & j <b.length){
-            if (a[i]<= b[j])temp[k++]=a[i++];
-            else temp[k++]=b[j++];
+    static void dfs(TreeNode node, String path, List<String>res){
+        if (node.left == null && node.right == null){
+            res.add(path);
+            return;
         }
-        while (i<a.length)temp[k++]=a[i++];
-        while (j<b.length)temp[k++]=b[j++];
-        return temp;
+        if (node.left != null) {
+            dfs(node.left, path+"->"+node.left,res);
+        }
+        if (node.right!=null){
+            dfs(node.right,path+"->"+node.right,res);
+        }
     }
+
+    /// mergeTwoSortedArrays
+//    static void main(String[] args) {
+//        int[] a = {1,3,5,7};
+//        int[] b = {2,4,6,8};
+//        int[] res = merge(a, b);
+//        System.out.println(Arrays.toString(res));
+//    }
+//    static int[] merge(int[] a,int[]b){
+//        int[] temp = new int[a.length+b.length];
+//        int i = 0, j = 0, k=0;
+//        while (i<a.length & j <b.length){
+//            if (a[i]<= b[j])temp[k++]=a[i++];
+//            else temp[k++]=b[j++];
+//        }
+//        while (i<a.length)temp[k++]=a[i++];
+//        while (j<b.length)temp[k++]=b[j++];
+//        return temp;
+//    }
     /// Quick Sort DNF
 //    static void main() {
 //        int[] arr = {7,5,1,8,0,2,-1,4,1};

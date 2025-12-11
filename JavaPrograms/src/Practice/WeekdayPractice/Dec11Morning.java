@@ -78,32 +78,70 @@ import java.util.*;
 
 public class Dec11Morning {
 
-    ///  Quick Sort Hoare
+    /// Quick Sort DNF
     static void main() {
-        int[] arr = {7, 5, 8, 2, 4, 1};
-        quickSortHoare(arr, 0, arr.length-1);
+        int[] arr = {7,5,1,8,0,2,-1,4,1};
+        quickSortDNF(arr, 0 ,arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-    static void quickSortHoare(int[] arr, int left, int right){
+    static void quickSortDNF(int[] arr, int left, int right){
         if (left>=right)return;
-        int pivotIndex = lomuto(arr,left,right);
-        quickSortHoare(arr,left,pivotIndex);
-        quickSortHoare(arr,pivotIndex+1,right);
+        int[] bound = partitionDNF(arr,left,right);
+        int low = bound[0], high = bound[1];
+        quickSortDNF(arr, left, low-1);
+        quickSortDNF(arr,high+1,right);
     }
-    static int lomuto(int[] arr, int left, int right){
-        int pivot = arr[(right+left)/2];
-        while (true){
-            while (arr[left]<pivot)left++;
-            while (arr[right]>pivot)right--;
-            if (left>=right)return right;
-            int temp = arr[left];
-            arr[left] =arr[right];
-            arr[right] = temp;
-
-            left++;
-            right--;
+    static int[] partitionDNF(int[] arr, int left, int right){
+        int pivot = arr[(left+right)/2];
+        int low = left;
+        int mid = left;
+        int high = right;
+        while (mid <= high){
+            if (arr[mid]<pivot){
+                swap(arr,low,mid);
+                low++;
+                mid++;
+            } else if (arr[mid] == pivot) {
+                mid++;
+            } else {
+                swap(arr, mid, high);
+                high--;
+            }
         }
+        return new int[]{low, high};
     }
+    static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    ///  Quick Sort Hoare
+//    static void main() {
+//        int[] arr = {7, 5, 8, 2, 4, 1};
+//        quickSortHoare(arr, 0, arr.length-1);
+//        System.out.println(Arrays.toString(arr));
+//    }
+//    static void quickSortHoare(int[] arr, int left, int right){
+//        if (left>=right)return;
+//        int pivotIndex = lomuto(arr,left,right);
+//        quickSortHoare(arr,left,pivotIndex);
+//        quickSortHoare(arr,pivotIndex+1,right);
+//    }
+//    static int lomuto(int[] arr, int left, int right){
+//        int pivot = arr[(right+left)/2];
+//        while (true){
+//            while (arr[left]<pivot)left++;
+//            while (arr[right]>pivot)right--;
+//            if (left>=right)return right;
+//            int temp = arr[left];
+//            arr[left] =arr[right];
+//            arr[right] = temp;
+//
+//            left++;
+//            right--;
+//        }
+//    }
     ///  Quick Sort Lomuto
 //    static void main() {
 //        int[] arr = {9,6,4,2};

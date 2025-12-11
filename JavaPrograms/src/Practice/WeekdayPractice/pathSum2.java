@@ -13,11 +13,11 @@ public class pathSum2 {
     static void dfs(TreeNode node, int target, List<Integer>path, List<List<Integer>>res){
         if (node==null)return;
         path.add(node.val);
-        if (node.left == null && node.right == null && node.val == target) {
+        if (node.left== null && node.right == null && node.val == target){
             res.add(new ArrayList<>(path));
         }
-        dfs(node.left, target-node.val, path,res);
-        dfs(node.right,target-node.val,path,res);
+        dfs(node.left, target - node.val,path,res);
+        dfs(node.right, target -node.val,path,res);
         path.remove(path.size()-1);
     }
 

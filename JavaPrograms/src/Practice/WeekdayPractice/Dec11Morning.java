@@ -1,47 +1,78 @@
 package Practice.WeekdayPractice;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-class TimeMap4{
-    static HashMap<String, List<Pair5>> map;
-    static class Pair5{
-        int time;
-        String value;
-        Pair5(int t, String v){
-            time = t;
-            value = v;
+import java.util.*;
+//class TimeMap4{
+//    static HashMap<String, List<Pair5>> map;
+//    static class Pair5{
+//        int time;
+//        String value;
+//        Pair5(int t, String v){
+//            time = t;
+//            value = v;
+//        }
+//    }
+//    public TimeMap4(){
+//        map = new HashMap<>();
+//    }
+//    static void set(String key, String value, int timestamp){
+//        map.putIfAbsent(key, new ArrayList<>());
+//        map.get(key).add(new Pair5(timestamp,value));
+//    }
+//    static String get(String key, int timestamp){
+//        if (!map.containsKey(key))return "";
+//        List<Pair5> list = map.get(key);
+//        int low = 0, high = list.size()-1;
+//        String ans = "";
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (list.get(mid).time <= timestamp){
+//                ans = list.get(mid).value;
+//                low = mid+1;
+//            } else high = mid-1;
+//        }
+//        return ans;
+//    }
+//}
+
+class BinaryTreeLevelOrder{
+    public List<List<Integer>> treeLevelOrder(TreeNode root){
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            List<Integer> level = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = q.poll();
+                level.add(node.val);
+                if (node.left!=null)q.add(node.left);
+                if (node.right!=null)q.add(node.right);
+            }
+            result.add(level);
         }
-    }
-    public TimeMap4(){
-        map = new HashMap<>();
-    }
-    static void set(String key, String value, int timestamp){
-        map.putIfAbsent(key, new ArrayList<>());
-        map.get(key).add(new Pair5(timestamp,value));
-    }
-    static String get(String key, int timestamp){
-        if (!map.containsKey(key))return "";
-        List<Pair5> list = map.get(key);
-        int low = 0, high = list.size()-1;
-        String ans = "";
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (list.get(mid).time <= timestamp){
-                ans = list.get(mid).value;
-                low = mid+1;
-            } else high = mid-1;
-        }
-        return ans;
+        return result;
     }
 }
 public class Dec11Morning {
-    /// 981. Time Based Key-Value Store
+
+    /// 102. Binary Tree Level Order Traversal
     static void main() {
-        TimeMap4 map = new TimeMap4();
-        map.set("Soo", "Siuuu", 4);
-        System.out.println(map.get("soo",4));
+        TreeNode node = new TreeNode(5);
+        node.left = new TreeNode(4);
+        node.right = new TreeNode(3);
+        node.left.left = new TreeNode(2);
+        node.left.right = new TreeNode(1);
+        BinaryTreeLevelOrder sol = new BinaryTreeLevelOrder();
+        System.out.println(sol.treeLevelOrder(node));
     }
+
+    /// 981. Time Based Key-Value Store
+//    static void main() {
+//        TimeMap4 map = new TimeMap4();
+//        map.set("Soo", "Siuuu", 4);
+//        System.out.println(map.get("soo",4));
+//    }
     /// 4. Median of Two Sorted Arrays
 //    static void main() {
 //        int[] A = {1,2};

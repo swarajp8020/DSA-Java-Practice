@@ -55,39 +55,68 @@ import java.util.*;
 //    }
 //}
 
-class Sol12{
-    public List<Integer> rightSideView(TreeNode root){
-        List<Integer> result = new ArrayList<>();
-        if (root == null) return result;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            int size = q.size();
-            TreeNode last = null;
-            for (int i = 0; i < size; i++) {
-                TreeNode node = q.poll();
-                last = node;
-                if (node.left!=null)q.add(node.left);
-                if (node.right!=null)q.add(node.right);
-            }
-            result.add(last.val);
-        }
-        return result;
-    }
-}
+//class Sol12{
+//    public List<Integer> rightSideView(TreeNode root){
+//        List<Integer> result = new ArrayList<>();
+//        if (root == null) return result;
+//        Queue<TreeNode> q = new LinkedList<>();
+//        q.add(root);
+//        while (!q.isEmpty()) {
+//            int size = q.size();
+//            TreeNode last = null;
+//            for (int i = 0; i < size; i++) {
+//                TreeNode node = q.poll();
+//                last = node;
+//                if (node.left!=null)q.add(node.left);
+//                if (node.right!=null)q.add(node.right);
+//            }
+//            result.add(last.val);
+//        }
+//        return result;
+//    }
+//}
 
 public class Dec11Morning {
 
-    /// 199. Binary Tree Right Side View
     static void main() {
-        TreeNode node = new TreeNode(5);
-        node.left = new TreeNode(4);
-        node.right = new TreeNode(3);
-        node.left.left = new TreeNode(2);
-        node.left.right = new TreeNode(1);
-        Sol12 sol = new Sol12();
-        System.out.println(sol.rightSideView(node));
+        int[] arr = {9,6,4,2};
+        quickSortLomuto(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
+    static void quickSortLomuto(int[] arr, int left, int right){
+        if (left>right)return;
+        int pivotIndex = partitionLomuto(arr, left, right);
+        quickSortLomuto(arr, left, pivotIndex-1);
+        quickSortLomuto(arr,pivotIndex+1,right);
+    }
+    static int partitionLomuto(int[] arr, int left, int right){
+        int pivot = arr[right];
+        int i = left-1;
+        for (int j = left; j < right; j++) {
+            if (arr[j]<pivot){
+                i++;
+                swap(arr,i,j);
+            }
+        }
+        swap(arr,i+1,right);
+        return i+1;
+    }
+    static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    /// 199. Binary Tree Right Side View
+//    static void main() {
+//        TreeNode node = new TreeNode(5);
+//        node.left = new TreeNode(4);
+//        node.right = new TreeNode(3);
+//        node.left.left = new TreeNode(2);
+//        node.left.right = new TreeNode(1);
+//        Sol12 sol = new Sol12();
+//        System.out.println(sol.rightSideView(node));
+//    }
     /// 102. Binary Tree Level Order Traversal
 //    static void main() {
 //        TreeNode node = new TreeNode(5);

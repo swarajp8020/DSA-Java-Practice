@@ -78,43 +78,61 @@ import java.util.*;
 
 public class Dec11Morning {
 
-    /// Quick Sort DNF
-    static void main() {
-        int[] arr = {7,5,1,8,0,2,-1,4,1};
-        quickSortDNF(arr, 0 ,arr.length-1);
-        System.out.println(Arrays.toString(arr));
+    /// mergeTwoSortedArrays
+    static void main(String[] args) {
+        int[] a = {1,3,5,7};
+        int[] b = {2,4,6,8};
+        int[] res = merge(a, b);
+        System.out.println(Arrays.toString(res));
     }
-    static void quickSortDNF(int[] arr, int left, int right){
-        if (left>=right)return;
-        int[] bound = partitionDNF(arr,left,right);
-        int low = bound[0], high = bound[1];
-        quickSortDNF(arr, left, low-1);
-        quickSortDNF(arr,high+1,right);
-    }
-    static int[] partitionDNF(int[] arr, int left, int right){
-        int pivot = arr[(left+right)/2];
-        int low = left;
-        int mid = left;
-        int high = right;
-        while (mid <= high){
-            if (arr[mid]<pivot){
-                swap(arr,low,mid);
-                low++;
-                mid++;
-            } else if (arr[mid] == pivot) {
-                mid++;
-            } else {
-                swap(arr, mid, high);
-                high--;
-            }
+    static int[] merge(int[] a,int[]b){
+        int[] temp = new int[a.length+b.length];
+        int i = 0, j = 0, k=0;
+        while (i<a.length & j <b.length){
+            if (a[i]<= b[j])temp[k++]=a[i++];
+            else temp[k++]=b[j++];
         }
-        return new int[]{low, high};
+        while (i<a.length)temp[k++]=a[i++];
+        while (j<b.length)temp[k++]=b[j++];
+        return temp;
     }
-    static void swap(int[] arr, int a, int b){
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-    }
+    /// Quick Sort DNF
+//    static void main() {
+//        int[] arr = {7,5,1,8,0,2,-1,4,1};
+//        quickSortDNF(arr, 0 ,arr.length-1);
+//        System.out.println(Arrays.toString(arr));
+//    }
+//    static void quickSortDNF(int[] arr, int left, int right){
+//        if (left>=right)return;
+//        int[] bound = partitionDNF(arr,left,right);
+//        int low = bound[0], high = bound[1];
+//        quickSortDNF(arr, left, low-1);
+//        quickSortDNF(arr,high+1,right);
+//    }
+//    static int[] partitionDNF(int[] arr, int left, int right){
+//        int pivot = arr[(left+right)/2];
+//        int low = left;
+//        int mid = left;
+//        int high = right;
+//        while (mid <= high){
+//            if (arr[mid]<pivot){
+//                swap(arr,low,mid);
+//                low++;
+//                mid++;
+//            } else if (arr[mid] == pivot) {
+//                mid++;
+//            } else {
+//                swap(arr, mid, high);
+//                high--;
+//            }
+//        }
+//        return new int[]{low, high};
+//    }
+//    static void swap(int[] arr, int a, int b){
+//        int temp = arr[a];
+//        arr[a] = arr[b];
+//        arr[b] = temp;
+//    }
 
     ///  Quick Sort Hoare
 //    static void main() {

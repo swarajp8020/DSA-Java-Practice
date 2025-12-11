@@ -34,38 +34,70 @@ import java.util.*;
 //    }
 //}
 
-class BinaryTreeLevelOrder{
-    public List<List<Integer>> treeLevelOrder(TreeNode root){
-        List<List<Integer>> result = new ArrayList<>();
+//class BinaryTreeLevelOrder{
+//    public List<List<Integer>> treeLevelOrder(TreeNode root){
+//        List<List<Integer>> result = new ArrayList<>();
+//        if (root == null) return result;
+//        Queue<TreeNode> q = new LinkedList<>();
+//        q.add(root);
+//        while (!q.isEmpty()) {
+//            int size = q.size();
+//            List<Integer> level = new ArrayList<>();
+//            for (int i = 0; i < size; i++) {
+//                TreeNode node = q.poll();
+//                level.add(node.val);
+//                if (node.left!=null)q.add(node.left);
+//                if (node.right!=null)q.add(node.right);
+//            }
+//            result.add(level);
+//        }
+//        return result;
+//    }
+//}
+
+class Sol12{
+    public List<Integer> rightSideView(TreeNode root){
+        List<Integer> result = new ArrayList<>();
         if (root == null) return result;
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()) {
             int size = q.size();
-            List<Integer> level = new ArrayList<>();
+            TreeNode last = null;
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
-                level.add(node.val);
+                last = node;
                 if (node.left!=null)q.add(node.left);
                 if (node.right!=null)q.add(node.right);
             }
-            result.add(level);
+            result.add(last.val);
         }
         return result;
     }
 }
+
 public class Dec11Morning {
 
-    /// 102. Binary Tree Level Order Traversal
+    /// 199. Binary Tree Right Side View
     static void main() {
         TreeNode node = new TreeNode(5);
         node.left = new TreeNode(4);
         node.right = new TreeNode(3);
         node.left.left = new TreeNode(2);
         node.left.right = new TreeNode(1);
-        BinaryTreeLevelOrder sol = new BinaryTreeLevelOrder();
-        System.out.println(sol.treeLevelOrder(node));
+        Sol12 sol = new Sol12();
+        System.out.println(sol.rightSideView(node));
     }
+    /// 102. Binary Tree Level Order Traversal
+//    static void main() {
+//        TreeNode node = new TreeNode(5);
+//        node.left = new TreeNode(4);
+//        node.right = new TreeNode(3);
+//        node.left.left = new TreeNode(2);
+//        node.left.right = new TreeNode(1);
+//        BinaryTreeLevelOrder sol = new BinaryTreeLevelOrder();
+//        System.out.println(sol.treeLevelOrder(node));
+//    }
 
     /// 981. Time Based Key-Value Store
 //    static void main() {

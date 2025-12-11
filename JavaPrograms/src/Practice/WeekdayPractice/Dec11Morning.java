@@ -3,8 +3,8 @@ package Practice.WeekdayPractice;
 public class Dec11Morning {
     /// 4. Median of Two Sorted Arrays
     static void main() {
-        int[] A = {1,3};
-        int[] B = {2};
+        int[] A = {1,2};
+        int[] B = {3,4};
         System.out.println(findMedianSorted(A,B));
     }
     static double findMedianSorted(int[] A, int[] B){

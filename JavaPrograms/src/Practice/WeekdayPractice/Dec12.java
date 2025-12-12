@@ -1,48 +1,88 @@
 package Practice.WeekdayPractice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-class TimeMap6{
-    static HashMap<String , List<Pair5>> map;
-    static class Pair5{
-        int time;
-        String value;
-        Pair5(int t, String v){
-            time = t;
-            value = v;
-        }
-    }
-    public TimeMap6(){
-        map = new HashMap<>();
-    }
-    static  void set(String key, String value, int timestamp){
-        map.putIfAbsent(key, new ArrayList<>());
-        map.get(key).add(new Pair5(timestamp,value));
-    }
-    static String  get(String key, int timestamp){
-        if (!map.containsKey(key))return "";
-        List<Pair5> list = map.get(key);
-        int low = 0, high = list.size()-1;
-        String ans = "";
-        while (low<=high){
-            int mid = low+(high-low)/2;
-            if (list.get(mid).time<=timestamp){
-                ans = list.get(mid).value;
-                low = mid+1;
-            }else high = mid-1;
-        }
-        return ans;
-    }
-}
+//class TimeMap6{
+//    static HashMap<String , List<Pair5>> map;
+//    static class Pair5{
+//        int time;
+//        String value;
+//        Pair5(int t, String v){
+//            time = t;
+//            value = v;
+//        }
+//    }
+//    public TimeMap6(){
+//        map = new HashMap<>();
+//    }
+//    static  void set(String key, String value, int timestamp){
+//        map.putIfAbsent(key, new ArrayList<>());
+//        map.get(key).add(new Pair5(timestamp,value));
+//    }
+//    static String  get(String key, int timestamp){
+//        if (!map.containsKey(key))return "";
+//        List<Pair5> list = map.get(key);
+//        int low = 0, high = list.size()-1;
+//        String ans = "";
+//        while (low<=high){
+//            int mid = low+(high-low)/2;
+//            if (list.get(mid).time<=timestamp){
+//                ans = list.get(mid).value;
+//                low = mid+1;
+//            }else high = mid-1;
+//        }
+//        return ans;
+//    }
+//}
 public class Dec12 {
-    //102. Binary Tree Level Order Traversal
+    //quickSortMedian
     static void main() {
-        TimeMap6 level = new TimeMap6();
-        level.set("seo","Siuuu", 7);
-        System.out.println(level.get("seo",7));
+        int[] arr = {6,5,1,7,2,0};
+        quickSort(arr, 0 ,arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
+    static void quickSort(int[] arr, int left, int right){
+        if (left>=right)return;
+        int medianIndex = median(arr,left,right);
+        swap(arr,medianIndex,right);
+        int pivotIndex = partition(arr,left,right);
+        quickSort(arr,left,pivotIndex-1);
+        quickSort(arr,pivotIndex+1,right);
+    }
+    static int median(int[] arr, int left, int right){
+        int mid = left+(right-left)/2;
+        if (arr[left]< arr[mid]) swap(arr,left,mid);
+        if (arr[mid]<arr[right]) swap(arr,mid,right);
+        if (arr[left]< arr[mid]) swap(arr,left,mid);
+        return mid;
+    }
+    static int partition(int[] arr, int left, int right){
+        int pivot = arr[right];
+        int i = left-1;
+        for (int j = left; j < right; j++) {
+            if (arr[j]<pivot){
+                i++;
+                swap(arr, i,j);
+            }
+        }
+        swap(arr, i+1,right);
+        return i+1;
+    }
+    static void swap(int[] arr, int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+
+    //102. Binary Tree Level Order Traversal
+//    static void main() {
+//        TimeMap6 level = new TimeMap6();
+//        level.set("seo","Siuuu", 7);
+//        System.out.println(level.get("seo",7));
+//    }
 /// 410. Split Array Largest Sum
 //static void main() {
 //    int[] nums = {1,2,3,4,5};

@@ -86,7 +86,7 @@ public class Dec12 {
 //    static void quickSortRandom(int[] arr, int left, int right){
 //        if (left>=right)return;
 //        int randomIndex = left + (int) (Math.random()*(right-left+1));
-//        swap(arr,randomIndex,randomIndex);
+//        swap(arr,randomIndex,right);
 //        int pivotIndex = partition(arr,left,right);
 //        quickSortRandom(arr,left,pivotIndex-1);
 //        quickSortRandom(arr,pivotIndex+1,right);

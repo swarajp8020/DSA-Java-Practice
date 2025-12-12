@@ -3,7 +3,7 @@ package Practice.WeekdayPractice;
 public class Dec12 {
 /// 410. Split Array Largest Sum
 static void main() {
-    int[] nums = {7,2,5,10,8};
+    int[] nums = {1,2,3,4,5};
     int  k = 2;
     System.out.println(splitArray(nums,k));
 }

@@ -39,25 +39,57 @@ import java.util.List;
 //}
 public class Dec12 {
     //quickSortMedian
+//    static void main() {
+//        int[] arr = {6,5,1,7,2,0};
+//        quickSort(arr, 0 ,arr.length-1);
+//        System.out.println(Arrays.toString(arr));
+//    }
+//    static void quickSort(int[] arr, int left, int right){
+//        if (left>=right)return;
+//        int medianIndex = median(arr,left,right);
+//        swap(arr,medianIndex,right);
+//        int pivotIndex = partition(arr,left,right);
+//        quickSort(arr,left,pivotIndex-1);
+//        quickSort(arr,pivotIndex+1,right);
+//    }
+//    static int median(int[] arr, int left, int right){
+//        int mid = left+(right-left)/2;
+//        if (arr[left]<mid)swap(arr,left,mid);
+//        if (arr[mid]<right)swap(arr,mid,right);
+//        if (arr[left]<mid)swap(arr,left,right);
+//        return mid;
+//    }
+//    static int partition(int[] arr, int left, int right){
+//        int pivot = arr[right];
+//        int i = left-1;
+//        for (int j = left; j < right; j++) {
+//            if (arr[j]<pivot){
+//                i++;
+//                swap(arr,i,j);
+//            }
+//        }
+//        swap(arr,i+1,right);
+//        return i+1;
+//    }
+//    static void swap(int[] arr, int a, int b){
+//        int temp = arr[a];
+//        arr[a] = arr[b];
+//        arr[b] = temp;
+//    }
+
+
     static void main() {
-        int[] arr = {6,5,1,7,2,0};
-        quickSort(arr, 0 ,arr.length-1);
+        int[] arr = {7, 2, 9, 4, 1, 8, 3};
+        quickSortRandom(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
-    static void quickSort(int[] arr, int left, int right){
+    static void quickSortRandom(int[] arr, int left, int right){
         if (left>=right)return;
-        int medianIndex = median(arr,left,right);
-        swap(arr,medianIndex,right);
+        int randomIndex = left + (int) (Math.random()*(right-left+1));
+        swap(arr,randomIndex,randomIndex);
         int pivotIndex = partition(arr,left,right);
-        quickSort(arr,left,pivotIndex-1);
-        quickSort(arr,pivotIndex+1,right);
-    }
-    static int median(int[] arr, int left, int right){
-        int mid = left+(right-left)/2;
-        if (arr[left]< arr[mid]) swap(arr,left,mid);
-        if (arr[mid]<arr[right]) swap(arr,mid,right);
-        if (arr[left]< arr[mid]) swap(arr,left,mid);
-        return mid;
+        quickSortRandom(arr,left,pivotIndex-1);
+        quickSortRandom(arr,pivotIndex+1,right);
     }
     static int partition(int[] arr, int left, int right){
         int pivot = arr[right];
@@ -65,10 +97,10 @@ public class Dec12 {
         for (int j = left; j < right; j++) {
             if (arr[j]<pivot){
                 i++;
-                swap(arr, i,j);
+                swap(arr,i,j);
             }
         }
-        swap(arr, i+1,right);
+        swap(arr,i+1,right);
         return i+1;
     }
     static void swap(int[] arr, int a, int b){
@@ -76,6 +108,7 @@ public class Dec12 {
         arr[a] = arr[b];
         arr[b] = temp;
     }
+
 
     //102. Binary Tree Level Order Traversal
 //    static void main() {

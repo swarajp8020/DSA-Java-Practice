@@ -3,8 +3,8 @@ package Practice.WeekdayPractice;
 public class Dec12 {
     /// 4. Median of Two Sorted Arrays
     static void main() {
-        int[] A = {1,3};
-        int[] B = {2};
+        int[] A = {1,2};
+        int[] B = {3,4};
         System.out.println(findMedianSorted(A,B));
     }
     static double findMedianSorted(int[]A,int[]B){
@@ -20,7 +20,7 @@ public class Dec12 {
             int Bright = (cutB == m) ? Integer.MAX_VALUE : B[cutB];
             if (Aleft <= Bright && Bleft <= Aright) {
                 if ((n + m) % 2 == 0) {
-                    return (Math.max(Aleft,Bleft)+Math.max(Aright,Bright))/2.0;
+                    return (Math.max(Aleft,Bleft)+Math.min(Aright,Bright))/2.0;
                 }
                 return Math.max(Aleft,Bleft);
             } else if (Aleft > Bright) {

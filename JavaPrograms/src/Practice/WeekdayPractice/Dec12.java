@@ -78,20 +78,52 @@ public class Dec12 {
 //    }
 
 
-    static void main() {
-        int[] arr = {7, 2, 9, 4, 1, 8, 3};
-        quickSortRandom(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(arr));
+//    static void main() {
+//        int[] arr = {7, 2, 9, 4, 1, 8, 3};
+//        quickSortRandom(arr, 0, arr.length-1);
+//        System.out.println(Arrays.toString(arr));
+//    }
+//    static void quickSortRandom(int[] arr, int left, int right){
+//        if (left>=right)return;
+//        int randomIndex = left + (int) (Math.random()*(right-left+1));
+//        swap(arr,randomIndex,randomIndex);
+//        int pivotIndex = partition(arr,left,right);
+//        quickSortRandom(arr,left,pivotIndex-1);
+//        quickSortRandom(arr,pivotIndex+1,right);
+//    }
+//    static int partition(int[] arr, int left, int right){
+//        int pivot = arr[right];
+//        int i = left-1;
+//        for (int j = left; j < right; j++) {
+//            if (arr[j]<pivot){
+//                i++;
+//                swap(arr,i,j);
+//            }
+//        }
+//        swap(arr,i+1,right);
+//        return i+1;
+//    }
+//    static void swap(int[] arr, int a, int b){
+//        int temp = arr[a];
+//        arr[a] = arr[b];
+//        arr[b] = temp;
+//    }
+static void main() {
+    int[] arr = {8,5,7,2,9,3};
+    int k = 3;
+    int result = quickSelect(arr, 0, arr.length-1, arr.length-k);
+    System.out.println(result);
+}
+static int quickSelect(int[] arr, int left, int right, int targetIndex){
+    if (left<=right){
+        int pivotIndex = partition(arr, left, right);
+        if (pivotIndex==targetIndex)return arr[pivotIndex];
+        if (pivotIndex<targetIndex)return quickSelect(arr, pivotIndex-1,right,targetIndex);
+        else quickSelect(arr,left,pivotIndex+1,targetIndex);
     }
-    static void quickSortRandom(int[] arr, int left, int right){
-        if (left>=right)return;
-        int randomIndex = left + (int) (Math.random()*(right-left+1));
-        swap(arr,randomIndex,randomIndex);
-        int pivotIndex = partition(arr,left,right);
-        quickSortRandom(arr,left,pivotIndex-1);
-        quickSortRandom(arr,pivotIndex+1,right);
-    }
-    static int partition(int[] arr, int left, int right){
+    return 0;
+}
+static int partition(int[] arr, int left, int right){
         int pivot = arr[right];
         int i = left-1;
         for (int j = left; j < right; j++) {
@@ -108,8 +140,6 @@ public class Dec12 {
         arr[a] = arr[b];
         arr[b] = temp;
     }
-
-
     //102. Binary Tree Level Order Traversal
 //    static void main() {
 //        TimeMap6 level = new TimeMap6();

@@ -119,8 +119,8 @@ public class Dec12 {
 //    if (left<=right){
 //        int pivotIndex = partition(arr, left, right);
 //        if (pivotIndex==targetIndex)return arr[pivotIndex];
-//        if (pivotIndex<targetIndex)return quickSelect(arr, pivotIndex-1,right,targetIndex);
-//        else return quickSelect(arr,left,pivotIndex+1,targetIndex);
+//        if (pivotIndex<targetIndex)return quickSelect(arr, pivotIndex+1,right,targetIndex);
+//        else return quickSelect(arr,left,pivotIndex-1,targetIndex);
 //    }
 //    return 0;
 //}

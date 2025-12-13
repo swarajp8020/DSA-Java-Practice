@@ -24,7 +24,7 @@ class Solution2 {
     }
 }
 
-public class BuildTree {
+public class BuildTreePreIn {
     static void main() {
         Solution2 sol = new Solution2();
         int[] preorder = {3, 9, 20, 15, 7};

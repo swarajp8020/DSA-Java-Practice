@@ -1,8 +1,6 @@
 package Practice.Week7Practice;
 
 
-import com.sun.source.tree.Tree;
-
 import java.util.HashMap;
 
 class TreeNode1{
@@ -31,7 +29,7 @@ class Solution2{
    }
 }
 
-public class buildTree {
+public class buildTreePreIn {
     static void main() {
         Solution2 sol = new Solution2();
         int[] preorder = {3,9,20,15,7};

@@ -8,5 +8,8 @@ public class practice {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(s).reverse();
         System.out.println(stringBuilder.toString());
+        for (int i = 0; i < s.length(); i++) {
+            System.out.println("Index"+i+"->"+s.charAt(i));
+        }
     }
 }

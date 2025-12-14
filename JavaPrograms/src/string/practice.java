@@ -1,4 +1,4 @@
-package strings;
+package string;
 
 public class practice {
     static void main() {

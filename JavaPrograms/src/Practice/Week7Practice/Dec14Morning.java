@@ -1,28 +1,48 @@
 package Practice.Week7Practice;
 
 public class Dec14Morning {
-/// countEvenSubarrays
-static void main() {
-    int[] arr = {1,4,6,2,2,15,2,1};
-    int k =3;
-    int x = 2;
-    int res = countEvenSubarray(arr,k,x);
-    System.out.println(res);
-}
-static int countEvenSubarray(int[] arr, int k, int x){
-    int evenCount = 0, count = 0;
-    for (int i = 0; i < k; i++) {
-        if (evenCount%2==0)evenCount++;
+/// CountSubArrayKEvenSum
+    static void main() {
+        int[] arr = {4,2,4,6,2,3};
+        int k =3;
+        System.out.println(evenSum(arr,k));
     }
-    if (evenCount>=x)count++;
-    for (int i = k; i < arr.length; i++) {
-        if (arr[i-k]%2==0) evenCount--;
-        if (arr[i]%2==0) evenCount++;
-        if (evenCount>=x) count++;
+    static int evenSum(int[] arr, int k){
+        int count = 0, windowSum = 0;
+        for (int i = 0; i < k; i++) {
+            windowSum += arr[i];
+        }
+        if (windowSum%2==0)count++;
+        for (int i = k; i < arr.length; i++) {
+            windowSum += arr[i] - arr[i-k];
+            if (windowSum%2==0)count++;
+        }
+        return count;
     }
-    return count;
-}
 
+
+/// CountAtLeastXEven
+//static void main() {
+//    int[] arr = {1,4,6,2,2,15,2,1};
+//    int k =3;
+//    int x = 2;
+//    int res = countEvenSubarray(arr,k,x);
+//    System.out.println(res);
+//}
+//static int countEvenSubarray(int[] arr, int k, int x){
+//    int evenCount = 0, count = 0;
+//    for (int i = 0; i < k; i++) {
+//        if (evenCount%2==0)evenCount++;
+//    }
+//    if (evenCount>=x)count++;
+//    for (int i = k; i < arr.length; i++) {
+//        if (arr[i-k]%2==0) evenCount--;
+//        if (arr[i]%2==0) evenCount++;
+//        if (evenCount>=x) count++;
+//    }
+//    return count;
+//}
+//
 
 
 /// LongestSubarrayKDistinct

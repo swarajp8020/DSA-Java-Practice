@@ -13,7 +13,7 @@ public class CountAtLeastXEven {
         int evenCount =0;
         int count=0;
         for (int i = 0; i < k; i++) {
-            if (evenCount%2==0) evenCount++;
+            if (arr[i]%2==0) evenCount++;
         }
         if (evenCount>=x) count++;
         for (int i = k; i < arr.length; i++) {

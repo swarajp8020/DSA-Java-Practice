@@ -32,7 +32,7 @@ public class Dec14Morning {
 //static int countEvenSubarray(int[] arr, int k, int x){
 //    int evenCount = 0, count = 0;
 //    for (int i = 0; i < k; i++) {
-//        if (evenCount%2==0)evenCount++;
+//        if (arr[i]%2==0)evenCount++;
 //    }
 //    if (evenCount>=x)count++;
 //    for (int i = k; i < arr.length; i++) {

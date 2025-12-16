@@ -7,20 +7,35 @@ import java.util.Arrays;
 
 public class Dec16Morning {
 
-    /// Has Duplicates
-
+    /// IsPalindrome
     static void main(String[] args) {
-        String s = "swaraj";
-        Dec16Morning h = new Dec16Morning();
-        System.out.println(h.hasDuplicates(s));
+        String s = "namasn";
+        Dec16Morning i = new Dec16Morning();
+        System.out.println(i.isPalindrome(s));
     }
-    boolean hasDuplicates(String s){
-        int[] freq = new int[26];
-        for (char c : s.toCharArray()){
-            if (freq[c-'a']>0)return true;
+    boolean isPalindrome(String s){
+        int left = 0, right = s.length()-1;
+        while (left < right) {
+            if (s.charAt(left)!= s.charAt(right))return false;
+            left++;
+            right--;
         }
-        return false;
+        return true;
     }
+
+    /// Has Duplicates
+//    static void main(String[] args) {
+//        String s = "swaraj";
+//        Dec16Morning h = new Dec16Morning();
+//        System.out.println(h.hasDuplicates(s));
+//    }
+//    boolean hasDuplicates(String s){
+//        int[] freq = new int[26];
+//        for (char c : s.toCharArray()){
+//            if (freq[c-'a']>0)return true;
+//        }
+//        return false;
+//    }
 
     /// Frequency Map
 //    static void main(String[] args) {

@@ -5,23 +5,46 @@ import string.hasDuplicate;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+
+class Solution3 {
+    public int lengthOfLongestSubstring(String s){
+        int[] freq = new int[128];
+        int left = 0, maxLen = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char c = s.charAt(right);
+            freq[c]++;
+            while (freq[c] > 1) {
+                freq[s.charAt(left)]--;
+                left++;
+            }
+            maxLen = Math.max(maxLen, right - left+1);
+        }
+        return maxLen;
+    }
+}
 public class Dec16Morning {
 
-    /// IsPalindrome
+    /// LengthOfLongestSubString
     static void main(String[] args) {
-        String s = "namasn";
-        Dec16Morning i = new Dec16Morning();
-        System.out.println(i.isPalindrome(s));
+        String s = "abababa";
+        Solution3 solution3 = new Solution3();
+        System.out.println(solution3.lengthOfLongestSubstring(s));
     }
-    boolean isPalindrome(String s){
-        int left = 0, right = s.length()-1;
-        while (left < right) {
-            if (s.charAt(left)!= s.charAt(right))return false;
-            left++;
-            right--;
-        }
-        return true;
-    }
+    /// IsPalindrome
+//    static void main(String[] args) {
+//        String s = "namasn";
+//        Dec16Morning i = new Dec16Morning();
+//        System.out.println(i.isPalindrome(s));
+//    }
+//    boolean isPalindrome(String s){
+//        int left = 0, right = s.length()-1;
+//        while (left < right) {
+//            if (s.charAt(left)!= s.charAt(right))return false;
+//            left++;
+//            right--;
+//        }
+//        return true;
+//    }
 
     /// Has Duplicates
 //    static void main(String[] args) {

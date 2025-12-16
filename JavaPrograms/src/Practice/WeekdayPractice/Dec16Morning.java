@@ -1,20 +1,38 @@
 package Practice.WeekdayPractice;
 
+import string.hasDuplicate;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Dec16Morning {
-    /// Frequency Map
-    static void main(String[] args) {
-        String s = "leetcode";
-        int[] freq = new int[26];
 
-        for (int i = 0; i < s.length(); i++) {
-            int index = s.charAt(i) - 'a';
-            freq[index]++;
-        }
-        System.out.println(Arrays.toString(freq));
+    /// Has Duplicates
+
+    static void main(String[] args) {
+        String s = "swaraj";
+        Dec16Morning h = new Dec16Morning();
+        System.out.println(h.hasDuplicates(s));
     }
+    boolean hasDuplicates(String s){
+        int[] freq = new int[26];
+        for (char c : s.toCharArray()){
+            if (freq[c-'a']>0)return true;
+        }
+        return false;
+    }
+
+    /// Frequency Map
+//    static void main(String[] args) {
+//        String s = "leetcode";
+//        int[] freq = new int[26];
+//
+//        for (int i = 0; i < s.length(); i++) {
+//            int index = s.charAt(i) - 'a';
+//            freq[index]++;
+//        }
+//        System.out.println(Arrays.toString(freq));
+//    }
 
     /// String Reverse
 //    static void main() {

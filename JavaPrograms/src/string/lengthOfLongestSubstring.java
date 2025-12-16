@@ -17,7 +17,11 @@ class Solution {
         return maxLen;
     }
 }
-
+/// Interview explanation (say this)
+/// “I use a sliding window with a frequency array.
+/// I expand the window using the right pointer.
+/// If a character repeats, I shrink from the left until the window is valid again.
+/// I track the maximum window length and its starting index.”
 public class lengthOfLongestSubstring {
     static void main(String[] args) {
         String s = "asvavsaffg";

@@ -4,21 +4,44 @@ import java.util.Arrays;
 
 public class Dec17Morning {
 
-    /// isPalindrome
-    static void main(String[] args) {
-        String s = "namaan";
-        Dec17Morning dc = new Dec17Morning();
-        System.out.println(dc.isPalindrome(s));
-    }
-    boolean isPalindrome(String s){
-        int left = 0, right = s.length()-1;
-        while (left < right) {
-            if (s.charAt(left)!=s.charAt(right))return false;
-            left++;
-            right--;
+    static class sol{
+        public int longestSubstring(String s){
+            int[] freq = new int[128];
+            int left = 0, maxLen = 0;
+            for (int right = 0; right < s.length(); right++) {
+                char c = s.charAt(right);
+                freq[c]++;
+                if (freq[c]>1){
+                    freq[s.charAt(left)]--;
+                    left++;
+                }
+                maxLen= Math.max(maxLen,right-left+1);
+            }
+            return maxLen;
         }
-        return true;
     }
+    //longestSubstring
+    static void main(String[] args) {
+        String s =  "sadasda";
+        sol dec = new sol();
+        System.out.println(dec.longestSubstring(s));
+    }
+
+    /// isPalindrome
+//    static void main(String[] args) {
+//        String s = "namaan";
+//        Dec17Morning dc = new Dec17Morning();
+//        System.out.println(dc.isPalindrome(s));
+//    }
+//    boolean isPalindrome(String s){
+//        int left = 0, right = s.length()-1;
+//        while (left < right) {
+//            if (s.charAt(left)!=s.charAt(right))return false;
+//            left++;
+//            right--;
+//        }
+//        return true;
+//    }
 
     /// has duplicate
 //    static void main(String[] args) {

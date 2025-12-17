@@ -4,28 +4,65 @@ import java.util.Arrays;
 
 public class Dec17Morning {
 
+
+    /// PermutationInString
     static class sol{
-        public int longestSubstring(String s){
-            int[] freq = new int[128];
-            int left = 0, maxLen = 0;
-            for (int right = 0; right < s.length(); right++) {
-                char c = s.charAt(right);
-                freq[c]++;
-                if (freq[c]>1){
-                    freq[s.charAt(left)]--;
-                    left++;
-                }
-                maxLen= Math.max(maxLen,right-left+1);
+        public boolean checkInclusion(String s1, String s2){
+            if (s1.length()>s2.length())return false;
+            int[] freq1 = new int[26];
+            int[] freq2 = new int[26];
+            for (char c:s1.toCharArray()){
+                freq1[c-'a']++;
             }
-            return maxLen;
+            int k = s1.length();
+            for (int i = 0; i < k; i++) {
+                freq2[s2.charAt(i)-'a']++;
+            }
+            if (matches(freq1,freq2))return true;
+            for (int i = k; i < s2.length(); i++) {
+                freq2[s2.charAt(i)-'a']++;
+                freq2[s2.charAt(i-k)-'a']--;
+                if (matches(freq1,freq2))return true;
+            }
+            return false;
+        }
+        private boolean matches(int[] a, int[] b){
+            for (int i = 0; i < 26; i++) {
+                if (a[i]!=b[i])return true;
+            }
+            return false;
         }
     }
-    //longestSubstring
+
     static void main(String[] args) {
-        String s =  "sadasda";
-        sol dec = new sol();
-        System.out.println(dec.longestSubstring(s));
+        String s1 = "dsa";
+        String s2 = "sadasd";
+        sol s = new sol();
+        System.out.println(s.checkInclusion(s1,s2));
     }
+
+//    static class sol{
+//        public int longestSubstring(String s){
+//            int[] freq = new int[128];
+//            int left = 0, maxLen = 0;
+//            for (int right = 0; right < s.length(); right++) {
+//                char c = s.charAt(right);
+//                freq[c]++;
+//                if (freq[c]>1){
+//                    freq[s.charAt(left)]--;
+//                    left++;
+//                }
+//                maxLen= Math.max(maxLen,right-left+1);
+//            }
+//            return maxLen;
+//        }
+//    }
+    //longestSubstring
+//    static void main(String[] args) {
+//        String s =  "sadasda";
+//        sol dec = new sol();
+//        System.out.println(dec.longestSubstring(s));
+//    }
 
     /// isPalindrome
 //    static void main(String[] args) {

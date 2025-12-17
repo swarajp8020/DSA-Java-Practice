@@ -28,9 +28,9 @@ public class Dec17Morning {
         }
         private boolean matches(int[] a, int[] b){
             for (int i = 0; i < 26; i++) {
-                if (a[i]!=b[i])return true;
+                if (a[i]!=b[i])return false;
             }
-            return false;
+            return true;
         }
     }
 

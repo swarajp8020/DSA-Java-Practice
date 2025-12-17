@@ -1,5 +1,5 @@
 package string;
-/// LC https://leetcode.com/problems/longest-repeating-character-replacement/description/
+/// LC 424. Longest Repeating Character Replacement https://leetcode.com/problems/longest-repeating-character-replacement/description/
 class sol {
     public int characterReplacement(String s, int k){
         int[] freq = new int[26];

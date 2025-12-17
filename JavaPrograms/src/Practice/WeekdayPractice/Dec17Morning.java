@@ -4,42 +4,69 @@ import java.util.Arrays;
 
 public class Dec17Morning {
 
-
-    /// PermutationInString
+    /// CharacterReplacement
     static class sol{
-        public boolean checkInclusion(String s1, String s2){
-            if (s1.length()>s2.length())return false;
-            int[] freq1 = new int[26];
-            int[] freq2 = new int[26];
-            for (char c:s1.toCharArray()){
-                freq1[c-'a']++;
+        public int characterReplacement(String s, int k){
+            int[] freq = new int[26];
+            int left = 0, maxFreq = 0, maxLen = 0;
+            for (int right = 0; right < s.length(); right++) {
+                char c = s.charAt(right);
+                freq[c-'a']++;
+                maxFreq = Math.max(maxFreq, freq[c-'a']);
+                int windowSize = right - left + 1;
+                int charsToChange = windowSize - maxFreq;
+                if (charsToChange > k) {
+                    freq[s.charAt(left)-'a']--;
+                    left++;
+                }
+                maxLen = Math.max(maxLen, right-left+1);
             }
-            int k = s1.length();
-            for (int i = 0; i < k; i++) {
-                freq2[s2.charAt(i)-'a']++;
-            }
-            if (matches(freq1,freq2))return true;
-            for (int i = k; i < s2.length(); i++) {
-                freq2[s2.charAt(i)-'a']++;
-                freq2[s2.charAt(i-k)-'a']--;
-                if (matches(freq1,freq2))return true;
-            }
-            return false;
-        }
-        private boolean matches(int[] a, int[] b){
-            for (int i = 0; i < 26; i++) {
-                if (a[i]!=b[i])return false;
-            }
-            return true;
+            return maxLen;
         }
     }
 
     static void main(String[] args) {
-        String s1 = "dsa";
-        String s2 = "sadasd";
-        sol s = new sol();
-        System.out.println(s.checkInclusion(s1,s2));
+        String s= "sadaaadadasssssssaaaaa";
+        int k =2;
+        sol sb = new sol();
+        System.out.println(sb.characterReplacement(s,k));
     }
+
+    /// PermutationInString
+//    static class sol{
+//        public boolean checkInclusion(String s1, String s2){
+//            if (s1.length()>s2.length())return false;
+//            int[] freq1 = new int[26];
+//            int[] freq2 = new int[26];
+//            for (char c:s1.toCharArray()){
+//                freq1[c-'a']++;
+//            }
+//            int k = s1.length();
+//            for (int i = 0; i < k; i++) {
+//                freq2[s2.charAt(i)-'a']++;
+//            }
+//            if (matches(freq1,freq2))return true;
+//            for (int i = k; i < s2.length(); i++) {
+//                freq2[s2.charAt(i)-'a']++;
+//                freq2[s2.charAt(i-k)-'a']--;
+//                if (matches(freq1,freq2))return true;
+//            }
+//            return false;
+//        }
+//        private boolean matches(int[] a, int[] b){
+//            for (int i = 0; i < 26; i++) {
+//                if (a[i]!=b[i])return false;
+//            }
+//            return true;
+//        }
+//    }
+//
+//    static void main(String[] args) {
+//        String s1 = "dsa";
+//        String s2 = "sadasd";
+//        sol s = new sol();
+//        System.out.println(s.checkInclusion(s1,s2));
+//    }
 
 //    static class sol{
 //        public int longestSubstring(String s){

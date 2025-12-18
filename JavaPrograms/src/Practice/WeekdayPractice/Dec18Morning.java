@@ -4,20 +4,24 @@ import java.util.Arrays;
 
 public class Dec18Morning {
 
-    /// lengthOfLongestSubstring
+    /// Longest Repeating Character Replacement
     static void main(String[] args) {
-        String s = "asvavsaffg";
-        LongestSubstring ls = new LongestSubstring();
-        System.out.println(ls.lengthOfLongestSubString(s));
+        String s = "sada";
+        int k = 2;
+        sol soo = new sol();
+        System.out.println(soo.characterReplacement(s,k));
     }
-    static class LongestSubstring{
-        public int lengthOfLongestSubString(String s) {
-            int[] freq = new int[128];
-            int left = 0, maxLen = 0;
+    static class sol {
+        public int characterReplacement(String s, int k){
+            int[] freq = new int[26];
+            int left = 0, maxFreq = 0, maxLen = 0;
             for (int right = 0; right < s.length(); right++) {
                 char c = s.charAt(right);
                 freq[c-'a']++;
-                while (freq[c-'a']>1){
+                maxFreq = Math.max(maxFreq,freq[c-'a']);
+                int windowSize = right - left + 1;
+                int charsToChange = windowSize - maxFreq;
+                if (charsToChange > k){
                     freq[s.charAt(left)-'a']--;
                     left++;
                 }
@@ -26,6 +30,28 @@ public class Dec18Morning {
             return maxLen;
         }
     }
+    /// lengthOfLongestSubstring
+//    static void main(String[] args) {
+//        String s = "asvavsaffg";
+//        LongestSubstring ls = new LongestSubstring();
+//        System.out.println(ls.lengthOfLongestSubString(s));
+//    }
+//    static class LongestSubstring{
+//        public int lengthOfLongestSubString(String s) {
+//            int[] freq = new int[128];
+//            int left = 0, maxLen = 0;
+//            for (int right = 0; right < s.length(); right++) {
+//                char c = s.charAt(right);
+//                freq[c-'a']++;
+//                while (freq[c-'a']>1){
+//                    freq[s.charAt(left)-'a']--;
+//                    left++;
+//                }
+//                maxLen = Math.max(maxLen, right-left+1);
+//            }
+//            return maxLen;
+//        }
+//    }
 
     /// PermutationInString
 //    static void main(String[] args) {

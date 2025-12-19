@@ -23,7 +23,7 @@ public class Dec19Morning {
                         minLen = right - left + 1;
                         start = left;
                     }
-                    char lc = s.charAt(right);
+                    char lc = s.charAt(left);
                     need[lc]++;
                     if (need[lc]>0) count++;
                     left++;

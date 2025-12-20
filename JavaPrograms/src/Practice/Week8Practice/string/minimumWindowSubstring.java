@@ -38,6 +38,12 @@ package Practice.Week8Practice.string;
 /// What does a negative value in freq mean?
 /// Why do we decrement freq even when char isn’t needed?
 /// If you can answer these calmly → LC-76 is locked.
+/// 🧠 ONE-LINER INTERVIEW EXPLANATION (MEMORIZE)
+/// “I track how many characters are still needed using a frequency array and a counter.
+/// I expand the window until all characters are satisfied.
+/// Then I shrink from the left to minimize the window.
+/// The moment removing a character breaks a requirement, I stop shrinking.
+/// Since both pointers move linearly, the solution runs in O(n) time.”
 
 public class minimumWindowSubstring {
     static class sol {

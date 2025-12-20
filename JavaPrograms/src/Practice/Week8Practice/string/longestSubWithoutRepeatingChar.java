@@ -157,55 +157,46 @@ package Practice.Week8Practice.string;
 //
 //👉 **O(n)** time
 //👉 **O(1)** space (128 fixed size)
-//
-//---
-//
 //## INTERVIEW-READY EXPLANATION (CLEAN VERSION)
-//
 //Say this:
-//
 //> “I use a sliding window with two pointers.
 //> I maintain a frequency array to track characters in the current window.
 //> I expand the window by moving the right pointer.
 //> If a character repeats, I shrink the window from the left until it becomes valid again.
 //> Throughout the process, I track the maximum window length.
 //> Each character is added and removed at most once, so the solution runs in O(n) time.”
-//
 //That’s a strong answer.
-//
-//---
-//
 //## ONE TWEAK QUESTION (CHECK YOUR DEPTH)
-//
 //Answer this out loud:
-//
 //👉 Why can’t we use sliding window for
 //`Subarray Sum = K` **when negatives exist**,
 //but we *can* use it here?
-//
-//(Answer this next. Don’t rush.)
-//
-//---
-//
-//## LOGGING (SAVED)
-//
-//📅 **20-12-2025**
-//
-//* Topic: Strings → Sliding Window
-//* Problem: Longest Substring Without Repeating Characters
-//* Status: **Shaky but improving (correct intuition, clarified internals)**
-//* Action: Revisit on Day +3 and Day +5
-//
-//---
-//
-//You did exactly what you should:
-//you questioned internals instead of blindly trusting the pattern.
-//
-//Next up (when you’re ready):
-//👉 **Longest Repeating Character Replacement (424)**
-//This will stretch this logic further.
-//
-//Send it when you start.
+// Case 1: Sliding window with ONLY positive numbers ✅
+//Example:
+//arr = [2, 1, 3, 4]
+//target = 5
+//Expand window → sum increases
+//Shrink window → sum decreases
+//This predictability is why sliding window works.
+//Your brain can safely say:
+//“Sum too big? Shrink.”
+//“Sum too small? Expand.”
+//Case 2: Sliding window with negative numbers ❌
+//Example:
+//arr = [1, -1, 2, -2, 3]
+//target = 3
+//Now watch what breaks.
+//Expand window → sum might increase OR decrease
+//Shrink window → sum might increase OR decrease
+//You lose control.
+//There is no rule that says:
+//expanding helps
+//shrinking helps
+//So sliding window has no direction to follow.
+//🔴 The real reason (interview-level answer)
+//Sliding window fails because the sum is not monotonic when negative numbers are present.
+//That’s the key word: monotonic.
+
 public class longestSubWithoutRepeatingChar {
 
     static class Sol{

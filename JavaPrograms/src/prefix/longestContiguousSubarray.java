@@ -1,7 +1,7 @@
 package prefix;
 
 import java.util.HashMap;
-/// 525. Contiguous Array LC https://leetcode.com/problems/contiguous-array/description/
+    /// 525. Contiguous Array LC https://leetcode.com/problems/contiguous-array/description/
 public class longestContiguousSubarray {
     static void main() {
         int[] nums = {0,1};

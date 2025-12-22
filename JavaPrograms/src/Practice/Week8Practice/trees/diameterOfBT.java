@@ -25,6 +25,7 @@ package Practice.Week8Practice.trees;
 public class diameterOfBT {
     static int diameter = 0;
     static int diameterOfBinaryTree(TreeNode root){
+        diameter = 0;
         height(root);
         return diameter;
     }

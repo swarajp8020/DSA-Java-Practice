@@ -1,9 +1,27 @@
 package Practice.Week8Practice.trees;
-
-
 import java.util.ArrayList;
 import java.util.List;
-
+/// explaination -
+/// PATH SUM II (THIS IS THE REAL TEST)
+/// Problem
+/// Return all root-to-leaf paths where the sum equals targetSum.
+/// Now we need:
+/// Multiple paths
+/// Actual path values
+/// Backtracking
+/// NEW QUESTION TO ASK
+/// “What extra state do I need now?”
+/// Answer:
+/// A path list
+/// A result list
+/// CRITICAL RULE (DO NOT BREAK THIS)
+/// Whenever you add something before recursion,
+/// you must remove it after recursion.
+/// That’s backtracking.
+///  For Path Sum II:
+/// “I use DFS with backtracking.
+/// I keep a current path list, add the node before recursion, and remove it after.
+/// When I reach a leaf with remaining sum zero, I store a copy of the path.”
 public class pathSum2 {
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum){

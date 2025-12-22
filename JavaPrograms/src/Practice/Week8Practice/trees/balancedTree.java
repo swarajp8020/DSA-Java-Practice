@@ -48,6 +48,15 @@ import com.sun.source.tree.Tree;
 /// Root’s left & right heights differ by 1 → looks fine
 /// Node 2 is unbalanced → tree is NOT balanced
 /// That’s why DFS + bottom-up is required.
+/// INTERVIEW EXPLANATION (THIS IS GOLD)
+/// Say this calmly:
+/// “I use bottom-up recursion.
+/// My helper function returns the height of the subtree, or -1 if it’s unbalanced.
+/// At each node, I compare left and right heights.
+/// If the difference exceeds 1, I return -1 immediately.
+/// Otherwise, I return the height.
+/// The tree is balanced if the root does not return -1.”
+/// That answer is top-company safe.
 public class balancedTree {
     static class Solu{
         public boolean isBalanced(TreeNode root){return dfs(root)!=-1;}

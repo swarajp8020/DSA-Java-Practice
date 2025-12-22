@@ -40,7 +40,6 @@ public class pathSum2 {
         dfs(node.right,target-node.value,path,res);
         path.remove(path.size()-1);
     }
-
     static void main(String[] args) {
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(4);

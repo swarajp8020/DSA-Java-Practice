@@ -1,5 +1,31 @@
 package Practice.Week8Practice.trees;
-
+/// Explaination -FIRST: THE MENTAL RESET (IMPORTANT)
+/// Forget code for a minute.
+/// Every tree problem boils down to answering one question:
+/// “What does my recursive function return to its parent?”
+/// If you can’t answer that in one sentence, the solution will be shaky.
+/// CORE TREE PATTERNS (YOU’LL SEE THESE AGAIN AND AGAIN)
+/// Top-down recursion
+/// Parent passes info to children
+/// Bottom-up recursion (MOST IMPORTANT)
+/// Children return info to parent
+/// Today we focus on bottom-up, because:
+/// Depth
+/// Diameter
+/// Balanced tree
+/// LCA
+/// all depend on it.
+/// PROBLEM 1 — MAXIMUM DEPTH OF BINARY TREE (FOUNDATION)
+/// ELI5
+/// “How tall is the tree?”
+/// The ONLY correct question to ask
+/// At any node:
+/// “If I ask my left and right child how tall they are, what should I do with that information?”
+/// Answer:
+/// Take the max and add 1 (for myself)
+/// RECURSIVE CONTRACT (MEMORIZE THIS)
+/// dfs(node) returns the height of the subtree rooted at node
+/// That’s the entire contract.
 class TreeNode{
     int value;
     TreeNode left, right;

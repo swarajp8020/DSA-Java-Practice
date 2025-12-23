@@ -1,5 +1,15 @@
 package Practice.Week8Practice.trees;
-
+/// explaination - Invert Binary Tree
+/// What the problem asks
+/// Mirror the tree by swapping left and right children at every node.
+/// Core idea
+/// At each node:
+/// swap left and right
+/// recurse on children
+/// Why recursion is natural here
+/// Each subtree is inverted independently.
+/// Interview explanation
+/// “At each node, I swap left and right children and recursively invert both subtrees.”
 public class InvertTree {
     public TreeNode invertTree(TreeNode root){
         if (root == null) return null;

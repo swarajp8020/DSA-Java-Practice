@@ -4,7 +4,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
+/// explaination - Right Side View of Binary Tree
+/// What the problem asks
+/// Return the nodes visible when the tree is viewed from the right side.
+/// Two valid approaches
+/// BFS (level order) → take last node of each level
+/// DFS (right-first traversal) → what you likely used
+/// DFS logic (clean)
+/// Traverse right first, then left
+/// Track current level
+/// If visiting a level for the first time, add node
+/// Key insight
+/// The first node you see at each level from right-first DFS
+/// = right side view.
+/// Interview explanation
+/// “I use DFS and traverse right before left.
+/// I keep track of depth, and the first node visited at each depth is visible from the right side.”
 public class RightSideViewTree {
     public List<Integer> rightSideView(TreeNode root){
         List<Integer> result = new ArrayList<>();

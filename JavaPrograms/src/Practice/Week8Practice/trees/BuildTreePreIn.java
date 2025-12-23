@@ -1,7 +1,28 @@
 package Practice.Week8Practice.trees;
-
 import java.util.HashMap;
-
+/// explaination - Build Tree from Preorder & Inorder (IMPORTANT)
+/// Yes — this is a LeetCode problem
+/// 👉 LeetCode 105: Construct Binary Tree from Preorder and Inorder Traversal
+/// This is a very high-value interview problem.
+/// Given
+/// Preorder: Root → Left → Right
+/// Inorder: Left → Root → Right
+/// Key observation (THIS IS THE UNLOCK)
+/// First element of preorder is root
+/// Root splits inorder into:
+/// left subtree
+/// right subtree
+/// Recursive strategy
+/// Take root from preorder
+/// Find root index in inorder
+/// Left subtree size = index difference
+/// Recursively build left and right subtrees
+/// Why a hashmap is needed
+/// To find root index in inorder in O(1) time.
+/// Interview explanation
+/// “Preorder gives me the root.
+/// Inorder tells me how the tree is split into left and right subtrees.
+/// I recursively build both sides using index ranges and a hashmap for fast lookup.”
 public class BuildTreePreIn {
     static class Solution{
         int preIndex = 0;

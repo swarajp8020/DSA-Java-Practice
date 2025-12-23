@@ -23,21 +23,20 @@ import java.util.List;
 /// I keep a current path list, add the node before recursion, and remove it after.
 /// When I reach a leaf with remaining sum zero, I store a copy of the path.”
 public class pathSum2 {
-
     public List<List<Integer>> pathSum(TreeNode root, int targetSum){
         List<List<Integer>> res = new ArrayList<>();
-        List<Integer> path =new ArrayList<>();
-        dfs(root,targetSum, path,res);
+        List<Integer> path = new ArrayList<>();
+        dfs(root, targetSum, path, res);
         return res;
     }
     private void dfs(TreeNode node, int target, List<Integer> path, List<List<Integer>>res){
-        if (node == null)return;
+        if (node == null) return;
         path.add(node.value);
         if (node.left == null && node.right == null && node.value == target){
             res.add(new ArrayList<>(path));
         }
-        dfs(node.left,target-node.value,path,res);
-        dfs(node.right,target-node.value,path,res);
+        dfs(node.left, target-node.value, path, res);
+        dfs(node.right, target-node.value, path,res);
         path.remove(path.size()-1);
     }
     static void main(String[] args) {

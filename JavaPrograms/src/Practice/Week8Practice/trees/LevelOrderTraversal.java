@@ -4,7 +4,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
+/// explaination - Level Order Traversal
+/// What it asks
+/// Return nodes level by level.
+/// Core idea
+/// Classic BFS with queue.
+/// Pattern
+/// Queue
+/// Process size = current level
+/// Add children for next level
+/// One-line interview explanation
+/// “I use BFS with a queue and process nodes level by level using the queue size.”
 public class LevelOrderTraversal {
     public List<List<Integer>>levelOrder(TreeNode root){
         List<List<Integer>> res = new ArrayList<>();

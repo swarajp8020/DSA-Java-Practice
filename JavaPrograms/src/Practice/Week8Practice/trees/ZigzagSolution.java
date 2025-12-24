@@ -1,7 +1,20 @@
 package Practice.Week8Practice.trees;
-
 import java.util.*;
-
+/// explaination - Zigzag Level Order Traversal
+/// What it asks
+/// Level order traversal, but:
+/// left → right on one level
+/// right → left on next
+/// Core idea
+/// BFS + direction toggle.
+/// Two clean ways
+/// Reverse list on alternate levels
+/// Insert at front/back based on direction (Deque)
+/// Mental model
+/// Same level order.
+/// Only the reading direction changes.
+/// One-line interview explanation
+/// “I perform level order traversal and reverse the order on alternate levels.”
 public class ZigzagSolution {
     public List<List<Integer>> zigZag(TreeNode root){
         List<List<Integer>> res = new ArrayList<>();

@@ -2,7 +2,23 @@ package Practice.Week8Practice.trees;
 
 import java.util.HashMap;
 /// LC - https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/submissions/1863855049/
-
+/// explaination - Build Tree from Inorder + Postorder
+/// LeetCode reference
+/// 👉 LeetCode 106 — Construct Binary Tree from Inorder and Postorder Traversal
+/// Given
+/// Inorder: Left → Root → Right
+/// Postorder: Left → Right → Root
+/// Core observation
+/// Last element of postorder = root
+/// Root splits inorder into left/right subtrees
+/// Recursive strategy
+/// Pick root from postorder
+/// Find root index in inorder (use hashmap)
+/// Build right subtree first
+/// Then build left subtree
+/// ⚠️ Order matters because postorder consumes root from the end.
+/// One-line interview explanation
+/// “Postorder gives the root from the end, inorder splits left and right subtrees, and I recursively construct both using index ranges.”
 public class BuildTreeInPost {
     int postIndex;
     HashMap<Integer, Integer> inMap = new HashMap<>();

@@ -1,5 +1,19 @@
 package Practice.Week8Practice.trees;
-
+/// explaination - Symmetric Tree
+/// What it asks
+/// Check if tree is a mirror of itself.
+/// Core idea
+/// Compare:
+/// left subtree of left
+/// right subtree of right
+/// …but crossed
+/// Recursive rule
+/// Two trees are mirror if:
+/// values equal
+/// left.left == right.right
+/// left.right == right.left
+/// One-line interview explanation
+/// “I recursively compare left and right subtrees in mirrored order.”
 public class SymmetricTree {
     public boolean isSymmetry(TreeNode root){
         if (root == null) return false;

@@ -10,14 +10,15 @@ public class mergeTwoSortedArrays {
         System.out.println(Arrays.toString(res));
     }
     static int[] merge(int[] a, int[] b){
-        int[] temp = new int[a.length + b.length];
+        int[] temp = new int[a.length+ b.length];
         int i = 0, j = 0, k = 0;
         while (i < a.length && j < b.length) {
-            if (a[i] <= b[j])temp[k++] = a[i++];
-            else temp[k++] = b[j++];
+            if (a[i] < b[j]){
+                temp[k++] = a[i++];
+            }else temp[k++] = b[j++];
         }
-        while (i < a.length) temp[k++] = a[i++];
-        while (j < b.length) temp[k++] = b[j++];
+        while (i< a.length) temp[k++] = a[i++];
+        while (j <b.length) temp[k++] = b[j++];
         return temp;
     }
 }

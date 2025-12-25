@@ -1,7 +1,12 @@
 package Practice.Week8Practice.sorting;
 
 import java.util.Arrays;
-
+/// Time: O(n²)
+/// Space: O(1)
+/// Stable: Insertion, Bubble
+/// Use case: nearly sorted arrays → insertion
+/// Interview line:
+/// “These are basic comparison sorts, mainly useful for understanding mechanics or small / nearly sorted inputs.”
 public class insertionSort {
     static void main(String[] args) {
         int[] arr ={2,4,1,5,23};

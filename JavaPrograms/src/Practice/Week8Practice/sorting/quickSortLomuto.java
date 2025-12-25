@@ -2,7 +2,7 @@ package Practice.Week8Practice.sorting;
 
 import java.util.Arrays;
 
-public class quickSort {
+public class quickSortLomuto {
     static void main(String[] args) {
         int[] arr = {9,6,4,2};
         quickSort(arr, 0, arr.length-1);

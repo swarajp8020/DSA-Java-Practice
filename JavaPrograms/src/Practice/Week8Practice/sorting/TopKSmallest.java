@@ -29,6 +29,8 @@ public class TopKSmallest {
         return -1;
     }
     static int partition(int[] arr, int left, int right){
+        int randomIndex = (int) (Math.random()*(right - left + 1));
+        swap(arr, randomIndex, randomIndex);
         int pivot = arr[right];
         int i = left - 1;
         for (int j = left; j < right; j++) {

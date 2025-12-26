@@ -20,6 +20,9 @@ public class KthLargest {
     }
 
     static int partition(int[] arr, int left, int right){
+        //if we add randomIndex then time complexity will reduce from O(n*n) -> O(n)
+        int randomIndex= (int) (Math.random()*(right-left+1));
+        swap(arr,randomIndex,randomIndex);
         int pivot = arr[right];
         int i = left - 1;
         for (int j = left; j < right; j++) {

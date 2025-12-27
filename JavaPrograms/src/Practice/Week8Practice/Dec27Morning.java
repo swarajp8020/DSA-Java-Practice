@@ -3,32 +3,66 @@ package Practice.Week8Practice;
 
 public class Dec27Morning {
 
-    ///Longest Repeating Character Replacement
+    /// MinimumWindowSubstring
     static void main(String[] args) {
-        String s = "sada";
-        int k = 2;
-        Solution sol = new Solution();
-        System.out.println(sol.characterReplacement(s,k));
+        String s = "ssadafa";
+        String t = "sad";
+        sol ss = new sol();
+        System.out.println(ss.minWindow(s,t));
     }
-    static class Solution {
-        public int characterReplacement(String s, int k){
-            int[] freq = new int[26];
-            int left = 0, maxFreq = 0, maxLen = 0;
+    static class sol{
+        public String minWindow(String s, String t){
+            if (s.length() < t.length()) return "";
+            int[] need = new int[128];
+            for (char c: t.toCharArray()){
+                need[c]++;
+            }
+            int left = 0, count = t.length(), start = 0, minLen = Integer.MAX_VALUE;
             for (int right = 0; right < s.length(); right++) {
                 char c = s.charAt(right);
-                freq[c-'a']++;
-                maxFreq = Math.max(maxFreq, freq[c-'a']);
-                int windowSize = right - left + 1;
-                int charsToChange = windowSize - maxFreq;
-                if (charsToChange > k){
-                    freq[s.charAt(left)]--;
+                if (need[c] > 0) count--;
+                need[c]--;
+                while (count == 0) {
+                    if (right - left + 1 < minLen) {
+                        minLen = right - left + 1;
+                        start = left;
+                    }
+                    char lc = s.charAt(left);
+                    need[lc]++;
+                    if (need[lc] > 0) count++;
                     left++;
                 }
-                maxLen = Math.max(maxLen, right-left+1);
             }
-            return maxLen;
+            return minLen == Integer.MAX_VALUE?"":s.substring(start, start+minLen);
         }
     }
+
+    ///Longest Repeating Character Replacement
+//    static void main(String[] args) {
+//        String s = "sada";
+//        int k = 2;
+//        Solution sol = new Solution();
+//        System.out.println(sol.characterReplacement(s,k));
+//    }
+//    static class Solution {
+//        public int characterReplacement(String s, int k){
+//            int[] freq = new int[26];
+//            int left = 0, maxFreq = 0, maxLen = 0;
+//            for (int right = 0; right < s.length(); right++) {
+//                char c = s.charAt(right);
+//                freq[c-'a']++;
+//                maxFreq = Math.max(maxFreq, freq[c-'a']);
+//                int windowSize = right - left + 1;
+//                int charsToChange = windowSize - maxFreq;
+//                if (charsToChange > k){
+//                    freq[s.charAt(left)]--;
+//                    left++;
+//                }
+//                maxLen = Math.max(maxLen, right-left+1);
+//            }
+//            return maxLen;
+//        }
+//    }
 
     /// Permutation in String
 //    static void main(String[] args) {

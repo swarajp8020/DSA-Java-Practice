@@ -11,7 +11,7 @@ public class validAnagram {
         int[] freq = new int[26];
         for (int i = 0; i < s.length(); i++) {
             freq[s.charAt(i) - 'a']++;
-            freq[s.charAt(i) - 'a']--;
+            freq[t.charAt(i) - 'a']--;
         }
         for (int count:freq){
             if (count != 0) {

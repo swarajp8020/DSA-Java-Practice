@@ -2,8 +2,8 @@ package string;
 /// LC 242: Valid Anagram
 public class validAnagram {
     static void main(String[] args) {
-        String s = "anagram";
-        String t = "nagaram";
+        String s = "rat";
+        String t = "cat";
         System.out.println(isAnagram(s, t));
     }
     static boolean isAnagram(String s, String t){
@@ -11,7 +11,7 @@ public class validAnagram {
         int[] freq = new int[26];
         for (int i = 0; i < s.length(); i++) {
             freq[s.charAt(i) - 'a']++;
-            freq[s.charAt(i) - 'a']--;
+            freq[t.charAt(i) - 'a']--;
         }
         for (int count : freq){
             if (count != 0) {

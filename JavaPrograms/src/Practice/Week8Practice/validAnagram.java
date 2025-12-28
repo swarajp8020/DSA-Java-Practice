@@ -13,8 +13,10 @@ public class validAnagram {
             freq[s.charAt(i) - 'a']++;
             freq[s.charAt(i) - 'a']--;
         }
-        for (int count : freq) {
-            if (count != 0) return false;
+        for (int count:freq){
+            if (count != 0) {
+                return false;
+            }
         }
         return true;
     }

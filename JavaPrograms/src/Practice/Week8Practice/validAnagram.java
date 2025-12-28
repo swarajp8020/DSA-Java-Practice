@@ -2,7 +2,7 @@ package Practice.Week8Practice;
 
 public class validAnagram {
     static void main(String[] args) {
-        String s = "anagrasadm";
+        String s = "anagram";
         String t = "nagaram";
         System.out.println(isAnagram(s, t));
     }

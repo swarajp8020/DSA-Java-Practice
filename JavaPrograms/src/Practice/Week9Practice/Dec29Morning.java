@@ -1,6 +1,6 @@
 package Practice.Week9Practice;
 
-public class Dec29 {
+public class Dec29Morning {
     /// LongestPalindromeSubstring
     static void main(String[] args) {
         String s = "babad";

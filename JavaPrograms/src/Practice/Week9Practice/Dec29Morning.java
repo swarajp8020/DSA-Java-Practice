@@ -1,30 +1,48 @@
 package Practice.Week9Practice;
 
 public class Dec29Morning {
-    /// LongestPalindromeSubstring
+
     static void main(String[] args) {
-        String s = "babad";
-        System.out.println(longestPalindrome(s));
+        String s = "rat";
+        String t = "cat";
+        System.out.println(isAnagram(s, t));
     }
-    static String longestPalindrome(String s){
-        if (s == null || s.length() < 2)return s;
-        int start = 0, maxLen = 0;
+    static boolean isAnagram(String s, String t){
+        if (s.length() != t.length()) return false;
+        int[] freq = new int[26];
         for (int i = 0; i < s.length(); i++) {
-            int len1 = expand(s, i, i);
-            int len2 = expand(s, i, i +1);
-            int len = Math.max(len1, len2);
-            if (len > maxLen) {
-                maxLen = len;
-                start = i - (len - 1) / 2;
-            }
+            freq[s.charAt(i) - 'a']++;
+            freq[t.charAt(i) - 'a']--;
         }
-        return s.substring(start, start + maxLen);
-    }
-    static int expand(String s, int left, int right){
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
+        for (int count: freq){
+            if (count != 0)return false;
         }
-        return right - left - 1;
+        return true;
     }
+    /// LongestPalindromeSubstring
+//    static void main(String[] args) {
+//        String s = "babad";
+//        System.out.println(longestPalindrome(s));
+//    }
+//    static String longestPalindrome(String s){
+//        if (s == null || s.length() < 2)return s;
+//        int start = 0, maxLen = 0;
+//        for (int i = 0; i < s.length(); i++) {
+//            int len1 = expand(s, i, i);
+//            int len2 = expand(s, i, i +1);
+//            int len = Math.max(len1, len2);
+//            if (len > maxLen) {
+//                maxLen = len;
+//                start = i - (len - 1) / 2;
+//            }
+//        }
+//        return s.substring(start, start + maxLen);
+//    }
+//    static int expand(String s, int left, int right){
+//        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+//            left--;
+//            right++;
+//        }
+//        return right - left - 1;
+//    }
 }

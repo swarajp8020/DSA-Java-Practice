@@ -1,24 +1,49 @@
 package Practice.Week9Practice;
 
-public class Dec29Morning {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+public class Dec29Morning {
+    /// group Anagram
     static void main(String[] args) {
-        String s = "rat";
-        String t = "cat";
-        System.out.println(isAnagram(s, t));
+        String[] strs = {"eat","tea","tan","ate","nat","bat"};
+        System.out.println(groupAnagrams(strs));
     }
-    static boolean isAnagram(String s, String t){
-        if (s.length() != t.length()) return false;
-        int[] freq = new int[26];
-        for (int i = 0; i < s.length(); i++) {
-            freq[s.charAt(i) - 'a']++;
-            freq[t.charAt(i) - 'a']--;
+    static List<List<String >> groupAnagrams(String[] strs){
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s: strs){
+            int[] freq = new int[26];
+            for (char c: s.toCharArray()){
+                freq[c - 'a']++;
+            }
+            StringBuilder key = new StringBuilder();
+            for (int count:freq){
+                key.append('#').append(count);
+            }
+            map.computeIfAbsent(key.toString(), k -> new ArrayList<>()).add(s);
         }
-        for (int count: freq){
-            if (count != 0)return false;
-        }
-        return true;
+        return new ArrayList<>(map.values());
     }
+    /// Anagram
+//    static void main(String[] args) {
+//        String s = "rat";
+//        String t = "cat";
+//        System.out.println(isAnagram(s, t));
+//    }
+//    static boolean isAnagram(String s, String t){
+//        if (s.length() != t.length()) return false;
+//        int[] freq = new int[26];
+//        for (int i = 0; i < s.length(); i++) {
+//            freq[s.charAt(i) - 'a']++;
+//            freq[t.charAt(i) - 'a']--;
+//        }
+//        for (int count: freq){
+//            if (count != 0)return false;
+//        }
+//        return true;
+//    }
     /// LongestPalindromeSubstring
 //    static void main(String[] args) {
 //        String s = "babad";

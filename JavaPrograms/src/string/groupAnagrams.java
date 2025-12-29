@@ -1,9 +1,4 @@
 package string;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 ///  ELI5 FIRST - Think like this:
 /// Every string has a DNA
 /// For anagrams, the DNA is the same
@@ -18,6 +13,11 @@ import java.util.Map;
 ///  Q: What if uppercase / Unicode?
 /// Use int[128] or HashMap<Character, Integer>.
 ///  INTERVIEW ONE-LINER (MEMORIZE THIS) "I generate a frequency-based key for each string and group them using a HashMap.”
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 public class groupAnagrams {
     static void main(String[] args) {
         String[] strs = {"eat","tea","tan","ate","nat","bat"};

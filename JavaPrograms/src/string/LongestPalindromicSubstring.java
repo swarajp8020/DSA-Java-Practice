@@ -30,9 +30,9 @@ package string;
 public class LongestPalindromicSubstring {
     static void main(String[] args) {
         String s = "babad";
-        System.out.println(longestPalindrole(s));
+        System.out.println(longestPalindrome(s));
     }
-    static String longestPalindrole(String s){
+    static String longestPalindrome(String s){
         if (s == null || s.length() < 2) return s;
 
         int start = 0, maxLen = 1;

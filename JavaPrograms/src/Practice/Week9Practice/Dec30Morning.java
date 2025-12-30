@@ -3,20 +3,33 @@ package Practice.Week9Practice;
 import java.util.Arrays;
 
 public class Dec30Morning {
-    /// isPalindrome
+    /// hasDupicates
     static void main(String[] args) {
-        String s = "naman";
-        System.out.println(isPalindrome(s));
+        String s = "swaraj";
+        System.out.println(hasDuplicate(s));
     }
-    static boolean isPalindrome(String s){
-        int left = 0, right = s.length()-1;
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) return false;
-            left++;
-            right--;
+    static boolean hasDuplicate(String s){
+        int[] freq = new int[26];
+        for (char c: s.toCharArray()){
+            if (freq[c -'a'] > 0) return true;
+            freq[c - 'a']++;
         }
-        return true;
+        return false;
     }
+    /// isPalindrome
+//    static void main(String[] args) {
+//        String s = "naman";
+//        System.out.println(isPalindrome(s));
+//    }
+//    static boolean isPalindrome(String s){
+//        int left = 0, right = s.length()-1;
+//        while (left < right) {
+//            if (s.charAt(left) != s.charAt(right)) return false;
+//            left++;
+//            right--;
+//        }
+//        return true;
+//    }
 
     /// LongestPalindromicSubstring
 //    static void main(String[] args) {

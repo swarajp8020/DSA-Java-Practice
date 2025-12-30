@@ -3,32 +3,47 @@ package Practice.Week9Practice;
 import java.util.Arrays;
 
 public class Dec30Morning {
-    /// LongestPalindromicSubstring
+    /// isPalindrome
     static void main(String[] args) {
-        String s = "babad";
-        System.out.println(longestPalindrome(s));
+        String s = "naman";
+        System.out.println(isPalindrome(s));
     }
-    static String longestPalindrome(String s){
-        if (s == null || s.length() < 2) return s;
-        int start = 0, maxLen = 1;
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expand(s, i, i);
-            int len2 = expand(s, i, i + 1);
-            int len = Math.max(len1, len2);
-            if (len > maxLen) {
-                maxLen = len;
-                start = i - (len - 1) / 2;
-            }
+    static boolean isPalindrome(String s){
+        int left = 0, right = s.length()-1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) return false;
+            left++;
+            right--;
         }
-        return s.substring(start, start + maxLen);
+        return true;
     }
-    static int expand(String s, int left, int right){
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
-            left--;
-            right++;
-        }
-        return right - left - 1;
-    }
+
+    /// LongestPalindromicSubstring
+//    static void main(String[] args) {
+//        String s = "babad";
+//        System.out.println(longestPalindrome(s));
+//    }
+//    static String longestPalindrome(String s){
+//        if (s == null || s.length() < 2) return s;
+//        int start = 0, maxLen = 1;
+//        for (int i = 0; i < s.length(); i++) {
+//            int len1 = expand(s, i, i);
+//            int len2 = expand(s, i, i + 1);
+//            int len = Math.max(len1, len2);
+//            if (len > maxLen) {
+//                maxLen = len;
+//                start = i - (len - 1) / 2;
+//            }
+//        }
+//        return s.substring(start, start + maxLen);
+//    }
+//    static int expand(String s, int left, int right){
+//        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
+//            left--;
+//            right++;
+//        }
+//        return right - left - 1;
+//    }
     /// ReverseString
 //    static void main(String[] args) {
 //        String s = "hello";

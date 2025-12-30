@@ -1,5 +1,4 @@
 package Practice.Week9Practice;
-
 class ListNode {
     int val;
     ListNode next;
@@ -8,7 +7,7 @@ class ListNode {
         this.next = null;
     }
 }
-class Solution {
+class Solution{
     public ListNode reverseList(ListNode head){
         ListNode prev = null;
         ListNode curr = head;
@@ -34,7 +33,7 @@ public class reverseLinkedList {
     }
     static void printList(ListNode head){
         while (head != null) {
-            System.out.print(head.val + " -> ");
+            System.out.print(head.val + "->");
             head = head.next;
         }
         System.out.println("null");

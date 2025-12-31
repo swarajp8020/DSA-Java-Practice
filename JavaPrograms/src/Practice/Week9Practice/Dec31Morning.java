@@ -20,36 +20,60 @@ class ListNode1 {
 //        return prev;
 //    }
 //}
+//class Sol {
+//    public ListNode1 middleList(ListNode1 head){
+//        ListNode1 slow = head;
+//        ListNode1 fast = head;
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//        }
+//        return slow;
+//    }
+//}
 class Sol {
-    public ListNode1 middleList(ListNode1 head){
-        ListNode1 slow = head;
-        ListNode1 fast = head;
+    public boolean hasCycle(ListNode head){
+        if (head == null) return false;
+        ListNode slow = head;
+        ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
+            if (slow == fast) return true;
         }
-        return slow;
+        return false;
     }
 }
 public class Dec31Morning {
-    /// MiddleLinkedList
+    /// LinkedListCycle
     static void main(String[] args) {
-        ListNode1 head = new ListNode1(5);
-        head.next = new ListNode1(4);
-        head.next.next = new ListNode1(3);
-        head.next.next.next = new ListNode1(2);
-        head.next.next.next.next = new ListNode1(1);
-        Sol solu = new Sol();
-        ListNode1 newHead = solu.middleList(head);
-        printHead(newHead);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        Sol dec = new Sol();
+        boolean hasCyclce = dec.hasCycle(head);
+        System.out.println("Has Cycle? "+ hasCyclce);
     }
-    static void printHead(ListNode1 head){
-        while (head != null){
-            System.out.print(head.val + "->");
-            head = head.next;
-        }
-        System.out.println("null");
-    }
+    /// MiddleLinkedList
+//    static void main(String[] args) {
+//        ListNode1 head = new ListNode1(5);
+//        head.next = new ListNode1(4);
+//        head.next.next = new ListNode1(3);
+//        head.next.next.next = new ListNode1(2);
+//        head.next.next.next.next = new ListNode1(1);
+//        Sol solu = new Sol();
+//        ListNode1 newHead = solu.middleList(head);
+//        printHead(newHead);
+//    }
+//    static void printHead(ListNode1 head){
+//        while (head != null){
+//            System.out.print(head.val + "->");
+//            head = head.next;
+//        }
+//        System.out.println("null");
+//    }
 
     /// ReverseLinkedList
 //    static void main(String[] args) {

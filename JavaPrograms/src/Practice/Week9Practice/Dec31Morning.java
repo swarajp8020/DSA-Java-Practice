@@ -44,48 +44,53 @@ class ListNode1 {
 //        return false;
 //    }
 //}
-class Sol {
-    public ListNode detectCycle(ListNode head){
-        if (head == null) return null;
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) {
-                slow = head;
-                while (slow != fast) {
-                    slow = slow.next;
-                    fast = fast.next;
-                }
-                return slow;
-            }
-        }
-        return null;
-    }
+//class Sol {
+//    public ListNode detectCycle(ListNode head){
+//        if (head == null) return null;
+//        ListNode slow = head;
+//        ListNode fast = head;
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//            if (slow == fast) {
+//                slow = head;
+//                while (slow != fast) {
+//                    slow = slow.next;
+//                    fast = fast.next;
+//                }
+//                return slow;
+//            }
+//        }
+//        return null;
+//    }
+//}
+class Solu {
+
 }
-
 public class Dec31Morning {
-    /// LinkedListCycle2
     static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
 
-        // CREATE CYCLE: 5 → 3
-        head.next.next.next.next.next = head.next.next;
-
-        Sol sol = new Sol();
-        ListNode cycleStart = sol.detectCycle(head);
-
-        if (cycleStart != null) {
-            System.out.println("Cycle starts at node with value: " + cycleStart.val);
-        } else {
-            System.out.println("No cycle detected");
-        }
     }
+    /// LinkedListCycle2
+//    static void main(String[] args) {
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        head.next.next = new ListNode(3);
+//        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
+//
+//        // CREATE CYCLE: 5 → 3
+//        head.next.next.next.next.next = head.next.next;
+//
+//        Sol sol = new Sol();
+//        ListNode cycleStart = sol.detectCycle(head);
+//
+//        if (cycleStart != null) {
+//            System.out.println("Cycle starts at node with value: " + cycleStart.val);
+//        } else {
+//            System.out.println("No cycle detected");
+//        }
+//    }
 
     /// LinkedListCycle
 //    static void main(String[] args) {

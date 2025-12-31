@@ -7,29 +7,40 @@ class ListNode1 {
         this.next = null;
     }
 }
-class Solu {
-    public ListNode1 reverseList(ListNode1 head){
-        ListNode1 prev = null;
-        ListNode1 curr = head;
-        while (curr != null) {
-            ListNode1 next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+//class Solu {
+//    public ListNode1 reverseList(ListNode1 head){
+//        ListNode1 prev = null;
+//        ListNode1 curr = head;
+//        while (curr != null) {
+//            ListNode1 next = curr.next;
+//            curr.next = prev;
+//            prev = curr;
+//            curr = next;
+//        }
+//        return prev;
+//    }
+//}
+class Sol {
+    public ListNode1 middleList(ListNode1 head){
+        ListNode1 slow = head;
+        ListNode1 fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return prev;
+        return slow;
     }
 }
 public class Dec31Morning {
-    /// ReverseLinkedList
+    /// MiddleLinkedList
     static void main(String[] args) {
         ListNode1 head = new ListNode1(5);
         head.next = new ListNode1(4);
         head.next.next = new ListNode1(3);
         head.next.next.next = new ListNode1(2);
         head.next.next.next.next = new ListNode1(1);
-        Solu solu = new Solu();
-        ListNode1 newHead = solu.reverseList(head);
+        Sol solu = new Sol();
+        ListNode1 newHead = solu.middleList(head);
         printHead(newHead);
     }
     static void printHead(ListNode1 head){
@@ -39,4 +50,23 @@ public class Dec31Morning {
         }
         System.out.println("null");
     }
+
+    /// ReverseLinkedList
+//    static void main(String[] args) {
+//        ListNode1 head = new ListNode1(5);
+//        head.next = new ListNode1(4);
+//        head.next.next = new ListNode1(3);
+//        head.next.next.next = new ListNode1(2);
+//        head.next.next.next.next = new ListNode1(1);
+//        Solu solu = new Solu();
+//        ListNode1 newHead = solu.reverseList(head);
+//        printHead(newHead);
+//    }
+//    static void printHead(ListNode1 head){
+//        while (head != null){
+//            System.out.print(head.val + "->");
+//            head = head.next;
+//        }
+//        System.out.println("null");
+//    }
 }

@@ -1,30 +1,54 @@
 package Practice.Week9Practice;
-/// Linkedlistcycle
-
+///// Linkedlistcycle
+//class Solution2 {
+//    public boolean hasCycle(ListNode head){
+//        if (head == null) return false;
+//        ListNode slow = head;
+//        ListNode fast = head;
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//            if (slow == fast) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//}
 class Solution2 {
-    public boolean hasCycle(ListNode head){
-        if (head == null) return false;
+    public ListNode detectCycle(ListNode head){
+        if (head == null) return null;
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {
-                return true;
+                slow = head;
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
             }
         }
-        return false;
+        return null;
     }
 }
 public class Jan03Morning {
     static void main(String[] args) {
-        ListNode head = new ListNode(5);
-        head.next = new ListNode(4);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
         head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(2);
-        head.next.next.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next = head.next.next;
         Solution2 sol = new Solution2();
-        boolean hasCycle = sol.hasCycle(head);
-        System.out.println("Has Cycle: " + hasCycle);
+        ListNode cycleStart = sol.detectCycle(head);
+        if (cycleStart != null) {
+            System.out.println("Cycle starts at node with value: " + cycleStart.val);
+        } else {
+            System.out.println("no cycle detected");
+        }
     }
 }

@@ -44,9 +44,9 @@ class Solution2 {
         for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
-        while (fast != null) {
-            slow = slow.next;
+        while (fast.next != null) {
             fast = fast.next;
+            slow = slow.next;
         }
         slow.next = slow.next.next;
         return dummy.next;

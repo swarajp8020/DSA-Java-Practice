@@ -66,7 +66,6 @@ class Solution6 {
             ListNode node = pq.poll();
             curr.next = node;
             curr = curr.next;
-
             if (node.next != null) {
                 pq.offer(node.next);
             }

@@ -25,46 +25,84 @@ import java.util.PriorityQueue;
 //        return dummy.next;
 //    }
 //}
-class ListNode2 {
-    int val;
-    ListNode2 next;
-    ListNode2(int val){
-        this.val = val;
-        this.next = null;
-    }
-}
-class Solution4{
-    public ListNode2 reverseList(ListNode2 head){
-        ListNode2 prev = null;
-        ListNode2 curr = head;
-        while (curr != null) {
-            ListNode2 next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+//class ListNode2 {
+//    int val;
+//    ListNode2 next;
+//    ListNode2(int val){
+//        this.val = val;
+//        this.next = null;
+//    }
+//}
+//class Solution4{
+//    public ListNode2 reverseList(ListNode2 head){
+//        ListNode2 prev = null;
+//        ListNode2 curr = head;
+//        while (curr != null) {
+//            ListNode2 next = curr.next;
+//            curr.next = prev;
+//            prev = curr;
+//            curr = next;
+//        }
+//        return prev;
+//    }
+//}
+class Solution4 {
+    // Build list: 1 → 2 → 3 → 4 → 5
+    public ListNode removeNthFromEnd(ListNode head, int n){
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
         }
-        return prev;
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slow.next = slow.next.next;
+        return dummy.next;
     }
 }
 public class Jan04Morning {
-    static void main(String[] args) {
-        ListNode2 head = new ListNode2(1);
-        head.next = new ListNode2(2);
-        head.next.next = new ListNode2(3);
-        head.next.next.next = new ListNode2(4);
-        head.next.next.next.next = new ListNode2(5);
+        static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
+
         Solution4 sol = new Solution4();
-        ListNode2 newHead = sol.reverseList(head);
-        // Print reversed list
-        printList(newHead);
+        ListNode newHead = sol.removeNthFromEnd(head, 2);
+
+        printList(newHead); // Expected: 1 → 2 → 3 → 5
     }
-    static void printList(ListNode2 head){
-        while (head != null){
-            System.out.print(head.val + "->");
+
+    static void printList(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + " → ");
             head = head.next;
         }
         System.out.println("null");
     }
+//    static void main(String[] args) {
+//        ListNode2 head = new ListNode2(1);
+//        head.next = new ListNode2(2);
+//        head.next.next = new ListNode2(3);
+//        head.next.next.next = new ListNode2(4);
+//        head.next.next.next.next = new ListNode2(5);
+//        Solution4 sol = new Solution4();
+//        ListNode2 newHead = sol.reverseList(head);
+//        // Print reversed list
+//        printList(newHead);
+//    }
+//    static void printList(ListNode2 head){
+//        while (head != null){
+//            System.out.print(head.val + "->");
+//            head = head.next;
+//        }
+//        System.out.println("null");
+//    }
 //    public static void main(String[] args) {
 //        ListNode l1 = new ListNode(1);
 //        l1.next = new ListNode(4);

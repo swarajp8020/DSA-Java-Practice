@@ -65,36 +65,78 @@ import java.util.PriorityQueue;
 //    }
 //}
 //middleLinkedList
+//class Solution4 {
+//    public ListNode middleList(ListNode head){
+//        ListNode slow = head;
+//        ListNode fast = head;
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next;
+//        }
+//        return slow;
+//    }
+//}
+//MergeTwoSortedLists
 class Solution4 {
-    public ListNode middleList(ListNode head){
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2){
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                curr.next = list1;
+                list1 = list1.next;
+            } else {
+                curr.next = list2;
+                list2 = list2.next;
+            }
+            curr = curr.next;
         }
-        return slow;
+        curr.next = (list1 != null) ? list1 : list2;
+        return dummy.next;
     }
 }
+
 public class Jan04Morning {
-    static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        Solution1 sol = new Solution1();
-        ListNode newHead = sol.middleList(head);
-        // Print reversed list
-        printList(newHead);
+        public static void main(String[] args) {
+        ListNode list1 = new ListNode(1);
+        list1.next = new ListNode(2);
+        list1.next.next = new ListNode(4);
+
+        // list2: 2 → 4 → 6
+        ListNode list2 = new ListNode(1);
+        list2.next = new ListNode(3);
+        list2.next.next = new ListNode(4);
+
+        Solution4 sol = new Solution4();
+        ListNode merged = sol.mergeTwoLists(list1, list2);
+
+        printList(merged);
     }
     static void printList(ListNode head) {
         while (head != null) {
-            System.out.print(head.val + " -> ");
+            System.out.print(head.val + " → ");
             head = head.next;
         }
         System.out.println("null");
     }
+//    static void main(String[] args) {
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        head.next.next = new ListNode(3);
+//        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
+//        Solution1 sol = new Solution1();
+//        ListNode newHead = sol.middleList(head);
+//        // Print reversed list
+//        printList(newHead);
+//    }
+//    static void printList(ListNode head) {
+//        while (head != null) {
+//            System.out.print(head.val + " -> ");
+//            head = head.next;
+//        }
+//        System.out.println("null");
+//    }
 //        static void main(String[] args) {
 //        ListNode head = new ListNode(1);
 //        head.next = new ListNode(2);
@@ -154,4 +196,5 @@ public class Jan04Morning {
 //        }
 //        System.out.println("null");
 //    }
+
 }

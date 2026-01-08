@@ -25,27 +25,39 @@ import java.util.PriorityQueue;
 //        return dummy.next;
 //    }
 //}
+//class Solution3 {
+//    public ListNode detectCycle(ListNode head) {
+//        if (head == null) return null;
+//        ListNode slow = head;
+//        ListNode fast = head;
+//        while (fast != null && fast.next != null) {
+//            slow = slow.next;
+//            fast = fast.next.next;
+//            if (slow == fast) {
+//                slow = head;
+//                while (slow != fast) {
+//                    slow = slow.next;
+//                    fast = fast.next;
+//                }
+//                return slow;
+//            }
+//        }
+//        return null;
+//    }
+//}
 class Solution3 {
-    public ListNode detectCycle(ListNode head) {
-        if (head == null) return null;
+    public boolean hasCycle (ListNode head) {
+        if (head == null) return false;
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast) {
-                slow = head;
-                while (slow != fast) {
-                    slow = slow.next;
-                    fast = fast.next;
-                }
-                return slow;
-            }
+            if (slow == fast) return true;
         }
-        return null;
+        return  false;
     }
 }
-
 public class Dec8Morning {
     static void main(String[] args) {
         ListNode head = new ListNode(1);
@@ -53,15 +65,25 @@ public class Dec8Morning {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-        head.next.next.next.next.next = head.next.next;
         Solution3 sol = new Solution3();
-        ListNode cycleStart = sol.detectCycle(head);
-        if (cycleStart != null) {
-            System.out.println("Cycle starts at node with value: " + cycleStart.value);
-        } else {
-            System.out.println("No cycle detected");
-        }
+        boolean hasCycle = sol.hasCycle(head);
+        System.out.println("Has Cycle? " + hasCycle);
     }
+//    static void main(String[] args) {
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        head.next.next = new ListNode(3);
+//        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
+//        head.next.next.next.next.next = head.next.next;
+//        Solution3 sol = new Solution3();
+//        ListNode cycleStart = sol.detectCycle(head);
+//        if (cycleStart != null) {
+//            System.out.println("Cycle starts at node with value: " + cycleStart.value);
+//        } else {
+//            System.out.println("No cycle detected");
+//        }
+//    }
 //    static void main(String[] args) {
 //        ListNode l1 = new ListNode(1);
 //        l1.next = new ListNode(4);

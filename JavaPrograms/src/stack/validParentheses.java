@@ -73,9 +73,7 @@ import java.util.Stack;
 public class validParentheses {
     public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-
         for (char ch : s.toCharArray()) {
-
             if (ch == '(' || ch == '{' || ch == '[') {
                 stack.push(ch);
             } else {
@@ -90,7 +88,6 @@ public class validParentheses {
         }
         return stack.isEmpty();
     }
-
     static void main(String[] args) {
         System.out.println(isValid("{[()]}")); // true
         System.out.println(isValid("(]"));     // false

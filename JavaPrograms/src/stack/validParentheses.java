@@ -1,7 +1,7 @@
 package stack;
 
 import java.util.Stack;
-
+// LC - 20. Valid Parentheses https://leetcode.com/problems/valid-parentheses/description/?envType=problem-list-v2&envId=rr2ss0g5
 /// Imagine you’re opening and closing doors.
 /// ( means you opened a door
 /// ) means you must close the last door you opened

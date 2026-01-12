@@ -43,7 +43,7 @@ import java.util.Stack;
  /// ❌ Storing temperature values instead of index
  /// ❌ Using >= instead of > (depends on question definition)
  /// ❌ Forgetting to fill leftover with 0 (default is 0 anyway)
-public class monotonicStack {
+public class dailyTemprature {
     public static int[] dailyTemperatures(int[] temperatures) {
         int n = temperatures.length;
         int[] ans = new int[n];

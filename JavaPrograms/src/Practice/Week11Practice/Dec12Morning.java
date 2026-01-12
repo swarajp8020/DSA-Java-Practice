@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class Dec12Morning {
-    public static int[] dailyTemperatures(int[] temprature) {
-        int n = temprature.length;
+    public static int[] dailyTemperatures(int[] tempratures) {
+        int n = tempratures.length;
         int[] ans = new int[n];
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
-            while (!stack.isEmpty() && temprature[i] > temprature[stack.peek()]) {
+            while (!stack.isEmpty() && tempratures[i] > tempratures[stack.peek()]) {
                 int prevIndex = stack.pop();
                 ans[prevIndex] = i - prevIndex;
             }

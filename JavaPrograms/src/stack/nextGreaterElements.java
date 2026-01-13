@@ -42,32 +42,23 @@ public class nextGreaterElements {
         int n = nums.length;
         int[] ans = new int[n];
         Arrays.fill(ans, -1);
-
         Stack<Integer> stack = new Stack<>(); // store indexes (monotonic decreasing)
-
         for (int i = 0; i < 2 * n; i++) {
             int idx = i % n;
-
             while (!stack.isEmpty() && nums[idx] > nums[stack.peek()]) {
                 int prevIndex = stack.pop();
                 ans[prevIndex] = nums[idx];
             }
-
             if (i < n) {
                 stack.push(idx);
             }
         }
-
         return ans;
     }
-
      static void main(String[] args) {
          nextGreaterElements obj = new nextGreaterElements();
-
          int[] nums = {1, 2, 1};
          int[] result = obj.nextGreaterElements(nums);
-
-         System.out.println(Arrays.toString(result));
-         // Expected: [2, -1, 2]
+         System.out.println(Arrays.toString(result)); // Expected: [2, -1, 2]
      }
 }

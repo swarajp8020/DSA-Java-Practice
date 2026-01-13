@@ -61,7 +61,13 @@ public class nextGreaterElements {
         return ans;
     }
 
-    static void main(String[] args) {
+     static void main(String[] args) {
+         nextGreaterElements obj = new nextGreaterElements();
 
-    }
+         int[] nums = {1, 2, 1};
+         int[] result = obj.nextGreaterElements(nums);
+
+         System.out.println(Arrays.toString(result));
+         // Expected: [2, -1, 2]
+     }
 }

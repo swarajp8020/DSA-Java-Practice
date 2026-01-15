@@ -30,7 +30,7 @@ import java.util.Stack;
 class MyQueue1 {
     private Stack<Integer> inStack;
     private Stack<Integer> outStack;
-    public MyQueue1(){
+    public MyQueue1() {
         inStack = new Stack<>();
         outStack = new Stack<>();
     }

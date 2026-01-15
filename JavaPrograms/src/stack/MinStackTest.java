@@ -30,7 +30,7 @@ import java.util.Stack;
 /// So for each value in stack,
 /// there is a corresponding minimum value up to that point in minStack.
 /// So removing top also removes its min snapshot.
-
+// Interview-ready one-liner - “I maintain a second stack where each position stores the minimum value up to that point, so getMin() is always O(1).”
 class MinStack {
     private Stack<Integer> stack;
     private Stack<Integer> minStack;

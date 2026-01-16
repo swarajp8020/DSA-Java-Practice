@@ -5,7 +5,7 @@ import java.util.Stack;
 class MinStack1 {
     private Stack<Integer> stack;
     private Stack<Integer> minStack;
-    public MinStack1(){
+    public MinStack1() {
         stack = new Stack<>();
         minStack = new Stack<>();
     }
@@ -21,7 +21,7 @@ class MinStack1 {
         stack.pop();
         minStack.pop();
     }
-    public int top() {return stack.peek();}
+    public int top(){return stack.peek();}
     public int getMin() {return minStack.peek();}
 }
 

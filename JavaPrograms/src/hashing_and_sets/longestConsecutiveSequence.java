@@ -35,7 +35,6 @@ public class longestConsecutiveSequence {
                 longest = Math.max(longest, streak);
             }
         }
-
         return longest;
     }
     static void main() {

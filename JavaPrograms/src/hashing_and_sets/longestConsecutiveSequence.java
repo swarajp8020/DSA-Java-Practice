@@ -28,7 +28,6 @@ public class longestConsecutiveSequence {
             if (!set.contains(x - 1)) {
                 int curr = x;
                 int streak = 1;
-
                 while (set.contains(curr + 1)) {
                     curr++;
                     streak++;
@@ -36,6 +35,7 @@ public class longestConsecutiveSequence {
                 longest = Math.max(longest, streak);
             }
         }
+
         return longest;
     }
     static void main() {

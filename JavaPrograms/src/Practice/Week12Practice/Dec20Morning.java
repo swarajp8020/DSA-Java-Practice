@@ -15,12 +15,12 @@ public class Dec20Morning {
             for (int c = 0; c < cols; c++) {
                 if (grid[r][c] == 2) {
                     q.offer(new int[]{r,c});
-                } else if (grid[r][c] == 1) {
+                } else if (grid[r][c]==1) {
                     fresh++;
                 }
             }
         }
-        if (fresh == 0) return 0;
+        if (fresh==0) return 0;
         int minutes = 0;
         int[][] dirs = {{1,0}, {-1,0}, {0,1}, {0,-1}};
         while (!q.isEmpty() && fresh > 0) {
@@ -29,10 +29,10 @@ public class Dec20Morning {
                 int[] cell = q.poll();
                 int r = cell[0];
                 int c = cell[1];
-                for (int[] d:dirs) {
+                for (int[] d:dirs){
                     int nr = r + d[0];
                     int nc = c + d[1];
-                    if (nr >= 0 && nc >= 0 & nr < rows && nc < cols && grid[nr][nc] == 1) {
+                    if (nr >= 0 && nc >= 0 && nr < rows && nc < cols && grid[nr][nc] == 1) {
                         grid[nr][nc] = 2;
                         fresh--;
                         q.offer(new int[]{nr,nc});
@@ -41,7 +41,7 @@ public class Dec20Morning {
             }
             minutes++;
         }
-        return fresh == 0 ? minutes : -1;
+        return fresh == 0 ? minutes:-1;
     }
 
     static void main(String[] args) {

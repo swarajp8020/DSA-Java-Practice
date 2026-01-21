@@ -9,7 +9,7 @@ import java.util.HashMap;
 /// nums = [2,7,11,15], target=9
 /// When we see 7, we ask:
 /// “Do I already have 2?” ✅ Yes → answer found.
-/// O(n)
+/// Time Complexity: $O(N)$ (One pass).Space Complexity: $O(N)$ (HashMap storage).
 public class twoSum {
     public static int[] twoSum(int[] nums, int target) {
     // Map to store value -> index

@@ -9,12 +9,11 @@ public class Dec21Morning {
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
             if (map.containsKey(complement)) {
-                return new int[]{map.get(complement), i};
+                return new int[]{map.get(complement),i};
             }
             map.put(nums[i], i);
         }
-//        throw new IllegalArgumentException("solution not found");
-        return new int[]{-1,-1};
+        throw new IllegalArgumentException("Solution not found");
     }
 
     static void main() {

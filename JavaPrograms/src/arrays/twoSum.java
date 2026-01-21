@@ -2,18 +2,15 @@ package arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
-
+/// You have numbers and a target.
+/// You want two numbers that add up to target.
+/// Instead of checking every pair (slow), we remember what we’ve seen.
+/// Example:
+/// nums = [2,7,11,15], target=9
+/// When we see 7, we ask:
+/// “Do I already have 2?” ✅ Yes → answer found.
+/// O(n)
 public class twoSum {
-//    public static int[] twoSum(int[] nums, int target) {
-//        for(int i = 0; i<nums.length; i++){
-//            for(int j = i+1; j<nums.length;  j++){
-//                if( nums[i]+nums[j]== target ){
-//                    return new int[]{i,j};
-//                }
-//            }
-//        }
-//        return new int[]{};
-//    }
     public static int[] twoSum(int[] nums, int target) {
     // Map to store value -> index
     HashMap<Integer, Integer> map = new HashMap<>();
@@ -27,6 +24,7 @@ public class twoSum {
         map.put(nums[i], i);
     }
     throw new IllegalArgumentException("No solution found");
+//        return new int[]{-1, -1};
 }
     static void main() {
         int[] nums = {2,7,11,15};

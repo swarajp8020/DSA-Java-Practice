@@ -14,7 +14,6 @@ import java.util.PriorityQueue;
 
 public class TopKFrequentElements {
     public static int[] topKFrequent(int[] nums, int k) {
-
         HashMap<Integer, Integer> freq = new HashMap<>();
         for (int x : nums) {
             freq.put(x, freq.getOrDefault(x, 0) + 1);

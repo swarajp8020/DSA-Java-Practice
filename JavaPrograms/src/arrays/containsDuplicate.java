@@ -1,8 +1,8 @@
 package arrays;
 
-import java.util.Arrays;
 import java.util.HashSet;
-
+/// LC - 217. Contains Duplicate https://leetcode.com/problems/contains-duplicate/description/?envType=problem-list-v2&envId=rr2ss0g5
+/// If you’ve seen a number before → duplicate exists.
 public class containsDuplicate {
     public static boolean containsDuplicate(int[] nums) {
         HashSet<Integer> set = new HashSet<>();

@@ -14,7 +14,7 @@ public class Jan22Morning {
             prefix *= nums[i];
         }
         int suffix = 1;
-        for (int i = n - 1; i >= 0; i++) {
+        for (int i = n - 1; i >= 0; i--) {
             ans[i] *= suffix;
             suffix *= nums[i];
         }

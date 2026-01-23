@@ -1,29 +1,39 @@
 package Practice.Week12Practice;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Jan23Morning {
-    public static int[] productExceptSelf(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[n];
-        int prefix = 1;
-        for (int i = 0; i < n; i++) {
-            ans[i] = prefix;
-            prefix *= nums[i];
+    public static int maxProfit(int[] prices) {
+        int minPrices = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for (int p:prices) {
+            minPrices = Math.min(minPrices, p);
+            maxProfit = Math.max(maxProfit, p - minPrices);
         }
-         int suffix = 1;
-        for (int i = n - 1; i >= 0; i--) {
-            ans[i] *= suffix;
-            suffix *= nums[i];
-        } return ans;
+        return maxProfit;
     }
     static void main() {
-        int[] nums = {1,2,3,4};
-        System.out.println(Arrays.toString(productExceptSelf(nums)));
+        int[] prices = {7,1,5,3,6,4};
+        System.out.println(maxProfit(prices));
     }
+//    public static int[] productExceptSelf(int[] nums) {
+//        int n = nums.length;
+//        int[] ans = new int[n];
+//        int prefix = 1;
+//        for (int i = 0; i < n; i++) {
+//            ans[i] = prefix;
+//            prefix *= nums[i];
+//        }
+//         int suffix = 1;
+//        for (int i = n - 1; i >= 0; i--) {
+//            ans[i] *= suffix;
+//            suffix *= nums[i];
+//        } return ans;
+//    }
+//    static void main() {
+//        int[] nums = {1,2,3,4};
+//        System.out.println(Arrays.toString(productExceptSelf(nums)));
+//    }
 //    public static int[] topKFrequent(int[] nums, int k) {
 //        HashMap<Integer, Integer> freq = new HashMap<>();
 //        for (int x:nums){

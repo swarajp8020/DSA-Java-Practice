@@ -1,21 +1,39 @@
 package Practice.Week12Practice;
 
-import java.util.*;
+import java.util.HashSet;
 
 public class Jan23Morning {
-    public static int maxProfit(int[] prices) {
-        int minPrices = Integer.MAX_VALUE;
-        int maxProfit = 0;
-        for (int p:prices) {
-            minPrices = Math.min(minPrices, p);
-            maxProfit = Math.max(maxProfit, p - minPrices);
+    public static int lengthOfLongestSubstring(String s) {
+        HashSet<Character> set = new HashSet<>();
+        int left = 0, maxLen = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
+            while (set.contains(ch)) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(ch);
+            maxLen = Math.max(maxLen, right - left + 1);
         }
-        return maxProfit;
+        return maxLen;
     }
-    static void main() {
-        int[] prices = {7,1,5,3,6,4};
-        System.out.println(maxProfit(prices));
+    static void main(String[] args) {
+        String s = "asvavsaffg";
+        System.out.println(lengthOfLongestSubstring(s));
     }
+//    public static int maxProfit(int[] prices) {
+//        int minPrices = Integer.MAX_VALUE;
+//        int maxProfit = 0;
+//        for (int p:prices) {
+//            minPrices = Math.min(minPrices, p);
+//            maxProfit = Math.max(maxProfit, p - minPrices);
+//        }
+//        return maxProfit;
+//    }
+//    static void main() {
+//        int[] prices = {7,1,5,3,6,4};
+//        System.out.println(maxProfit(prices));
+//    }
 //    public static int[] productExceptSelf(int[] nums) {
 //        int n = nums.length;
 //        int[] ans = new int[n];

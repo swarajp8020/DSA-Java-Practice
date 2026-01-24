@@ -6,24 +6,37 @@ import java.util.HashSet;
 import java.util.PriorityQueue;
 
 public class Jan24Morning {
-    /// longestSubstring
-    public static int lengthOfLongestSubstring(String s) {
-        HashSet<Character> set = new HashSet<>();
-        int left = 0, maxLen = 0;
-        for (int right = 0; right < s.length(); right++) {
-            char ch = s.charAt(right);
-            while (set.contains(ch)) {
-                set.remove(s.charAt(left));
-                left++;
-            }
-            set.add(ch);
-            maxLen = Math.max(maxLen, right - left + 1);
-        } return maxLen;
+    public static int maxSubArray(int[] nums) {
+        int currSum = nums[0];
+        int maxSum = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            currSum = Math.max(nums[i], currSum + nums[i]);
+            maxSum = Math.max(maxSum, currSum);
+        }
+        return maxSum;
     }
     static void main(String[] args) {
-        String s = "asvavsaffg";
-        System.out.println(lengthOfLongestSubstring(s));
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        System.out.println(maxSubArray(nums));
     }
+    /// longestSubstring
+//    public static int lengthOfLongestSubstring(String s) {
+//        HashSet<Character> set = new HashSet<>();
+//        int left = 0, maxLen = 0;
+//        for (int right = 0; right < s.length(); right++) {
+//            char ch = s.charAt(right);
+//            while (set.contains(ch)) {
+//                set.remove(s.charAt(left));
+//                left++;
+//            }
+//            set.add(ch);
+//            maxLen = Math.max(maxLen, right - left + 1);
+//        } return maxLen;
+//    }
+//    static void main(String[] args) {
+//        String s = "asvavsaffg";
+//        System.out.println(lengthOfLongestSubstring(s));
+//    }
     /// ProductOfArrayExceptSelf
 //    public static int[] productExceptSelf(int[] nums) {
 //        int n = nums.length;

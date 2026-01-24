@@ -2,30 +2,48 @@ package Practice.Week12Practice;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.PriorityQueue;
 
 public class Jan24Morning {
-
+    /// longestSubstring
+    public static int lengthOfLongestSubstring(String s) {
+        HashSet<Character> set = new HashSet<>();
+        int left = 0, maxLen = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
+            while (set.contains(ch)) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(ch);
+            maxLen = Math.max(maxLen, right - left + 1);
+        }return maxLen;
+    }
+    static void main(String[] args) {
+        String s = "asvavsaffg";
+        System.out.println(lengthOfLongestSubstring(s));
+    }
     /// ProductOfArrayExceptSelf
-    public static int[] productExceptSelf(int[] nums) {
-        int n = nums.length;
-        int[] ans = new int[n];
-        int prefix = 1;
-        for (int i = 0; i < n; i++) {
-            ans[i] = prefix;
-            prefix *= nums[i];
-        }
-        int suffix = 1;
-        for (int i = n - 1; i >= 0; i--) {
-            ans[i] *= suffix;
-            suffix *= nums[i];
-        }
-        return ans;
-    }
-    static void main() {
-        int[] nums = {1,2,3,4};
-        System.out.println(Arrays.toString(productExceptSelf(nums)));
-    }
+//    public static int[] productExceptSelf(int[] nums) {
+//        int n = nums.length;
+//        int[] ans = new int[n];
+//        int prefix = 1;
+//        for (int i = 0; i < n; i++) {
+//            ans[i] = prefix;
+//            prefix *= nums[i];
+//        }
+//        int suffix = 1;
+//        for (int i = n - 1; i >= 0; i--) {
+//            ans[i] *= suffix;
+//            suffix *= nums[i];
+//        }
+//        return ans;
+//    }
+//    static void main() {
+//        int[] nums = {1,2,3,4};
+//        System.out.println(Arrays.toString(productExceptSelf(nums)));
+//    }
     /// TopKFrequentElements
 //    public static int[] topKFrequent(int[] nums, int k) {
 //        HashMap<Integer, Integer> freq = new HashMap<>();

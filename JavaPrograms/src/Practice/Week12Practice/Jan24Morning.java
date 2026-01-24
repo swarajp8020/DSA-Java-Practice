@@ -18,7 +18,7 @@ public class Jan24Morning {
             }
             set.add(ch);
             maxLen = Math.max(maxLen, right - left + 1);
-        }return maxLen;
+        } return maxLen;
     }
     static void main(String[] args) {
         String s = "asvavsaffg";

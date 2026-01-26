@@ -5,20 +5,20 @@ import java.util.HashSet;
 
 public class Jan25Morning {
     /// Longest Repeating Character Replacement
-    public static int characterReplacement(String s, String k) {
+    public static int characterReplacement(String s, int k) {
         int[] freq = new int[26];
         int left =0, maxFreq = 0, maxLen = 0;
         for (int right = 0; right < s.length(); right++) {
-            char c = s.charAt(right);
-            freq[c-'a']++;
-            maxFreq = Math.max(maxFreq, freq[c-'a']);
-            int windowSize = right-left+1;
-            int charsToChange = windowSize-maxFreq;
+            char c= s.charAt(right);
+            freq[c -'a']++;
+            maxFreq = Math.max(maxFreq, freq[c - 'a']);
+            int windowSize = right - left + 1;
+            int charsToChange = windowSize - maxFreq;
             if (charsToChange > k) {
                 freq[s.charAt(left)-'a']--;
                 left++;
             }
-            maxLen = Math.max(maxLen, right-left+1);
+            maxLen = Math.max(maxFreq, right - left +1);
         }
         return maxLen;
     }

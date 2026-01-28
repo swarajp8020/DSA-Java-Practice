@@ -8,7 +8,7 @@ public class Jan28Morning {
         for (int i = 0; i <= nums.length; i++) {
             res ^= i;
         }
-        for (int x:nums){
+        for (int x: nums){
             res ^= x;
         } return res;
     }

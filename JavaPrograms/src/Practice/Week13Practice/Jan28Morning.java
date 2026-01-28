@@ -11,8 +11,7 @@ public class Jan28Morning {
                 return new int[]{left + 1, right + 1};
             } else if (sum < target) left++;
             else right--;
-        }
-        return new int[]{-1,-1};
+        } return new int[]{-1, -1};
     }
     static void main(String[] args) {
         int[] numbers = {2,7,11,15};

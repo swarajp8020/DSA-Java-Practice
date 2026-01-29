@@ -3,7 +3,7 @@ package Practice.Week13Practice;
 public class Jan29Morning {
     public static int climbStairs(int n){
         if (n <= 2) return n;
-        int a = 1, b = 1;
+        int a = 1, b = 2;
         for (int i = 3; i <= n; i++) {
             int c = a + b;
             a = b;

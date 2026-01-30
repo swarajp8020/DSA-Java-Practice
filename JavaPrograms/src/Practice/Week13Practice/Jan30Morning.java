@@ -7,7 +7,7 @@ public class Jan30Morning {
         int ans = nums[0];
         for (int i = 1; i < nums.length; i++) {
             int x = nums[i];
-            if (x < 0) {
+            if (x > 0) {
                 int temp = maxProd;
                 maxProd = minProd;
                 minProd = temp;

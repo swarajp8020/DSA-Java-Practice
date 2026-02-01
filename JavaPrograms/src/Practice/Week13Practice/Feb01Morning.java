@@ -20,11 +20,10 @@ public class Feb01Morning {
                     while (left<right && nums[left] == nums[left - 1]) left++;
                     while (left<right && nums[right] == nums[right + 1]) right--;
                 }
-                else if (sum < 0) left++;
+                else if (sum > 0)left++;
                 else right--;
             }
-        }
-        return res;
+        } return res;
     }
     static void main(String[] args) {
         int[] nums = {-1,0,1,2,-1,-4};

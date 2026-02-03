@@ -1,4 +1,4 @@
-package Practice.Week13Practice;
+package Practice.Week14Practice;
 
 public class Feb03Morning {
     public static boolean canJump(int[] nums) {

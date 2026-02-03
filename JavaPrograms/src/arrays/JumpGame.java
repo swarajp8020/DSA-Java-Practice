@@ -7,6 +7,8 @@ package arrays;
 /// Core Idea
 /// Track the farthest index you can reach so far.
 /// If at any point your current index is beyond that reach → impossible.
+/// Interview line
+/// “I greedily track the maximum reachable index. If I ever reach a point beyond it, the end is unreachable.”
 public class JumpGame {
     public static boolean canJump(int[] nums) {
         int farthest = 0;

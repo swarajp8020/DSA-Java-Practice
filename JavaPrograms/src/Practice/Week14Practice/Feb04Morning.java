@@ -17,6 +17,7 @@ public class Feb04Morning {
             ans[i] *= suffix;
             suffix *= nums[i];
         }
+
         return ans;
     }
     static void main() {

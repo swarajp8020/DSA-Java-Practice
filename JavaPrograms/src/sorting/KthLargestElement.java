@@ -29,7 +29,14 @@ import java.util.PriorityQueue;
 /// Insert elements one by one
 /// If heap size > k → remove smallest
 /// At the end, heap top = kth largest
-
+// Interview Explanation (4 lines)
+//I use a min-heap of size k to track the k largest elements.
+//I insert numbers one by one and remove the smallest when size exceeds k.
+//This keeps only the top k elements efficiently.
+//Finally, the heap top gives the kth largest element.
+//Complexity
+//Time: O(n log k)
+//Space: O(k)
 public class KthLargestElement {
     public static int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();

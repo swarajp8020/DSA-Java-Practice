@@ -4,9 +4,9 @@ import java.util.PriorityQueue;
 
 public class Feb05Morning {
     //KthLargestElement using Queue
-    public static int findKthLargest(int[] arr, int k) {
+    public static int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        for (int num: arr) {
+        for (int num: nums) {
             minHeap.add(num);
             if (minHeap.size() > k) {
                 minHeap.poll();

@@ -4,7 +4,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
-
+/// 621. Task Scheduler https://leetcode.com/problems/task-scheduler/description/?envType=problem-list-v2&envId=rr2ss0g5
+// ELI5 Explanation
+//Imagine you are a CPU.
+//You cannot do:
+//A → A → A
+//because cooling time is required.
+//You must do something like:
+//A → B → idle → A → B → idle → A → B
+//To minimize idle time, you always want to run the task with highest remaining frequency.
+//That’s why we use a max heap.
+//Pattern Identification
+//Whenever you see:
+//• scheduling
+//• cooldown
+//• maximize use of highest frequency first
+//Think:
+//👉 Max Heap + Greedy Scheduling
 public class TaskScheduler {
     public static int leastInterval(char[] tasks, int n) {
         int[] freq = new int[26];

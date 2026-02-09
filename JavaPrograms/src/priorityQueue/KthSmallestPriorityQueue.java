@@ -1,4 +1,4 @@
-package sorting;
+package priorityQueue;
 
 import java.util.PriorityQueue;
 /// ELI5 Explanation

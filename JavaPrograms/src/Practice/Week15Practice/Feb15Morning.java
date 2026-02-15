@@ -23,7 +23,6 @@ public class Feb15Morning {
         }
         if(remaining < 0) return;
         for(int i = start; i < candidates.length; i++) {
-            // Skip duplicates
             if(i > start && candidates[i] == candidates[i - 1])
                 continue;
             path.add(candidates[i]);

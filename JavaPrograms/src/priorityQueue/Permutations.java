@@ -28,6 +28,7 @@ import java.util.List;
 /// Keep track of which elements are used
 /// For each position, try all unused elements
 /// Backtrack
+// 📊 Complexity Time: O(n × n!), Space: O(n) recursion depth
 public class Permutations {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();

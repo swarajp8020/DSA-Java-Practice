@@ -38,7 +38,6 @@ public class PermutationsII {
         backtrack(nums, path, used, result);
         return result;
     }
-
     private void backtrack(int[] nums,
                            List<Integer> path,
                            boolean[] used,

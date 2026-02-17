@@ -29,6 +29,12 @@ import java.util.List;
 /// if i > 0 and nums[i] == nums[i-1] and not used[i-1]:
 ///     continue
 /// That line prevents generating the same branch twice.
+// 🎯 Interview Explanation (4 lines)
+//I sort the array to group duplicates.
+//During backtracking, I use a boolean array to track used elements.
+//I skip elements if they are duplicates and the previous duplicate was not used.
+//This prevents generating identical permutation branches.
+///📊 Complexity Worst case: O(n × n!) Space: O(n) recursion stack
 public class PermutationsII {
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);

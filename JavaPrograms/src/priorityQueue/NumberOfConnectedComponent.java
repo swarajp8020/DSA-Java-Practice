@@ -1,5 +1,5 @@
 package priorityQueue;
-//
+// Number of Connected Components in an Undirected Graph
 /// 🧠 ELI5 Explanation
 /// Imagine people holding hands.
 /// If you start from one person and can reach others by following hands,

@@ -24,45 +24,34 @@ package priorityQueue;
 /// Two main operations:
 /// find(x) → find root parent
 /// union(x, y) → merge two sets
-public class NumberOfConnectedComponents {
+public class NumberOfConnectedComponentsDSU {
     int[] parent;
     int[] rank;
-
     public int countComponents(int n, int[][] edges) {
-
         parent = new int[n];
         rank = new int[n];
-
         for(int i = 0; i < n; i++) {
             parent[i] = i;
         }
-
         int components = n;
-
         for(int[] edge : edges) {
             if(union(edge[0], edge[1])) {
                 components--;
             }
         }
-
         return components;
     }
-
     private int find(int x) {
         if(parent[x] != x) {
             parent[x] = find(parent[x]);
         }
         return parent[x];
     }
-
     private boolean union(int x, int y) {
-
         int rootX = find(x);
         int rootY = find(y);
-
         if(rootX == rootY)
             return false;
-
         if(rank[rootX] > rank[rootY]) {
             parent[rootY] = rootX;
         }
@@ -73,12 +62,10 @@ public class NumberOfConnectedComponents {
             parent[rootY] = rootX;
             rank[rootX]++;
         }
-
         return true;
     }
-
     static void main(String[] args) {
-        NumberOfConnectedComponents s = new NumberOfConnectedComponents();
+        NumberOfConnectedComponentsDSU s = new NumberOfConnectedComponentsDSU();
         int n = 5;
         int[][] edges = {
                 {0,1},

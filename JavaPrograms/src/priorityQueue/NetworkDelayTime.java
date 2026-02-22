@@ -25,7 +25,12 @@ import java.util.*;
 /// Always expand the node with smallest distance
 /// Update neighbor distances
 /// Track maximum shortest distance
-
+// 🎯 Interview Explanation (4 lines)
+//This is a shortest path problem in a weighted directed graph.
+//I use Dijkstra’s algorithm with a min heap.
+//I always expand the node with smallest known distance.
+//The maximum shortest distance gives the network delay time.
+///📊 Complexity - Time: O(E log V), Space: O(V + E)
 public class NetworkDelayTime {
     public int networkDelayTime(int[][] times, int n, int k) {
         Map<Integer, List<int[]>> graph = new HashMap<>();

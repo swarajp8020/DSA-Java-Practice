@@ -47,24 +47,17 @@ import java.util.Queue;
 
 public class ShortestPathBinaryMatrix {
     public int shortestPathBinaryMatrix(int[][] grid) {
-
         int n = grid.length;
-
         if(grid[0][0] == 1 || grid[n-1][n-1] == 1)
             return -1;
-
         int[][] directions = {
                 {1,0},{-1,0},{0,1},{0,-1},
                 {1,1},{1,-1},{-1,1},{-1,-1}
         };
-
         Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{0, 0, 1});
-
         grid[0][0] = 1; // mark visited
-
         while(!queue.isEmpty()) {
-
             int[] curr = queue.poll();
             int r = curr[0];
             int c = curr[1];
@@ -87,14 +80,11 @@ public class ShortestPathBinaryMatrix {
         return -1;
     }
     static void main(String[] args) {
-
         ShortestPathBinaryMatrix s = new ShortestPathBinaryMatrix();
-
         int[][] grid = {
                 {0,1},
                 {1,0}
         };
-
         System.out.println("Shortest Path: "
                 + s.shortestPathBinaryMatrix(grid));
     }

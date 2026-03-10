@@ -19,7 +19,7 @@ public class March10Morning {
         }
         return count;
     }
-    public static void main(String[] args) {
+    static void main(String[] args) {
         March10Morning sol = new March10Morning();
         int[] nums = {1,1,1};
         int k = 2;

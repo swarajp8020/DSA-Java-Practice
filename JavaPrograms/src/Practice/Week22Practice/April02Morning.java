@@ -19,7 +19,7 @@ public class April02Morning {
         }
         return dpTable[length1][length2];
     }
-    public static void main(String[] args) {
+    static void main(String[] args) {
         String firstString = "abcde";
         String secondString = "ace";
         System.out.println(longestCommonSubsequence(firstString, secondString)); // 3

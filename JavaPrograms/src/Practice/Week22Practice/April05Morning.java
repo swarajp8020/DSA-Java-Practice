@@ -32,7 +32,7 @@ public class April05Morning {
         }
         return true;
     }
-    public static void main(String[] args) {
+    static void main(String[] args) {
         String s1 = "ab";
         String s2 = "eidbaooo";
         System.out.println(checkInclusion(s1, s2)); // true
